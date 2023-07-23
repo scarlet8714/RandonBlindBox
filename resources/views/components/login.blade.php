@@ -20,10 +20,11 @@
         </div>
         <!-- body -->
         <div class="login-body">
-          <form>
+          <form method="POST" action="/loginauth">
+            @csrf
             <!-- email -->
             <div id="logEmail" class="wave-group" style="margin-bottom: 15px;">
-              <input required="" type="text" class="input">
+              <input required="" type="text" class="input" name="account">
               <span class="bar"></span>
               <label class="label">
                 <span class="label-char" style="--index: 0">電</span>
@@ -34,7 +35,7 @@
             </div>
             <!-- password -->
             <div id="logpassword" class="wave-group" style="margin-bottom: 15px;">
-              <input required="" type="password" class="input">
+              <input required="" type="password" class="input" name="password">
               <span class="bar"></span>
               <label class="label">
                 <span class="label-char" style="--index: 0">密</span>
@@ -48,7 +49,7 @@
             </div> --}}
 
             <!-- 開始購物 -->
-            <a href="#" class="btn text-center" id="btnBuy" type="button">開始購物</a>
+            <input class="btn text-center" id="btnBuy" type="submit" value="開始購物">
           </form>
           <div>
             <a href="{{route('forgetPassword')}}"><button class="btn btn-forget">忘記密碼?</button></a> 

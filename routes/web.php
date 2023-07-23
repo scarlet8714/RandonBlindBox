@@ -19,11 +19,11 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [HomeController::class, 'action'])->name('index');
-Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('authmember');
 Route::get('/membercenter', function(){
     return view('membercenter');
-});
-// Route::post('loginauth',)
+})->name('membercenter');
+Route::post('loginauth',[Auth::class, 'auth']);
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::get('/forgetPassword', [LoginController::class, 'forgetPassword'])->name('forgetPassword');
 Route::get('/actionfigure', [ActionFigureController::class, 'action'])->name('actionfigure');
