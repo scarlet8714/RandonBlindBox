@@ -18,8 +18,13 @@ use Illuminate\Support\Facades\Route;
 //     return view('homepage');
 // });
 
-Route::get('/', [HomeController::class, 'action']);
+Route::get('/', [HomeController::class, 'action'])->name('index');
 Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/membercenter', function(){
+    return view('membercenter');
+});
+// Route::post('loginauth',)
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::get('/forgetPassword', [LoginController::class, 'forgetPassword'])->name('forgetPassword');
-Route::get('/product/{pid}', ProductController::class);
+Route::get('/actionfigure', [ActionFigureController::class, 'action'])->name('actionfigure');
+// Route::get('/product/{pid}', ProductController::class);

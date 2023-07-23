@@ -25,7 +25,6 @@
           </li>
           <!--        -->
         </ul>
-        {{-- <x-homepage-list /> --}}
         <x-homepage-list :imglists="$imglists"/>
         <!-- navicon -->
         <a href="{{route('login')}}"><x-user-icon /></a>
@@ -49,4 +48,4 @@
         <x-like-icon />
       </div>
     </div>
-  </nav>
+</nav>

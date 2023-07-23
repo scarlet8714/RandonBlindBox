@@ -102,6 +102,5 @@
     </div>
     <!--  -->
     <div class="text-end ft_text_color fs-6 mt-3 mb-3">盲不過來娛樂有限公司版權所有</div>
-    <!-- <hr class="ft_text_color"> -->
     <h6 class="ft_text_color text-center ft_bt pt-4 pb-3">@2023 Random reserved</h6>
 </footer>

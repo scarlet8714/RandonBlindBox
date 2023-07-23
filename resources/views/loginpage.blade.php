@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@vite(['resources/css/login.css'])
 @section('content')
     @switch($mode)
         @case('login')

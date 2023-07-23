@@ -7,16 +7,16 @@
         <!-- Header -->
         <h3 class="login-header">登入</h3>
         <div
-          style="border-radius: 50%; background-color: white; position: absolute; top: 1em; left: 1em; z-index: 100; width: 1em; height: 1em;">
+          style="border-radius: 50%; background-color: white; position: absolute; top: 1em; left: 1em; width: 1em; height: 1em;">
         </div>
         <div
-          style="border-radius: 50%; background-color: white; position: absolute; top: 1em; right: 1em; z-index: 100; width: 1em; height: 1em;">
+          style="border-radius: 50%; background-color: white; position: absolute; top: 1em; right: 1em;  width: 1em; height: 1em;">
         </div>
         <div
-          style="border-radius: 50%; background-color: white; position: absolute; bottom: 1em; left: 1em; z-index: 100; width: 1em; height: 1em;">
+          style="border-radius: 50%; background-color: white; position: absolute; bottom: 1em; left: 1em;  width: 1em; height: 1em;">
         </div>
         <div
-          style="border-radius: 50%; background-color: white; position: absolute; bottom: 1em; right: 1em; z-index: 100; width: 1em; height: 1em;">
+          style="border-radius: 50%; background-color: white; position: absolute; bottom: 1em; right: 1em; width: 1em; height: 1em;">
         </div>
         <!-- body -->
         <div class="login-body">
