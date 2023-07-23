@@ -2,7 +2,7 @@
  <div class="pt-5 ps-2">
     <h3 class="all_title">新品上市</h3>
   </div>
- <div class="row position-relative">
+ <div class="d-flex position-relative">
     <div class="container py-5">
       <div class="container pb-5">
         <div class="swiper ">

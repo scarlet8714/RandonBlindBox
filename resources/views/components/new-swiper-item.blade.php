@@ -1,6 +1,6 @@
 @props(['imgpath'])
 
-<div class="swiper-slide px-2">
+<div class="swiper-slide mx-2">
     <div class="position-relative">
       <div>
         <img src="{{$imgpath->photo_bg}}" class="img-fluid" alt="">
