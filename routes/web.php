@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Cookie;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,11 @@ Route::get('/login', [LoginController::class, 'login'])->name('login')->middlewa
 Route::get('/membercenter', function(){
     return view('membercenter');
 })->name('membercenter');
-Route::post('loginauth',[Auth::class, 'auth']);
+Route::post('/loginauth',[Auth::class, 'auth']);
+Route::get('/logout', function(){
+    Cookie::queue(Cookie::forget('token'));
+    return redirect('/');
+})->name('logout');
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::get('/forgetPassword', [LoginController::class, 'forgetPassword'])->name('forgetPassword');
 Route::get('/actionfigure', [ActionFigureController::class, 'action'])->name('actionfigure');

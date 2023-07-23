@@ -9,6 +9,6 @@
 <body>
     <h1>我是會員中心</h1>
     <a href="{{route('index')}}">回首頁</a><br>
-    <a href="">登出</a>
+    <a href="{{route('logout')}}">登出</a>
 </body>
 </html>
