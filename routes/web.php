@@ -33,3 +33,8 @@ Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::get('/forgetPassword', [LoginController::class, 'forgetPassword'])->name('forgetPassword');
 Route::get('/actionfigure', [ActionFigureController::class, 'action'])->name('actionfigure');
 // Route::get('/product/{pid}', ProductController::class);
+
+// 拉霸機，抽獎機率
+Route::get('/product/slot', [SlotController::class, 'slot']);
+Route::get('/product/slot/go', [SlotController::class, 'slotTest']);
+

@@ -1,0 +1,8 @@
+.machine {
+    display: grid;
+    column-gap: 2fr 2fr 2fr;
+}
+
+div {
+    size: 50px;
+}
