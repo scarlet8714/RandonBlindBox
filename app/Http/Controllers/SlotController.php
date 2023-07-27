@@ -20,17 +20,16 @@ class SlotController extends Controller
         return view('testSlot');
     }
 
+    // 正式用
     function slotPrize() {
-        $result = $this->slot();
-        // $result = $this->action->givePrize(6);
-        echo json_encode($result);
+        $this->action->getProduct(1, 6);
+        echo $result = $this->action->slot(6);
     }
 
+    // 測試功能用
     function slotTest() {
         $this->action->getProduct(1, 6);
-        echo $result = $this->action->slot();
-        // $result = $this->action->givePrize(6);
-        // echo json_encode($result);
+        echo $result = $this->action->slot(6);
     }
 
     function test() {

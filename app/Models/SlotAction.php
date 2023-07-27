@@ -30,6 +30,18 @@ class SlotAction extends Model
             $this->prize[] = $present->blind_id;
         }
 
+        // 將隱藏款移動到陣列最後
+        if(isset($this->prize)) {
+            if (in_array('hide', $this->prize)) {
+                array_splice($this->prize, array_search('hide', $this->prize), 1);
+                $this->prize [] = 'hide';
+            }
+        }
+        
+
+        // var_dump($this->prize);
+        // echo '<br>';
+
         // 存入一般款式以及隱藏款式的機率，以及該中盒剩餘數量
         $this->remain = $remains[0]->remain;
         $this->boxCount = $lottery[0]->box_count;
@@ -46,16 +58,31 @@ class SlotAction extends Model
     }
 
     // 抽獎
-    function slot() {
+    function slot($oid) {
+        // $times = DB::select('select from lottory where oid = ?', []);
         if($this->remain === 0) {
-            return '此中盒已空';
+            return json_encode('此中盒已空');
+        }
+        else if (0) {
+
         }
         else {
+            // 隨機數值
             $slot = rand(0, (int)($this->countProbability() * 100));
-            $temp = floor($slot / $this->probability / 100);
-            $this->getPrize = array_splice($this->prize, $temp, 1);
+            // echo $this->countProbability() - $this->hide . ' *** ' . $slot;
+
+            if ($slot > (($this->countProbability() - $this->hide) * 100) || $this->countProbability() === $this->hide) {
+                // echo $this->countProbability() - $this->hide;
+                $this->getPrize[0] = 'hide';
+            }
+            else {
+                $temp = floor($slot / $this->probability / 100);
+                $this->getPrize = array_splice($this->prize, $temp, 1);
+            }
             $this->prizeDelete($this->box, $this->pid, $this->getPrize[0]);
+            $this->prizeRecord($oid);
             return json_encode($this->givePrize());
+            // return $this->givePrize();
         }
     }
 
@@ -67,7 +94,18 @@ class SlotAction extends Model
     }
 
     // 扣除該中盒款式數量
-    function prizeDelete($mybox, $mypid, $myblind){ 
-        DB::update('update product_status set sold = ? where box_id = ? and pid = ? and blind_id =?', [1, $mybox, $mypid, $myblind]);
+    function prizeDelete($box, $pid, $blind){ 
+        DB::update('update product_status set sold = ? where box_id = ? and pid = ? and blind_id =?', [1, $box, $pid, $blind]);
+        DB::update('update product_photo set quantity = quantity - 1 where pid = ? and blind_id =?', [$pid, $blind]);
+    }
+
+    // 將品項記錄到抽獎明細
+    function prizeRecord($order) {
+        DB::insert('insert into lottery_details values (?, ?, ?, ?)', [$order, $this->pid, $this->getPrize[0], $this->box]);
+    }
+
+    // 該會員抽獎次數
+    function checkTimes($mid, $pid) {
+        DB::select('select times from lottery where pid = ? and mid = ?', [$mid, $pid]);
     }
 }

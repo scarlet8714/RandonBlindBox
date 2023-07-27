@@ -36,5 +36,5 @@ Route::get('/actionfigure', [ActionFigureController::class, 'action'])->name('ac
 
 // 拉霸機，抽獎機率
 Route::get('/product/slot', [SlotController::class, 'slot']);
-Route::get('/product/slot/go', [SlotController::class, 'slotTest']);
+Route::get('/product/slot/go', [SlotController::class, 'slotPrize']);
 

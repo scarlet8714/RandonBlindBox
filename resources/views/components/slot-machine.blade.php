@@ -36,6 +36,9 @@
             })
             .then (function(response) {
                 console.log(response);
+                if(response == '怪盜基德 雲梯') {
+                    alert('隱藏款!');
+                }
                 // alert("恭喜抽中 : " + response);
             })
         }
