@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Cookie;
 // Route::get('/', function () {
 //     return view('homepage');
 // });
+Route::get('/www', function () {
+    return view('welcome');
+});
 
 Route::get('/', [HomeController::class, 'action'])->name('index');
 Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('authmember');

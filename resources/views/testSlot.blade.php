@@ -19,9 +19,12 @@
     </style>
 </head>
 <body>
-    @extends ('layouts.app')
+    <!-- @extends ('layouts.app') -->
     @section('content')
     <x-slot-machine />
+    <x-slot-pull />
+    <x-slot-machine-bottom />
+    <x-slot-pull-bottom />
     @endsection
 </body>
 </html>
