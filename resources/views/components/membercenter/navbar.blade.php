@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
           <!-- 我的資料 -->
           <div class="my_account col-2">
-            <a href="" class="row justify-content-center">
+            <a href="{{route('myaccount')}}" class="row justify-content-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                 class="bi bi-person-vcard" viewBox="0 0 16 16">
                 <path
@@ -19,7 +19,7 @@
           </div>
           <!-- 我的訂單 -->
           <div class="my_order col-2 ">
-            <a href="" class="row justify-content-center">
+            <a href="{{route('myorder')}}" class="row justify-content-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                 class="bi bi-card-checklist " viewBox="0 0 16 16">
                 <path

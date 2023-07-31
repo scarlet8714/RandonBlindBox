@@ -1,0 +1,620 @@
+/* icon---------------------------------- */
+
+
+
+ul {
+    margin:0;
+    padding:0;
+  }
+  li {
+    list-style: none;
+  }
+  
+  .pub-wrap {
+    position: relative;
+    padding: 0 38px 10px 31px;
+    margin-top: 90px;
+    border-radius: 6px;
+    /* background-color: #edf2f2; */
+  }
+
+  
+  .pub-process {
+    position: relative;
+    height: 35px;
+    margin-top: 28px;
+    margin-left: 35px;
+    font-size: 0;
+    color: #fff;
+  }
+  
+  .pub-process:after {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    width: 99%;
+    height: 4px;
+    content: "";
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    background-color: #d9d9d9;
+  }
+  
+  .pub-process li {
+    position: relative;
+    z-index: 5;
+    display: inline-block;
+    width: 25%;
+    height: 35px;
+    font-size: .875rem;
+  }
+  
+  .pub-process li:first-child {
+    width: 35px;
+    margin-left: -35px;
+  }
+  
+  .pub-process .ball {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 7;
+    width: 36px;
+    height: 36px;
+    line-height: 35px;
+    content: "";
+    text-align: center;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+    font-size: 20px;
+  }
+  
+  .pub-process .active .ball {
+    background-color: #F2CE96;
+  }
+  
+  .pub-process .active + .active:after {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 6;
+    width: 100%;
+    height: 4px;
+    content: "";
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    background-color: #F2CE96;
+  }
+  
+  .process-3 li {
+    width: 50%;
+  }
+  
+  .process-5 li {
+    width: 25%;
+  }
+  
+  
+  /* flex ver */
+  .pub-process-flex {
+    display: -webkit-box;
+  }
+  .pub-process-flex li {
+    display: list-item;
+    -webkit-box-flex: 1;
+    width: auto;
+  }
+  .pub-process-flex li:first-child {
+    width: 35px;
+    margin-left: -35px;
+    -webkit-box-flex: 0;
+  }
+
+  .process_name {
+    margin-bottom: 70px;
+  }
+
+/* 購物清單 */
+.check_order {
+    background-color: #7887AA;
+    color: white;
+}
+
+ul,
+li,
+ol {
+    list-style: none;
+    font-size: 16px;
+}
+
+.cartList {
+    overflow: hidden;
+}
+
+
+.cartList ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #d5d5d5;
+    padding: 8px 0px;
+
+}
+/* 商品資料標題 */
+.cartList ul:nth-of-type(1) {
+    display: flex;
+    background-color: #EDF2FF;
+}
+
+
+.cartList ul li {
+    font-size: 14px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.cartList ul li input[name="price"] {
+    border: none;
+    background: transparent;
+    width: 45px;
+    text-align: center;
+}
+
+/* 數量加減 */
+.cartList ul li input[name="amount"] {
+    width: 45px;
+    text-align: center;
+    border: 1px solid #c5c5c5;
+    border-left: none;
+    border-right: none;
+    height: 29px;
+}
+
+.cartList ul li input[name="minus"],
+.cartList ul li input[name="plus"] {
+    height: 29px;
+    border: 1px #c5c5c5 solid;
+    background-color: #e5e5e5;
+    width: 27px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    font-size: 12px;
+    /* padding: 0px; */
+}
+
+.cartList ul li:nth-of-type(1) {
+    width: 130px;
+}
+.cartList ul li:nth-of-type(2) {
+    width: 150px;
+}
+.cartList ul li:nth-of-type(3) {
+    width: 85px;
+}
+.cartList ul li:nth-of-type(4) {
+    width: 80px;
+}
+.cartList ul li:nth-of-type(5) {
+    width: 120px;
+}
+.cartList ul li:nth-of-type(6) {
+    width: 55px;
+}
+
+/* 刪除鍵 */
+.cartList ul li p {
+    cursor: pointer;
+}
+
+/* 小計 */
+.cartList ol {
+    float: right;
+    clear: both;
+}
+
+.cartList ol li {
+    float: left;
+}
+
+.cartList ol li:nth-of-type(2) {
+    color: #3c3c78;
+}
+
+.cartList ol li span {
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* 底層按鈕 */
+.confirm_inner h5 {
+    color: gray;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* 底層按鈕 */
+.confirm_search button {
+    float: left;
+    /* margin-left: 55px; */
+    background-color: white;
+    border: 2px solid #3c3c78;
+    color: #3c3c78;
+    border-radius: 30px;
+    padding: 8px 35px;
+}
+
+.confirm_search button:hover {
+    background-color: #3c3c78;
+    color: white;
+
+}
+
+.confirm_draw>button {
+    float: right;
+    /* margin-right: 55px; */
+    background-color: #3c3c78;
+    color: white;
+    border: 2px solid #3c3c78;
+    border-radius: 30px;
+    padding: 8px 25px 8px 35px;
+}
+
+.confirm_draw>button:hover {
+    background-color: white;
+    border: 2px solid #3c3c78;
+    color: #3c3c78;
+}
+
+
+
+/* information------------------------------------------------------------ */
+
+
+
+
+/* 購物清單 */
+.check_order {
+    background-color: #7887AA;
+    color: white;
+}
+/* 商品資料 */
+ul,
+li,
+ol {
+    list-style: none;
+    font-size: 16px;
+}
+
+.cartList {
+    overflow: hidden;
+}
+
+
+.cartList ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #d5d5d5;
+    padding: 8px 0px;
+
+}
+/* 商品資料標題 */
+.cartList ul:nth-of-type(1) {
+    display: flex;
+    background-color: #EDF2FF;
+}
+
+
+.cartList ul li {
+    font-size: 14px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.cartList ul li input[name="price"] {
+    border: none;
+    background: transparent;
+    width: 45px;
+    text-align: center;
+}
+
+/* 數量加減 */
+.cartList ul li input[name="amount"] {
+    width: 45px;
+    text-align: center;
+    border: 1px solid #c5c5c5;
+    border-left: none;
+    border-right: none;
+    height: 29px;
+}
+
+.cartList ul li input[name="minus"],
+.cartList ul li input[name="plus"] {
+    height: 29px;
+    border: 1px #c5c5c5 solid;
+    background-color: #e5e5e5;
+    width: 27px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    font-size: 12px;
+    /* padding: 0px; */
+}
+
+.cartList ul li:nth-of-type(1) {
+    width: 130px;
+}
+.cartList ul li:nth-of-type(2) {
+    width: 150px;
+}
+.cartList ul li:nth-of-type(3) {
+    width: 85px;
+}
+.cartList ul li:nth-of-type(4) {
+    width: 80px;
+}
+.cartList ul li:nth-of-type(5) {
+    width: 120px;
+}
+.cartList ul li:nth-of-type(6) {
+    width: 55px;
+}
+
+/* 刪除鍵 */
+.cartList ul li p {
+    cursor: pointer;
+}
+
+/* 小計 */
+.cartList ol {
+    float: right;
+    clear: both;
+}
+
+.cartList ol li {
+    float: left;
+}
+
+.cartList ol li:nth-of-type(2) {
+    color: #3c3c78;
+}
+
+.cartList ol li span {
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+    cursor: pointer;
+}
+/* 優惠券 */
+.cartList .cupon{
+    background-color: #f5f5f5;
+    justify-content: flex-end;
+    border-bottom: 1px solid white ;
+}
+.cupon input{
+    width: 95%;
+}
+.cupon button {
+    border: #f5f5f5 1px solid;
+    padding: 2px 15px
+}
+.cupon button:hover {
+    /* background-color: white; */
+    border: 1px solid #c5c5c5;
+    color: rgb(85, 85, 85);
+}
+.cartList ol li:nth-of-type(2) {
+    width: 100px;
+}
+
+
+
+/* 待刪除 */
+.table_title {
+    background-color: #EDF2FF;
+    height: 50px;
+}
+table {
+    border-collapse: collapse;
+}
+
+tr {
+    display: table-row;
+}
+th {
+    display: table-cell;
+}
+
+/* title 商品資料 */
+.table_title_info {
+    /* text-align: center; */
+    padding-left: 30px;
+}
+
+/* inner 商品資料 */
+.table_inner a {
+    text-decoration: none;
+}
+.table_inner img {
+    width: 130px;
+}
+.table_inner>td>div>a:nth-child(2) {
+    padding-left: 20px;
+    color: black;
+}
+.table_inner>td>div>a:nth-child(2):hover {
+    color: #7887AA;
+    text-decoration:underline;
+}
+
+/* 數量 */
+.product_number input {
+    width: 55px;
+}
+
+
+/* 優惠券 */
+.table_cupon {
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
+.table_cupon>div:first-child svg {
+    float: right;
+}
+
+.table_cupon>div:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table_cupon>div:nth-child(3) button {
+    background-color: #d9d9d9;
+    border: 1px solid #f5f5f5;
+}
+.table_cupon>div:nth-child(3) input {
+    width: 120px;
+}
+
+/* 合計 */
+.order_account {
+    border-bottom: 1px solid #d9d9d9;
+}
+.order_account>div:first-child {
+    float: right;
+    /* background-color: #d9d9d9; */
+    padding: 20px 30px 0px 0px;
+    line-height: 40px;
+}
+
+/* 收件方式 */
+
+
+/* 取貨門市 */
+.pickup_store {
+    background-color: #f5f5f5;
+    height: 70px;
+}
+
+.pickup_store_name {
+    width: 35%;
+}
+
+.pickup_store_select button {
+    /* width: 50%; */
+    background-color: #7887AA;
+    color: white;
+    border: 1px solid #f5f5f5
+}
+
+.pickup_store_select button:hover {
+    background-color: #3c3c78;
+    color: white;
+    border: 1px solid #f5f5f5
+}
+
+/* 付款資料 */
+
+/* 顧客資料 */
+.receive_method>div{
+    border: 1px solid #d9d9d9;
+}
+
+.recipient_info>div input {
+    width: 60%;
+}
+
+.tw-city-selector{
+    height: 50px;
+}
+
+/* 底層按鈕 */
+.confirm_inner h5 {
+    color: gray;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* 底層按鈕 */
+.back_cart button {
+    float: left;
+    /* margin-left: 55px; */
+    background-color: white;
+    border: 2px solid #3c3c78;
+    color: #3c3c78;
+    border-radius: 30px;
+    padding: 8px 28px 8px 20px;    
+}
+
+.back_cart button:hover {
+    background-color: #3c3c78;
+    color: white;   
+}
+
+.submit_order>button {
+    float: right;
+    /* margin-right: 55px; */
+    background-color: #3c3c78;
+    color: white;
+    border: 1px solid #3c3c78;
+    border-radius: 30px;
+    padding: 8px 27px 8px 35px;
+}
+
+.submit_order>button:hover{
+    background-color: white;
+    border: 2px solid #3c3c78;
+    color: #3c3c78;
+}
+
+
+
+
+
+/* confirm-------------------------------------------------------*/
+
+
+
+
+
+.confirm_inner h5 {
+    color: gray;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* 底層按鈕 */
+.confirm_search button {
+    float: left;
+    margin-left: 55px;
+    background-color: white;
+    border: 2px solid #3c3c78;
+    color: #3c3c78;
+    border-radius: 30px;
+    padding: 8px 35px;
+  }
+  .confirm_search button:hover {
+  background-color: #3c3c78;
+  color: white;
+  border: 2px solid #3c3c78;
+    
+}
+.confirm_draw>button {
+    float: right;
+    background-color: #3c3c78;
+    color: white;
+    border: 2px solid #3c3c78;
+    margin-right: 55px;
+    border-radius: 30px;
+    padding: 8px 35px;
+}
+.confirm_draw>button:hover {
+  background-color: white;
+  border: 2px solid #3c3c78;
+  color: #3c3c78;
+}
+
+
+
