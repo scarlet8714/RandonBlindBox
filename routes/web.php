@@ -18,9 +18,6 @@ use Illuminate\Support\Facades\Cookie;
 // Route::get('/', function () {
 //     return view('homepage');
 // });
-Route::get('/www', function () {
-    return view('welcome');
-});
 
 Route::get('/', [HomeController::class, 'action'])->name('index');
 Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('authmember');
@@ -37,7 +34,8 @@ Route::get('/forgetPassword', [LoginController::class, 'forgetPassword'])->name(
 Route::get('/actionfigure', [ActionFigureController::class, 'action'])->name('actionfigure');
 // Route::get('/product/{pid}', ProductController::class);
 
-// 拉霸機，抽獎機率
-Route::get('/product/slot', [SlotController::class, 'slot']);
+// 拉霸機，抽獎
+Route::get('/product/slot/{pid}', [SlotController::class, 'slot']);
 Route::get('/product/slot/go', [SlotController::class, 'slotPrize']);
+
 

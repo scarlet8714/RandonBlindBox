@@ -1,3 +1,4 @@
+@props(['product'])
       <!-- 左_抽獎機區 -->
       <div class="col-lg-12 col-xl-10">
         <div class="position-relative">
@@ -60,7 +61,7 @@
             <div class="machine_in">
               <!-- 商品款式橫幅 -->
               <div class="machine_screen_top_out">
-                <img src="./img/C-2/drawBanner_minions.jpg" class="img-fluid machine_screen_top_in" alt="">
+                <img src="/{{ $product[0]['showbar'] }}" class="img-fluid machine_screen_top_in" alt="">
               </div>
               <!-- 商品外盒滾動圖 -->
               <div class="machine_screen_down_out">
@@ -71,13 +72,17 @@
                         <!--  -->
                         <div class="swiper-slide">
                           <div class="row row-cols-3 row-cols-md-3 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5">
-                            <a id="popup_show_checkopen" href="#">
-                              <div class="col machine_screen_box">
-                                <img src="./img/C-2/minions_box.png" class="img-fluid" alt="">
-                              </div>
-                            </a>
+                            
+                            @for( $i = 0 ; $i < $product[0]['box_count'] ; $i++ )
+                              <a id="popup_show_checkopen" href="#">
+                                <div class="col machine_screen_box">
+                                  <img src="/{{ $product[0]['open'] }}" class="img-fluid" alt="">
+                                </div>
+                              </a>
+                            @endfor
+                            
                             <!-- 預計: 塞入盲盒圖片 -->
-                            <div class="col machine_screen_box">
+                            <!-- <div class="col machine_screen_box">
                               <img src="./img/C-2/minions_box.png" class="img-fluid" alt="">
                             </div>
                             <div class="col machine_screen_box">
@@ -100,7 +105,7 @@
                             </div>
                             <div class="col machine_screen_box">
                               <img src="./img/C-2/minions_box.png" class="img-fluid" alt="">
-                            </div>
+                            </div> -->
                           </div>
                         </div>
                         <!--  -->
@@ -257,9 +262,8 @@
           </div>
         </div>
       </div>
-<p>Test</p>
-        <button id = "test">轉</button>
-
+      <!-- <p>Test</p> -->
+        <!-- <button id = "test">轉</button> -->
         <script>
         test = document.getElementById("test");
         test.onclick = () => {
@@ -272,7 +276,6 @@
                 if(response == '怪盜基德 雲梯') {
                     alert('隱藏款!');
                 }
-                // alert("恭喜抽中 : " + response);
             })
         }
         </script>

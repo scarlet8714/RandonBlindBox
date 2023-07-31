@@ -7,28 +7,31 @@ use App\Models\SlotAction;
 
 class SlotController extends Controller
 {
-    private $test;
+    private $pid;
 
     // 設定初始化建構子，抓取
     function __construct() {
         $this->action = new SlotAction();
     }
 
-    function slot() {
-        // $this->action->getProduct(1, 6);
+    function slot($pid) {
+        $this->pid = $pid;
+        $product = $this->action->getProduct($this->pid);
+        // var_dump($product);
         // $this->action->slot();
-        return view('testSlot');
+        // echo $this->pid;
+        return view('testSlot', ["product" => $product]);
     }
 
     // 正式用
     function slotPrize() {
-        $this->action->getProduct(1, 6);
+        $this->action->getBoxProduct(1, 6);
         echo $result = $this->action->slot(6);
     }
 
     // 測試功能用
     function slotTest() {
-        $this->action->getProduct(1, 6);
+        $this->action->getBoxProduct(1, 6);
         echo $result = $this->action->slot(6);
     }
 

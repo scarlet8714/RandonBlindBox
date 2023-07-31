@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class slot-machine-bottom extends Component
+class slot.slot-machine extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class slot-machine-bottom extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.slot-machine-bottom');
+        return view('components.slot.slot-machine');
     }
 }

@@ -16,14 +16,27 @@ class SlotAction extends Model
     private $box, $pid;
 
     // 取得商品資訊
-    function getProduct($mybox, $mypid) {
-        // $products = DB::select('select * from product where pid = ?', [$mypid]);
-        $remains = DB::select('select box_remain_blind(?, ?) as remain', [$mybox, $mypid]);
+    function getProduct($pid) {
+        $productImg = DB::select('SELECT showbar,open,box_count FROM `blind_photo` as bp left join `product` as p on bp.pid = p.pid where bp.pid  = ?', [$pid]);
+        $productBox = DB::select('SELECT * FROM `product_status` where pid = ? order by box_id ASC;', [$pid]);
+        // $result = array_merge(json_decode(json_encode($productImg), 1), json_decode(json_encode($productBox), 1));
+
+        $result[0] = (json_decode(json_encode($productImg), 1))[0];
+        $result[1] = json_decode(json_encode($productBox), 1);
+
+        var_dump($result);
+        return $result;
+    }
+
+    // 取得中盒商品資訊
+    function getBoxProduct($box, $pid) {
+        // $products = DB::select('select * from product where pid = ?', [$pid]);
+        $remains = DB::select('select box_remain_blind(?, ?) as remain', [$box, $pid]);
         // 取得商品的抽獎機率以及中盒數量，排序修改後保證一般款的機率在上方
-        $lottery = DB::select('select DISTINCT probability, box_count from product_status as ps left join product as p on ps.pid = p.pid where ps.pid = ? and ps.box_id = ? order by ps.probability DESC', [$mypid, $mybox]); 
-        $presents = DB::select('select blind_id from product_status where box_id = ? and pid = ? and sold = 0', [$mybox, $mypid]);
-        $this->box = $mybox;
-        $this->pid = $mypid;
+        $lottery = DB::select('select DISTINCT probability, box_count from product_status as ps left join product as p on ps.pid = p.pid where ps.pid = ? and ps.box_id = ? order by ps.probability DESC', [$pid, $box]); 
+        $presents = DB::select('select blind_id from product_status where box_id = ? and pid = ? and sold = 0', [$box, $pid]);
+        $this->box = $box;
+        $this->pid = $pid;
 
         // 將該中盒的剩餘品項放入prize
         foreach($presents as $present) {
