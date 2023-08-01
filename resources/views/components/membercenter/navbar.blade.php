@@ -1,10 +1,3 @@
-<div class="container">
-  <div class="pt-3">
-    <h4 class="text-center fw-bold py-5">會員中心</h4>
-  </div>
-  <div class="row justify-content-center" >    
-    <div class="col-xs-3 col-lg-3"></div>
-    <!-- 中間icon導覽列 -->
     <div class="col-xs-8 col-lg-6 pb-4">
       <div class="row justify-content-center">
         <!-- 我的資料 -->

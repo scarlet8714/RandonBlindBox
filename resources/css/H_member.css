@@ -309,6 +309,7 @@ li {
   margin: 1em 0 1em 0;
   max-width: 390px;
   position: relative;
+  padding: 10px;
 }
 
 .inputGroup input {
@@ -355,6 +356,10 @@ li {
 
 .my_account_info>div>div>button:hover {
   background-color: #505098;
+}
+
+.myAccount {
+  margin-bottom: 50px;
 }
 
 
@@ -447,6 +452,19 @@ thead.orderDetails th {
   background-color: #f5f5f5;
   padding-left: 120px;
 }
+
+.resultText {
+  margin-left: 120px;
+}
+
+@media (max-width: 767px) {
+
+.resultText {
+    margin-left: 60px;
+    /* 較小的高度 */
+  }
+}
+
 
 .drawTime {
 background-color: #f5f5f5;
@@ -563,6 +581,7 @@ padding-left:70px;
 .coupon-container {
   background-color: #F5F5F5;
   padding: 30px;
+  margin-bottom: 50px;
 }
 
 

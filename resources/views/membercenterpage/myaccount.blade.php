@@ -2,23 +2,25 @@
 @vite(['resources/css/H_member.css'])
 @section('content')
 
+<x-membercenter.small-navbar />
 
-        <x-membercenter.member-center-inner>
-            <x-membercenter.navbar />
 
-            <div class="col-xs-1 col-lg-2"></div>
-            
-            <!-- 左邊 -->
-            <div class="col-xs-4 col-lg-4 px-3 pt-3">         
-                <x-membercenter.accumulated />
-                <x-membercenter.membership />
+        {{-- 下層  --}}
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xs-1 col-lg-2"></div>
+
+                <div class="col-xs-4 col-lg-4 px-3 pt-3">
+                    <x-membercenter.accumulated />
+                    <x-membercenter.membership />
+                </div>
+
+                <x-membercenter.fill-info />
+
+                <div class="col-xs-1 col-lg-2"></div>
             </div>
+        </div>
 
-            {{-- 右邊 --}}
-            <x-membercenter.fill-info />
-            
-           
-        </x-membercenter.member-center-inner>
     
-    </div>
+
 @endsection
