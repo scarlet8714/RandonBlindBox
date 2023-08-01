@@ -388,7 +388,7 @@ li {
 }
 
 #btnDetail:hover {
-  background-color:  #505098;
+  background-color: #505098;
 }
 
 @media screen and (max-width: 768px) {
@@ -402,7 +402,7 @@ li {
 
 /* My orderDetails---------------------- */
 
- 
+
 
 
 tbody td img {
@@ -427,17 +427,25 @@ tbody td img {
 }
 
 
-thead th:nth-child(1),
-thead td:nth-child(1) {
-  width: 200px;
-}
-
-
-thead.orderDetails th {
+.orderDetails thead th {
   height: 50px;
   background-color: #EDF2FF;
   color: black;
   font-weight: normal;
+}
+
+.orderDetails thead th:nth-child(2),
+.orderDetails tbody td:nth-child(2) {
+  padding-right: 12px;
+}
+
+
+.orderDetails {
+  table-layout: fixed;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  border: 1px white;
 }
 
 .orderNumberCell {
@@ -459,7 +467,7 @@ thead.orderDetails th {
 
 @media (max-width: 767px) {
 
-.resultText {
+  .resultText {
     margin-left: 60px;
     /* 較小的高度 */
   }
@@ -467,7 +475,7 @@ thead.orderDetails th {
 
 
 .drawTime {
-background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
 
@@ -481,16 +489,16 @@ background-color: #f5f5f5;
 
 
 .redNumber {
-color: red;
+  color: red;
 }
 
 
-.drawTime a{
+.drawTime a {
   color: #3c3c78;
 }
 
-.drawTime a:hover{
-  color:  #505098;
+.drawTime a:hover {
+  color: #505098;
 }
 
 
@@ -504,8 +512,8 @@ color: red;
   border-bottom: 1px solid black;
 }
 
-.total tbody td{
-padding: 10px;
+.total tbody td {
+  padding: 10px;
 }
 
 .total {
@@ -549,13 +557,13 @@ table.table thead tr th:nth-child(2) {
 }
 
 .tableInfo tbody td:first-child {
-text-align: left;
-padding-left:70px;
+  text-align: left;
+  padding-left: 70px;
 }
 
 .tableCustomer tbody td:first-child {
-text-align: left;
-padding-left:70px;
+  text-align: left;
+  padding-left: 70px;
 }
 
 
@@ -571,7 +579,7 @@ padding-left:70px;
 }
 
 #backOrder:hover {
-  background-color:  #505098;
+  background-color: #505098;
 }
 
 
@@ -698,7 +706,7 @@ padding-left:70px;
 }
 
 #btnDetail:hover {
-  background-color:  #505098;
+  background-color: #505098;
 }
 
 @media screen and (max-width: 768px) {
@@ -718,7 +726,7 @@ padding-left:70px;
 }
 
 #JoinShop:hover {
-  background-color:  #505098;
+  background-color: #505098;
 }
 
 
@@ -761,18 +769,16 @@ thead td:nth-child(1) {
 }
 
 
-  .btndel {
-    width: 70px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-  }
+.btndel {
+  width: 70px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
 
-  .btn svg {
-    width: 50px;
-    height: 50px;
-  }
-
-
+.btn svg {
+  width: 50px;
+  height: 50px;
+}

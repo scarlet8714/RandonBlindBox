@@ -7,7 +7,7 @@
 
 <div class="row justify-content-center mx-2 mb-4">
     <div class="row col-xs-6 col-sm-10 col-lg-8 px-0 pt-3">
-        <table>
+        <table class="orderDetails">
 
             <x-membercenter.orderdetails-thead />
             <x-membercenter.orderdetails-tbody />
