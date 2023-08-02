@@ -2,961 +2,1186 @@
 /* 網頁呼吸空間 */
 
 .draw_machine {
-    padding: 5% 10% 0% 10%;
+  padding: 5% 10% 0% 10%;
+}
+
+@media (max-width: 1600px) {
+  .draw_machine {
+    padding: 10% 2% 0% 2%;
   }
-  
-  @media (max-width: 1600px) {
-    .draw_machine {
-      padding: 5% 2% 0% 2%;
-    }
-  }
-  
-  
-  
+}
+
+.draw_machine_ft {
+  border-top: 0.1em solid white !important;
+  opacity: 1 !important;
+  padding: 1.2em;
+}
+
+@media (max-width: 1200px) {
   .draw_machine_ft {
-    border-top: 0.1em solid white !important;
-    opacity: 1 !important;
-    padding: 1.2em;
+    padding: 1.2em 0 4em 0;
   }
-  
-  @media (max-width: 1200px) {
-    .draw_machine_ft {
-      padding: 1.2em 0 4em 0;
-    }
-  }
-  
-  
-  
-  /* ----------------------------------------------------------- */
-  /* 上_左_抽獎機 */
-  
-  /* 抽獎機招牌_Logo */
-  
+}
+
+/* ----------------------------------------------------------- */
+/* 上_左_抽獎機 */
+
+/* 抽獎機招牌_Logo */
+
+.machine_signboard_logo {
+  width: 35%;
+  top: -8%;
+  left: 5%;
+
+}
+
+/* 抽獎機招牌_線上抽盲盒 */
+.machine_signboard_title {
+  color: white;
+  font-size: 1.6em;
+  font-family: 'Noto Sans TC', sans-serif;
+  left: 42%;
+  top: -5%;
+
+}
+
+
+@media (max-width: 760px) {
   .machine_signboard_logo {
-    width: 35%;
-    top: -4%;
-    left: 5%;
-  
+    width: 45%;
+    top: -5%;
+    left: 8%;
   }
-  
-  /* 抽獎機招牌_線上抽盲盒 */
+
   .machine_signboard_title {
-    color: white;
-    font-size: 1.6em;
-    font-family: 'Noto Sans TC', sans-serif;
-    left: 42%;
-    top: -1%;
-  
+    font-size: 1em;
+    left: 55%;
+    top: -4%;
   }
-  
-  
-  @media (max-width: 760px) {
-    .machine_signboard_logo {
-      width: 45%;
-      top: 0%;
-      left: 8%;
-    }
-  
-    .machine_signboard_title {
-      font-size: 1em;
-      left: 55%;
-      top: 1%;
-    }
+}
+
+@media (min-width: 760px) and (max-width: 1300px) {
+  .machine_signboard_logo {
+    width: 45%;
+    top: -5%;
+    left: 8%;
   }
-  
-  @media (min-width: 760px) and (max-width: 1000px) {
-    .machine_signboard_logo {
-      width: 45%;
-      top: -2%;
-      left: 8%;
-    }
-  
-    .machine_signboard_title {
-      font-size: 1.3em;
-      left: 55%;
-      top: 0%;
-    }
+
+  .machine_signboard_title {
+    font-size: 1.3em;
+    left: 55%;
+    top: -3%;
   }
-  
-  @media (min-width: 1000px) and (max-width: 1300px) {
-    .machine_signboard_logo {
-      width: 40%;
-      top: -3%;
-      left: 8%;
-    }
-  
-    .machine_signboard_title {
-      font-size: 1.3em;
-      left: 55%;
-      top: 0%;
-    }
-  
-  
-  }
-  
-  /* --------------------------*/
-  
-  /* 抽獎機外殼 */
+}
+
+
+
+/* --------------------------*/
+
+/* 抽獎機外殼 */
+.machine_out {
+  background-color: #784123;
+  padding: 1.5em 3em 1.5em 3em;
+  border-radius: 3.5em;
+  border: 0.8em solid white;
+}
+
+.machine_in {
+  background-color: #F08C55;
+  padding: 1.8em 1.5em 1em 1.5em;
+  border-radius: 2.5em;
+}
+
+@media (max-width: 760px) {
   .machine_out {
-    background-color: #784123;
-    padding: 1.5em 3em 1.5em 3em;
-    border-radius: 3.5em;
-    border: 0.8em solid white;
+    padding: 0.5em;
+    border: 0em solid white;
+    border-radius: 2em;
   }
-  
+
   .machine_in {
-    background-color: #F08C55;
-    padding: 1.8em 1.5em 1em 1.5em;
-    border-radius: 2.5em;
+    padding: 5% 0.6em 2em 1em;
+    border-radius: 1.5em;
   }
-  
-  @media (max-width: 760px) {
-    .machine_out {
-      padding: 0.5em;
-      border: 0em solid white;
-      border-radius: 2em;
-    }
-  
-    .machine_in {
-      padding: 5% 0.6em 2em 1em;
-      border-radius: 1.5em;
-    }
-  }
-  
-  /* --------------------------*/
-  /* 商品款式橫幅 */
-  
+}
+
+/* ----------------------------------------------------------- */
+/* 商品款式橫幅 */
+
+.machine_screen_top_out {
+  background-color: #784123;
+  padding: 1em 1em 1em 1em;
+  margin: 0 0 1em 0;
+  border-radius: 3em;
+
+}
+
+.machine_screen_top_in {
+  border-radius: 2em;
+  border: 0.3em solid white;
+}
+
+@media (max-width: 760px) {
   .machine_screen_top_out {
-    background-color: #784123;
-    padding: 1em 1em 1em 1em;
-    margin: 0 0 1em 0;
-    border-radius: 3em;
-  
+    background-color: #F08C55;
+    padding: 0.1em 0.3em;
+    border-radius: 1em;
   }
-  
+
   .machine_screen_top_in {
-    border-radius: 2em;
-    border: 0.3em solid white;
+    border-radius: 1em;
+    border: 0.3em solid #784123;
   }
-  
-  @media (max-width: 760px) {
-    .machine_screen_top_out {
-      background-color: #F08C55;
-      padding: 0.1em 0.3em;
-      border-radius: 1em;
-    }
-  
-    .machine_screen_top_in {
-      border-radius: 1em;
-      border: 0.3em solid #784123;
-    }
+}
+
+
+/* ----------------------------------------------------------- */
+/* 彈幕按鈕 */
+
+.checkbox-wrapper-35 .switch {
+  display: none;
+}
+
+.checkbox-wrapper-35 {
+  top: 5%;
+  left: 80%;
+}
+
+@media (max-width: 760px) {
+  .checkbox-wrapper-35 {
+    top: 2%;
+    left: 75%;
   }
-  
-  /* --------------------------*/
-  /* 商品外盒滾動圖 */
+}
+
+@media (min-width: 760px) and (max-width: 1500px) {
+  .checkbox-wrapper-35 {
+    top: 4%;
+  }
+}
+
+.checkbox-wrapper-35 .switch+label {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #784123;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: 'Noto Sans TC', sans-serif;
+
+}
+
+.checkbox-wrapper-35 .switch+label::before,
+.checkbox-wrapper-35 .switch+label::after {
+  content: '';
+  display: block;
+}
+
+.checkbox-wrapper-35 .switch+label::before {
+  background-color: #784123;
+  border-radius: 500px;
+  height: 15px;
+  margin-right: 8px;
+  -webkit-transition: background-color 0.125s ease-out;
+  transition: background-color 0.125s ease-out;
+  width: 25px;
+}
+
+.checkbox-wrapper-35 .switch+label::after {
+  background-color: #fff;
+  border-radius: 13px;
+  box-shadow: 0 3px 1px 0 rgba(37, 34, 71, 0.05), 0 2px 2px 0 rgba(37, 34, 71, 0.1), 0 3px 3px 0 rgba(37, 34, 71, 0.05);
+  height: 13px;
+  left: 1px;
+  position: absolute;
+  top: 1px;
+  -webkit-transition: -webkit-transform 0.125s ease-out;
+  transition: -webkit-transform 0.125s ease-out;
+  transition: transform 0.125s ease-out;
+  transition: transform 0.125s ease-out, -webkit-transform 0.125s ease-out;
+  width: 13px;
+}
+
+.checkbox-wrapper-35 .switch+label .switch-x-text {
+  display: block;
+  margin-right: .3em;
+}
+
+.checkbox-wrapper-35 .switch+label .switch-x-toggletext {
+  display: block;
+  font-weight: bold;
+  height: 15px;
+  overflow: hidden;
+  position: relative;
+  width: 25px;
+}
+
+.checkbox-wrapper-35 .switch+label .switch-x-unchecked,
+.checkbox-wrapper-35 .switch+label .switch-x-checked {
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: opacity 0.125s ease-out, -webkit-transform 0.125s ease-out;
+  transition: opacity 0.125s ease-out, -webkit-transform 0.125s ease-out;
+  transition: transform 0.125s ease-out, opacity 0.125s ease-out;
+  transition: transform 0.125s ease-out, opacity 0.125s ease-out, -webkit-transform 0.125s ease-out;
+}
+
+.checkbox-wrapper-35 .switch+label .switch-x-unchecked {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+}
+
+.checkbox-wrapper-35 .switch+label .switch-x-checked {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+}
+
+.checkbox-wrapper-35 .switch+label .switch-x-hiddenlabel {
+  position: absolute;
+  visibility: hidden;
+}
+
+.checkbox-wrapper-35 .switch:checked+label::before {
+  background-color: #3C3C7B;
+}
+
+.checkbox-wrapper-35 .switch:checked+label::after {
+  -webkit-transform: translate3d(10px, 0, 0);
+  transform: translate3d(10px, 0, 0);
+
+}
+
+.checkbox-wrapper-35 .switch:checked+label .switch-x-unchecked {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+
+}
+
+.checkbox-wrapper-35 .switch:checked+label .switch-x-checked {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+}
+
+/* 彈幕 */
+
+.bullet {
+  width: 98%;
+  margin: 0;
+  overflow: hidden;
+  z-index: 1;
+  padding: 1.3em 1em;
+  border-radius: 2.5em;
+  height: 100%;
+
+}
+
+.bullet_track {
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 1px;
+}
+
+.bullet_content {
+  font-size: 0.4em;
+  font-family: 'Noto Sans TC', sans-serif;
+  background: #e4e4e4d4;
+  width: 250px;
+  border: 2px solid#784123;
+  transform: translateX(1000px);
+  animation: scrollTo linear 19s infinite;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-weight: 600;
+  line-height: 20px;
+  margin-bottom: 8px;
+  transform: translateX(1100px);
+}
+
+.bullet_color_1 {
+  color: #784123;
+}
+
+.bullet_color_2 {
+  color: #3C3C7B;
+}
+
+.bullet_color_3 {
+  color: #F5233C;
+}
+
+.bullet_speed_1 {
+  animation: scrollTo linear 10s infinite;
+}
+
+.bullet_speed_2 {
+  animation: scrollTo linear 13s infinite;
+}
+
+.bullet_speed_3 {
+  animation: scrollTo linear 17 infinite;
+}
+
+@keyframes scrollTo {
+  to {
+    transform: translateX(-100px);
+  }
+}
+
+/* --------------------------*/
+/* 商品外盒滾動圖 */
+.machine_screen_down_out {
+  background-color: #784123;
+  padding: 1em 1em 1em 1em;
+  border-radius: 3em;
+}
+
+.machine_screen_down_in {
+  background-color: white;
+  padding: 1em 3em 1em 3em;
+  border-radius: 2em;
+}
+
+.machine_screen_box {
+  overflow: hidden;
+}
+
+.machine_screen_box>img {
+  width: 18em;
+  height: 18em;
+  object-fit: cover;
+
+}
+
+.machine_screen_box:hover {
+  scale: 1.05;
+}
+
+@media (max-width: 760px) {
   .machine_screen_down_out {
+    padding: 0.4em;
     background-color: #784123;
-    padding: 1em 1em 1em 1em;
-    border-radius: 3em;
+    border-radius: 1em;
   }
-  
+
   .machine_screen_down_in {
-    background-color: white;
-    padding: 1em 3em 1em 3em;
-    border-radius: 2em;
+    padding: 0.01em 1em;
+    border-radius: 0.6em;
   }
-  
-  .machine_screen_box {
-    overflow: hidden;
-  }
-  
+
   .machine_screen_box>img {
-    width: 15em;
-    height: 15em;
+    width: 11em;
+    height: 11em;
     object-fit: cover;
-  
   }
-  
-  @media (max-width: 760px) {
-    .machine_screen_down_out {
-      padding: 0.4em;
-      background-color: #784123;
-      border-radius: 1em;
-    }
-  
-    .machine_screen_down_in {
-      padding: 0.01em 1em;
-      border-radius: 0.6em;
-    }
-  
-    .machine_screen_box>img {
-      width: 11em;
-      height: 11em;
-      object-fit: cover;
-    }
-  }
-  
-  /* --------------------------*/
-  /* 抽獎機裝飾燈 */
-  
+}
+
+/* --------------------------*/
+/* 抽獎機裝飾燈 */
+
+.machine_light_left {
+  width: 1.2em;
+  top: 50%;
+  left: 1.7em;
+}
+
+.machine_light_right {
+  width: 1.2em;
+  top: 50%;
+  right: 1.7em;
+}
+
+@media (max-width: 760px) {
   .machine_light_left {
-    width: 1.2em;
-    top: 50%;
-    left: 1.7em;
+    visibility: hidden;
   }
-  
+
   .machine_light_right {
-    width: 1.2em;
-    top: 50%;
-    right: 1.7em;
+    visibility: hidden;
   }
-  
-  @media (max-width: 760px) {
-    .machine_light_left {
-      visibility: hidden;
-    }
-  
-    .machine_light_right {
-      visibility: hidden;
-    }
-  }
-  
-  
-  /* ----------------------------------------------------------- */
-  /* 中 */
-  
-  /* --------------------------*/
-  /* 藍按鈕＊2_查看所有款式 x 收集進度 */
-  
+}
+
+
+/* ----------------------------------------------------------- */
+/* 中 */
+
+/* --------------------------*/
+/* 藍按鈕＊2_查看所有款式 x 收集進度 */
+
+.machine_two_blue_button {
+  width: 100%;
+  top: 95%;
+  z-index: 1;
+}
+
+.machine_blue_button {
+  border: 0.3em solid white;
+  background-color: #3C3C7B;
+  padding: 0.5em 3.5em;
+  color: white;
+  font-size: 1.1em;
+  font-family: 'Noto Sans TC', sans-serif;
+  border-radius: 2em;
+  margin: 0 3em;
+}
+
+.machine_blue_button:hover {
+  scale: 1.05;
+}
+
+@media (max-width: 760px) {
   .machine_two_blue_button {
     width: 100%;
-    top: 95%;
-    z-index: 1;
+    top: 96%;
   }
-  
+
   .machine_blue_button {
-    border: 0.3em solid white;
-    background-color: #3C3C7B;
-    padding: 0.5em 3.5em;
-    color: white;
-    font-size: 1.1em;
-    font-family: 'Noto Sans TC', sans-serif;
-    border-radius: 2em;
-    margin: 0 3em;
+    padding: 0.5em 2.2em;
+    font-size: 0.8em;
+    margin: 0 2em;
   }
-  
-  @media (max-width: 760px) {
-    .machine_two_blue_button {
-      width: 100%;
-      top: 96%;
-    }
-  
-    .machine_blue_button {
-      padding: 0.5em 2.2em;
-      font-size: 0.8em;
-      margin: 0 2em;
-    }
-  }
-  
-  /* --------------------------*/
-  
-  /* 抽獎機桌面_銜接階梯 */
-  
+}
+
+/* --------------------------*/
+
+/* 抽獎機桌面_銜接階梯 */
+
+.machine_table_trapezoidal {
+  width: 98%;
+  top: 99%;
+  left: 1%;
+  z-index: -1;
+
+}
+
+@media (max-width: 1200px) {
   .machine_table_trapezoidal {
-    width: 98%;
+    width: 94%;
     top: 99%;
-    left: 1%;
+    left: 3%;
     z-index: -1;
-  
   }
-  
-  @media (max-width: 1200px) {
-    .machine_table_trapezoidal {
-      width: 94%;
-      top: 99%;
-      left: 3%;
-      z-index: -1;
-    }
-  }
-  
-  /* ----------------------------------------------------------- */
-  /* 上_右_搖桿 */
-  
-  /* --------------------------*/
-  
-  /* 搖桿_購買抽盒機會按鈕  */
-  
+}
+
+/* ----------------------------------------------------------- */
+/* 上_右_搖桿 */
+
+/* --------------------------*/
+
+/* 搖桿_購買抽盒機會按鈕  */
+
+.handle_buy_button {
+  border: 0.3em solid white;
+  background-color: #3C3C7B;
+  padding: 0.5em 2em;
+  color: white;
+  font-size: 1.1em;
+  font-family: 'Noto Sans TC', sans-serif;
+  border-radius: 2em;
+}
+
+.handle_buy_button:hover {
+  scale: 1.1;
+}
+
+/* 搖桿_主體  */
+.handle_main {
+  padding-top: 30%;
+  left: -12%;
+  z-index: -1;
+}
+
+/* 搖桿_剩餘次數  */
+.handle_text1 {
+  left: 45%;
+  top: 14%;
+  font-family: 'Noto Sans TC', sans-serif;
+  color: white;
+  font-size: 1em;
+}
+
+.handle_text2 {
+  left: 50%;
+  top: 17%;
+  font-family: 'Rubik', sans-serif;
+  color: white;
+  font-size: 2.8em;
+}
+
+.handle_text3 {
+  left: 80%;
+  top: 23%;
+  font-family: 'Noto Sans TC', sans-serif;
+  color: white;
+  font-size: 1em;
+}
+
+@media (min-width: 1200px) and (max-width: 1500px) {
   .handle_buy_button {
     border: 0.3em solid white;
     background-color: #3C3C7B;
-    padding: 0.5em 2em;
+    padding: 0.5em 1.5em;
     color: white;
-    font-size: 1.1em;
+    font-size: 1em;
     font-family: 'Noto Sans TC', sans-serif;
     border-radius: 2em;
   }
-  
-  /* 搖桿_主體  */
+
   .handle_main {
-    padding-top: 30%;
-    left: -12%;
+    padding-top: 100%;
+    left: -20%;
     z-index: -1;
   }
-  
-  /* 搖桿_剩餘次數  */
+
   .handle_text1 {
-    left: 45%;
-    top: 14%;
-    font-family: 'Noto Sans TC', sans-serif;
-    color: white;
-    font-size: 1em;
+    top: 28%;
   }
-  
+
   .handle_text2 {
-    left: 50%;
-    top: 17%;
-    font-family: 'Rubik', sans-serif;
-    color: white;
-    font-size: 2.8em;
+    top: 31%;
+    font-size: 2.6em;
   }
-  
+
   .handle_text3 {
-    left: 80%;
-    top: 23%;
-    font-family: 'Noto Sans TC', sans-serif;
-    color: white;
+    top: 37%;
     font-size: 1em;
   }
-  
-  @media (min-width: 1200px) and (max-width: 1500px) {
-    .handle_buy_button {
-      border: 0.3em solid white;
-      background-color: #3C3C7B;
-      padding: 0.5em 1.5em;
-      color: white;
-      font-size: 1em;
-      font-family: 'Noto Sans TC', sans-serif;
-      border-radius: 2em;
-    }
-  
-    .handle_main {
-      padding-top: 100%;
-      left: -20%;
-      z-index: -1;
-    }
-  
-    .handle_text1 {
-      top: 28%;
-    }
-  
-    .handle_text2 {
-      top: 31%;
-      font-size: 2.6em;
-    }
-  
-    .handle_text3 {
-      top: 37%;
-      font-size: 1em;
-    }
+}
+
+
+@media (max-width: 1200px) {
+  .handle {
+    display: none;
   }
-  
-  
-  @media (max-width: 1200px) {
-    .handle {
-      display: none;
-    }
-  }
-  
-  /* ----------------------------------------------------------- */
-  
-  
-  
-  .home_button {
-    width: 6.5em;
-    height: 6.5em;
-    border-radius: 50%;
-    padding: 1em;
-    color: white;
-    border: 0.2em solid white;
-    background-color: #3C3C7B;
-  
-  }
-  
-  /* ----------------------------------------------------------- */
-  /* 下_左_抽獎機桌面區 */
-  /* --------------------------*/
-  
-  /* 抽獎機桌面外殼 */
+}
+
+/* ----------------------------------------------------------- */
+
+
+
+.home_button {
+  width: 6.5em;
+  height: 6.5em;
+  border-radius: 50%;
+  padding: 1em;
+  color: white;
+  border: 0.2em solid white;
+  background-color: #3C3C7B;
+
+}
+
+/* ----------------------------------------------------------- */
+/* 下_左_抽獎機桌面區 */
+/* --------------------------*/
+
+/* 抽獎機桌面外殼 */
+.machine_table_out {
+  margin: 2.8em 0 0 0;
+  background-color: #784123;
+  padding: 1em 2em 0em 2em;
+  border-top: 0.5em solid white;
+  border-left: 0.5em solid white;
+  border-right: 0.5em solid white;
+  border-radius: 3em 3em 0 0;
+}
+
+.machine_table_in {
+  background-color: #F08C55;
+  padding: 1em 2em 1em 2em;
+  border-radius: 2em 2em 0 0;
+}
+
+@media (max-width: 760px) {
   .machine_table_out {
-    margin: 2.8em 0 0 0;
-    background-color: #784123;
-    padding: 1em 2em 0em 2em;
-    border-top: 0.5em solid white;
-    border-left: 0.5em solid white;
-    border-right: 0.5em solid white;
-    border-radius: 3em 3em 0 0;
-  }
-  
-  .machine_table_in {
-    background-color: #F08C55;
-    padding: 1em 2em 1em 2em;
+    margin: 1em 0 0 0;
+    padding: 0.5em 0.5em 0em 0.5em;
+    border-top: 0em solid white;
+    border-left: 0em solid white;
+    border-right: 0em solid white;
     border-radius: 2em 2em 0 0;
   }
-  
-  @media (max-width: 760px) {
-    .machine_table_out {
-      margin: 1em 0 0 0;
-      padding: 0.5em 0.5em 0em 0.5em;
-      border-top: 0em solid white;
-      border-left: 0em solid white;
-      border-right: 0em solid white;
-      border-radius: 2em 2em 0 0;
-    }
-  
-    .machine_table_in {
-      background-color: #F08C55;
-      padding: 1em 1.5em;
-      border-radius: 1.5em 1.5em 0 0;
-    }
-  }
-  
-  @media (min-width: 760px) and (max-width: 1200px) {
-    .machine_table_out {
-      margin: 2em 0 0 0;
-    }
-  }
-  
-  /* --------------------------*/
-  /* 抽獎機桌面_機率說明 */
-  .machine_table_probability {
-    border-radius: 2em;
-    background-color: #784123;
-    padding: 1em;
-  
-  }
-  
-  .machine_table_probability_text {
-    font-size: 1em;
-    color: white;
-    font-family: 'Noto Sans TC', sans-serif;
-    font-weight: 500;
-  }
-  
-  .machine_table_icon_left {
-    padding: 0.2em 0 0 0;
-  }
-  
-  .machine_table_icon_right {
-    padding: 0.2em 0 0 0;
-  }
-  
-  @media (max-width: 1200px) {
-    .machine_table_probability {
-      border-radius: 1em;
-    }
-  
-    .machine_table_probability_text {
-      font-size: 0.9em;
-    }
-  
-    .machine_table_icon_left {
-      display: none;
-    }
-  
-    .machine_table_icon_right {
-      display: none;
-    }
-  }
-  
-  /* --------------------------*/
-  /* 搖桿區_回首頁 x 看其他盲盒 */
-  .handle_two_button {
-    width: 6em;
-    height: 6em;
-    background-color: #3C3C7B;
-    border: 0.3em solid white;
-    color: white;
-    padding: 0.3em;
-    font-size: 0.9em;
-    font-family: 'Noto Sans TC', sans-serif;
-  }
-  
-  @media (max-width: 1200px) {
-    .handle_two_button {
-      display: none;
-    }
-  }
-  
-  @media (min-width: 1200px) and (max-width: 1300px) {
-    .handle_two_button {
-      font-size: 0.82em;
-    }
-  }
-  
-  /* ----------------------------------------------------------- */
-  /* 彈幕按鈕 */
-  
-  .bullet {}
-  
-  @media (max-width: 760px) {
-    .bullet {}
-  
-  }
-  
-  /* The switch - the box around the slider */
-  .switch {
-    font-size: 10px;
-    position: relative;
-    display: inline-block;
-    width: 10em;
-    height: 3em;
-    overflow: hidden;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #eee;
-    transition: .4s;
-    border-radius: 30px;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 2.3em;
-    width: 2.3em;
-    border-radius: 20px;
-    left: 1em;
-    bottom: 0.4em;
-    background-color: white;
-    transition: .4s;
-  }
-  
-  input:checked+.slider {
-    background-color: #3C3C7B;
-  }
-  
-  
-  input:checked+.slider:before {
-    transform: translateX(6em);
-  }
-  
-  .switch .text {
-    position: absolute;
-    top: 50%;
-    pointer-events: none;
-    text-transform: uppercase;
-    transform: translateY(-50%);
-    transition: .4s;
-  }
-  
-  .switch .text.on {
-    left: .8rem;
-    transform: translateX(-3rem) translateY(-50%);
-    color: white;
-    font-weight: 900;
-  }
-  
-  .switch .text.off {
-    color: #3C3C7B;
-    right: .8rem;
-    font-weight: 900;
-  }
-  
-  input:checked~.text.off {
-    transform: translateX(10rem) translateY(-50%);
-  }
-  
-  input:checked~.text.on {
-    transform: translateX(0) translateY(-50%);
-  }
-  
-  /* ----------------------------------------------------------- */
-  /* RWD BAR */
-  
-  @media (min-width: 1200px) {
-    .rwd_bar {
-      display: none;
-    }
-  }
-  
-  /* 透明底 */
-  .rwd_bar_bg {
-    background-color: #f5f5f5;
-    opacity: 80%;
-    height: 2.5em;
+
+  .machine_table_in {
+    background-color: #F08C55;
+    padding: 1em 1.5em;
     border-radius: 1.5em 1.5em 0 0;
   }
-  
-  .rwd_bar_content {
-    top: -0.9em;
-    z-index: 1;
+}
+
+@media (min-width: 760px) and (max-width: 1200px) {
+  .machine_table_out {
+    margin: 2em 0 0 0;
   }
-  
-  .rwd_bar_text {
-    font-size: 0.8em;
-    color: #3C3C7B;
-    font-family: 'Noto Sans TC', sans-serif;
-    font-weight: 900;
+}
+
+/* --------------------------*/
+/* 抽獎機桌面_機率說明 */
+.machine_table_probability {
+  border-radius: 2em;
+  background-color: #784123;
+  padding: 1em;
+
+}
+
+.machine_table_probability_text {
+  font-size: 1em;
+  color: white;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+}
+
+.machine_table_icon_left {
+  padding: 0.2em 0 0 0;
+}
+
+.machine_table_icon_right {
+  padding: 0.2em 0 0 0;
+}
+
+@media (max-width: 1200px) {
+  .machine_table_probability {
+    border-radius: 1em;
   }
-  
-  .rwd_bar_text2 {
-    font-size: 0.7em;
-    color: white;
-    font-family: 'Noto Sans TC', sans-serif;
-    background-color: #F5233C;
-    padding: 0.6em 1.3em;
-    border-radius: 3em;
-  
+
+  .machine_table_probability_text {
+    font-size: 0.9em;
   }
-  
-  .rwd_bar_text3 {
-    font-size: 0.7em;
-    color: white;
-    font-family: 'Noto Sans TC', sans-serif;
-    background-color: #3C3C7B;
-    padding: 0.6em 1.3em;
-    border-radius: 3em;
-    text-decoration: none;
+
+  .machine_table_icon_left {
+    display: none;
   }
-  
-  ul li {
-    list-style-type: none;
+
+  .machine_table_icon_right {
+    display: none;
   }
-  
-  ul li a {
-    text-decoration: 0.12em underline;
-    text-underline-offset: 0.4em
+}
+
+/* --------------------------*/
+/* 搖桿區_回首頁 x 看其他盲盒 */
+.handle_two_button {
+  width: 6em;
+  height: 6em;
+  background-color: #3C3C7B;
+  border: 0.3em solid white;
+  color: white;
+  padding: 0.3em;
+  font-size: 0.9em;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.handle_two_button:hover {
+  scale: 1.1;
+}
+
+@media (max-width: 1200px) {
+  .handle_two_button {
+    display: none;
   }
-  
-  /* ----------------------------------------------------------- */
-  /* 彈跳視窗_網頁捲軸把手 */
-  
-  dialog::-webkit-scrollbar {
-    width: 10px;
-  
+}
+
+@media (min-width: 1200px) and (max-width: 1300px) {
+  .handle_two_button {
+    font-size: 0.82em;
   }
-  
-  dialog::-webkit-scrollbar-thumb {
-    padding: 2em;
-    background: #c8c8c8;
-    border-radius: 3em;
-    overflow: hidden;
-    width: 5px;
-  
+}
+
+
+/* ----------------------------------------------------------- */
+/* RWD BAR */
+
+@media (min-width: 1200px) {
+  .rwd_bar {
+    display: none;
   }
-  
-  /* ----------------------------------------------------------- */
-  /* 彈跳視窗_網頁捲軸把手 */
-  
-  #infoModal {
-    border: none;
-    background-color: none;
-    background-color: white;
-    border: 1.8em solid #f08c55;
-    border-radius: 2.5em;
-    padding: 2em 2em 4em 2em;
-  }
-  
-  dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-  
-  /* ----------------------------------------------------------- */
-  
-  /* 彈跳視窗_C-2-1確認抽盒 */
-  
-  #checkopen {
-    border-radius: 3em;
-    border: 1em solid #3C3C7B;
-    width: 450px;
-  }
-  
-  
-  .popup_checkopen_text {
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1em;
-    color: #3C3C7B;
-    font-weight: 700;
-  }
-  
-  .popup_checkopen_pic>img {
-    width: 18em;
-    height: 18em;
-    object-fit: cover;
-  
-  }
-  
-  .popup_checkopen_button {
-    border: none;
-    background-color: #F08C55;
-    padding: 0.5em 2em;
-    color: white;
-    font-size: 1em;
-    font-family: 'Noto Sans TC', sans-serif;
-    border-radius: 2em;
-    letter-spacing: 0.1em;
-    margin: 3em 0 1em 0;
-  }
-  
-  /* ----------------------------------------------------------- */
-  
-  /* 彈跳視窗_C-2-2抽盒畫面 */
-  
-  #drawpage {
-    border-radius: 3em;
-    border: 1em solid #784123;
-    background-color: #784123;
-  }
-  
-  #dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-  
-  /* 煙火 */
-  /* basic styles for black background and crosshair cursor */
-  
-  canvas {
-    cursor: crosshair;
-    display: block;
-    z-index: 1;
-  }
-  
-  /* 拉霸機 */
+}
+
+/* 透明底 */
+.rwd_bar_bg {
+  background-color: #f5f5f5;
+  opacity: 80%;
+  height: 2.5em;
+  border-radius: 1.5em 1.5em 0 0;
+}
+
+.rwd_bar_content {
+  top: -0.9em;
+  z-index: 1;
+}
+
+.rwd_bar_icon:hover {
+  scale: 1.1;
+}
+
+.rwd_bar_text {
+  font-size: 0.8em;
+  color: #3C3C7B;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 900;
+}
+
+.rwd_bar_text2 {
+  font-size: 0.7em;
+  color: white;
+  font-family: 'Noto Sans TC', sans-serif;
+  background-color: #F5233C;
+  padding: 0.6em 1.3em;
+  border-radius: 3em;
+
+}
+
+.rwd_bar_text3 {
+  font-size: 0.7em;
+  color: white;
+  font-family: 'Noto Sans TC', sans-serif;
+  background-color: #3C3C7B;
+  padding: 0.6em 1.3em;
+  border-radius: 3em;
+  text-decoration: none;
+}
+
+
+.rwd_bar_text3:hover {
+  scale: 1.05;
+}
+
+
+ul li {
+  list-style-type: none;
+}
+
+ul li a {
+  text-decoration: 0.12em underline;
+  text-underline-offset: 0.4em
+}
+
+/* ----------------------------------------------------------- */
+/* 彈跳視窗_網頁捲軸把手 */
+
+dialog::-webkit-scrollbar {
+  width: 10px;
+
+}
+
+dialog::-webkit-scrollbar-thumb {
+  padding: 2em;
+  background: #c8c8c8;
+  border-radius: 3em;
+  overflow: hidden;
+  width: 5px;
+
+}
+
+/* ----------------------------------------------------------- */
+/* 彈跳視窗_網頁捲軸把手 */
+
+#infoModal {
+  border: none;
+  background-color: none;
+  background-color: white;
+  border: 1.8em solid #f08c55;
+  border-radius: 2.5em;
+  padding: 2em 2em 4em 2em;
+}
+
+/* dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+} */
+
+/* ----------------------------------------------------------- */
+
+/* 彈跳視窗_C-2-1確認抽盒 */
+
+#checkopen {
+  border-radius: 3em;
+  border: 1em solid #3C3C7B;
+  width: 450px;
+}
+
+.popup_close_checkopen {
+  opacity: 0.3;
+}
+
+.popup_close_checkopen:hover {
+  opacity: 0.5;
+}
+
+.popup_checkopen_text {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 1em;
+  color: #3C3C7B;
+  font-weight: 700;
+}
+
+.popup_checkopen_pic>img {
+  width: 18em;
+  height: 18em;
+  object-fit: cover;
+
+}
+
+.popup_checkopen_button {
+  border: none;
+  background-color: #F08C55;
+  padding: 0.5em 2em;
+  color: white;
+  font-size: 1em;
+  font-family: 'Noto Sans TC', sans-serif;
+  border-radius: 2em;
+  letter-spacing: 0.1em;
+  margin: 3em 0 1em 0;
+}
+
+.popup_checkopen_button:hover {
+  scale: 1.05;
+}
+
+/* ----------------------------------------------------------- */
+
+/* 彈跳視窗_C-2-2抽盒畫面 */
+
+#drawpage {
+  border-radius: 3em;
+  border: 1em solid #784123;
+  background-color: #784123;
+}
+
+#dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* 煙火 */
+/* basic styles for black background and crosshair cursor */
+
+canvas {
+  cursor: crosshair;
+  display: block;
+  z-index: 1;
+}
+
+/* 拉霸機 */
+.results {
+  width: 800px;
+  color: #fff;
+}
+
+.result {
+  height: 250px;
+  border-radius: 4px;
+  overflow: hidden;
+
+}
+
+
+.result-item {
+  background-color: white;
+  border: 1em solid #f0cd96;
+  overflow: hidden;
+}
+
+@media (max-width: 760px) {
   .results {
-    width: 800px;
+    width: 200px;
+    height: 200px;
     color: #fff;
-  }
-  
-  .result {
-    height: 250px;
-    border-radius: 4px;
     overflow: hidden;
-  
+
   }
-  
-  
+
+
   .result-item {
-    background-color: white;
-    border: 1em solid #f0cd96;
-  
-  
+    width: 200px;
+    height: 200px;
     overflow: hidden;
-  
+
   }
-  
-  /* 拉霸機動畫 */
-  .is-play {
-    animation: resultPlay 1s infinite linear;
+
+  .popup_drawpage_pic:nth-child(2n-1) {
+    display: none;
   }
-  
-  @keyframes resultPlay {
-    100% {
-      transform: translateY(-90%)
-    }
+
+}
+
+/* 拉霸機動畫 */
+.is-play {
+  animation: resultPlay 1s infinite linear;
+}
+
+@keyframes resultPlay {
+  100% {
+    transform: translateY(-90%)
   }
-  
-  
-  /* ----------------------------------------------------------- */
-  
-  
-  /* 彈跳視窗_C-2-3恭喜抽到 */
-  
-  #congratulations {
-    border-radius: 3em;
-    border: 1em solid #F08C55;
-    width: 450px;
-  }
-  
-  .popup_congratulations_text {
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1em;
-    color: #3C3C7B;
-    font-weight: 700;
-  }
-  
-  .popup_congratulations_text2 {
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1.3em;
-    color: #F5233C;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-  
-  }
-  
-  .popup_congratulations_text3 {
-    font-family: 'Rubik', sans-serif;
-    font-size: 1.1em;
-    color: #F5233C;
-    font-weight: 700;
-  }
-  
-  .popup_congratulations_pic>img {
-    width: 18em;
-    height: 18em;
-    object-fit: cover;
-  
-  }
-  
-  .popup_congratulations_button {
-    border: none;
-    background-color: #7887AA;
-    padding: 0.8em 2em;
-    color: white;
-    font-size: 0.8em;
-    font-family: 'Noto Sans TC', sans-serif;
-    border-radius: 2em;
-    letter-spacing: 0.1em;
-    margin: 3em 0.5em 2em 0;
-  }
-  
-  .popup_congratulations_button2 {
-    border: none;
-    background-color: #3C3C7B;
-    padding: 0.8em 2em;
-    color: white;
-    font-size: 0.8em;
-    font-family: 'Noto Sans TC', sans-serif;
-    border-radius: 2em;
-    letter-spacing: 0.1em;
-    margin: 3em 0 2em 0.5em;
-  }
-  
-  /* ----------------------------------------------------------- */
-  
-  
-  /* 彈跳視窗_C-2-4查看所有款式 */
-  
+}
+
+
+/* ----------------------------------------------------------- */
+
+
+/* 彈跳視窗_C-2-3恭喜抽到 */
+
+
+
+.popup_congratulations:hover {
+  opacity: 1;
+}
+
+#congratulations {
+  border-radius: 3em;
+  border: 1em solid #F08C55;
+  width: 450px;
+}
+
+.popup_congratulations_text {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 1em;
+  color: #3C3C7B;
+  font-weight: 700;
+}
+
+.popup_congratulations_text2 {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 1.3em;
+  color: #F5233C;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+
+}
+
+.popup_congratulations_text3 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.1em;
+  color: #F5233C;
+  font-weight: 700;
+}
+
+.popup_congratulations_pic>img {
+  width: 18em;
+  height: 18em;
+  object-fit: cover;
+
+}
+
+.popup_congratulations_button {
+  border: none;
+  background-color: #7887AA;
+  padding: 0.8em 2em;
+  color: white;
+  font-size: 0.8em;
+  font-family: 'Noto Sans TC', sans-serif;
+  border-radius: 2em;
+  letter-spacing: 0.1em;
+  margin: 3em 0.5em 2em 0;
+}
+
+.popup_congratulations_button2 {
+  border: none;
+  background-color: #3C3C7B;
+  padding: 0.8em 2em;
+  color: white;
+  font-size: 0.8em;
+  font-family: 'Noto Sans TC', sans-serif;
+  border-radius: 2em;
+  letter-spacing: 0.1em;
+  margin: 3em 0 2em 0.5em;
+}
+
+.popup_congratulations_button:hover {
+  scale: 1.05;
+}
+
+.popup_congratulations_button2:hover {
+  scale: 1.05;
+}
+
+/* ----------------------------------------------------------- */
+/* 彈跳視窗_C-2-4查看所有款式 */
+
+#lookall {
+  border-radius: 3em;
+  border: 0em solid white;
+  width: 700px;
+  padding: 0.8em;
+}
+
+
+.popup_lookall_title {
+  font-size: 1em;
+  padding: 0.5em 1em;
+  background-color: white;
+  font-family: 'Noto Sans TC', sans-serif;
+  border-radius: 0 0 1.3em 1.3em;
+  color: #3C3C7B;
+  width: 20%;
+}
+
+@media (max-width: 760px) {
   #lookall {
-    border-radius: 3em;
-    border: 0em solid white;
-    width: 700px;
-    padding: 0.8em;
-  }
-  
-  
-  .popup_lookall_title {
-    font-size: 1em;
-    padding: 0.5em 1em;
-    background-color: white;
-    font-family: 'Noto Sans TC', sans-serif;
-    border-radius: 0 0 1.3em 1.3em;
-    color: #3C3C7B;
-    width: 20%;
-  }
-  
-  /* 上_隱藏款 */
-  
-  #popup_close_lookall {
-    padding: 4%;
-    opacity: 0.5;
-  }
-  
-  .popup_lookall_content {
-    padding: 4em 1em;
-  }
-  
-  .popup_lookall_secret {
-    background-color: #3C3C7B;
-    border-radius: 2.5em 2.5em 0 0;
-  }
-  
-  .popup_lookall_secret_text1 {
-  
-    color: white;
-    font-family: 'Rubik', sans-serif;
-    -webkit-text-stroke: 0.02em white;
-    -webkit-text-fill-color: transparent;
-    font-size: 1.2em;
-  
-  }
-  
-  .popup_lookall_secret_text2 {
-    color: white;
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1em;
-  }
-  
-  .popup_lookall_secret_text3 {
-    color: #F08C55;
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: 1em;
-  }
-  
-  
-  .popup_lookall_secret_text4 {
-    font-family: 'Rubik', sans-serif;
-    font-size: 2.5em;
-    color: #F08C55;
-  }
-  
-  .popup_lookall_pic {
-    background-color: white;
-    border: 0.7em solid #F08C55;
-    border-radius: 3em;
     padding: 0.5em;
   }
-  
-  /* 下_一般款 */
+
+  .popup_lookall_title {
+    font-size: 0.8em;
+    width: 30%;
+  }
+}
+
+/* 上_隱藏款 */
+
+#popup_close_lookall {
+  padding: 4%;
+  opacity: 0.3;
+}
+
+#popup_close_lookall:hover {
+  opacity: 0.5;
+}
+
+.popup_lookall_content {
+  padding: 4em 1em;
+}
+
+.popup_lookall_secret {
+  background-color: #3C3C7B;
+  border-radius: 2.5em 2.5em 0 0;
+}
+
+.popup_lookall_secret_text1 {
+
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  -webkit-text-stroke: 0.02em white;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.2em;
+
+}
+
+.popup_lookall_secret_text2 {
+  color: white;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 1em;
+}
+
+.popup_lookall_secret_text3 {
+  color: #F08C55;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 1em;
+}
+
+
+.popup_lookall_secret_text4 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 2.5em;
+  color: #F08C55;
+}
+
+.popup_lookall_pic {
+  background-color: white;
+  border: 0.7em solid #F08C55;
+  border-radius: 3em;
+  padding: 0.5em;
+}
+
+@media (max-width: 760px) {
+  .popup_lookall_com {
+    display: none;
+  }
+
+  .popup_lookall_pic {
+    margin: 2em 0 0 0;
+  }
+}
+
+@media (min-width: 760px) {
+  .popup_lookall_rwd {
+    display: none;
+  }
+}
+
+/* 下_一般款 */
+.popup_lookall_general {
+  background-color: #F08C55;
+  border-radius: 0 0 2.5em 2.5em;
+  padding: 2.8em 3em 1em 3em;
+
+}
+
+.popup_lookall_general_pic {
+  padding: 0.2em;
+}
+
+.popup_lookall_general_pic img {
+  border: 0.7em solid #f5f5f5;
+  background-color: white;
+  border-radius: 3em;
+}
+
+.popup_lookall_general_text {
+  color: white;
+  font-size: 1em;
+  font-family: 'Noto Sans TC', sans-serif;
+  letter-spacing: 0.05em;
+
+}
+
+.popup_lookall_general_text2 {
+  color: white;
+  font-size: 0.7em;
+  font-family: 'Noto Sans TC', sans-serif;
+  border: 0.17em solid white;
+  padding: 0.4em;
+  margin: 1em 4em;
+  letter-spacing: 0.08em;
+  border-radius: 0.5em;
+}
+
+.popup_lookall_buy_button {
+  background-color: #3C3C7B;
+  padding: 0.8em 3em;
+  color: white;
+  font-size: 1em;
+  font-family: 'Noto Sans TC', sans-serif;
+  border-radius: 2em;
+  letter-spacing: 0.1em;
+  margin: 2em 0;
+  border: none;
+}
+
+.popup_lookall_buy_button:hover {
+  scale: 1.05;
+}
+
+
+@media (max-width: 760px) {
   .popup_lookall_general {
-    background-color: #F08C55;
     border-radius: 0 0 2.5em 2.5em;
-    padding: 2.8em 3em 1em 3em;
-  
+    padding: 2.8em 1.3em 1em 1.3em;
+
   }
-  
-  
-  .popup_lookall_general_pic {
-    padding: 0.2em;
-  }
-  
-  .popup_lookall_general_pic img {
-    border: 0.7em solid #f5f5f5;
-    background-color: white;
-    border-radius: 3em;
-  }
-  
-  .popup_lookall_general_text {
-    color: white;
-    font-size: 1em;
-    font-family: 'Noto Sans TC', sans-serif;
-    letter-spacing: 0.05em;
-  
-  }
-  
-  .popup_lookall_general_text2 {
-    color: white;
-    font-size: 0.7em;
-    font-family: 'Noto Sans TC', sans-serif;
-    border: 0.17em solid white;
-    padding: 0.4em;
-    margin: 1em 4em;
-    letter-spacing: 0.08em;
-    border-radius: 0.5em;
-  }
-  
-  .popup_lookall_buy_button {
-    border: none;
-    background-color: #3C3C7B;
-    padding: 0.8em 3em;
-    color: white;
-    font-size: 1em;
-    font-family: 'Noto Sans TC', sans-serif;
-    border-radius: 2em;
-    letter-spacing: 0.1em;
-    margin: 2em 0;
-  
-  }
+}
+
+
+/* ----------------------------------------------------------- */
+/* 換頁按鈕 */
+
+.swiper-button-next {
+  color: #F0F0F0;
+
+}
+
+.swiper-button-prev {
+  color: #a0a0a0;
+}

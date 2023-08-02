@@ -17,27 +17,24 @@ class SlotController extends Controller
     function slot($pid) {
         $this->pid = $pid;
         $product = $this->action->getProduct($this->pid);
-        // var_dump($product);
+        // 預計若有mid or token 則用該資料去找->用token找， 目前預設1
+        if (1) {
+            $times = $this->action->getMemberTimes(1, $pid);
+        }
         // $this->action->slot();
-        // echo $this->pid;
+        if (isset($times)) {
+            return view('testSlot', ["product" => $product, "times" => $times]);
+        }
         return view('testSlot', ["product" => $product]);
     }
 
     // 正式用
     function slotPrize() {
-        $this->action->getBoxProduct(1, 6);
-        echo $result = $this->action->slot(6);
-    }
-
-    // 測試功能用
-    function slotTest() {
-        $this->action->getBoxProduct(1, 6);
-        echo $result = $this->action->slot(6);
+        $this->action->getBoxProduct(1, 1);
+        echo $result = $this->action->slot(987);
     }
 
     function test() {
-        $this->slotTest();
-        // return '123';
-        // return $this->test;
+        $this->action->test();
     }
 }

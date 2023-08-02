@@ -35,7 +35,7 @@ Route::get('/actionfigure', [ActionFigureController::class, 'action'])->name('ac
 // Route::get('/product/{pid}', ProductController::class);
 
 // 拉霸機，抽獎
-Route::get('/product/slot/{pid}', [SlotController::class, 'slot']);
 Route::get('/product/slot/go', [SlotController::class, 'slotPrize']);
+Route::get('/product/slot/{pid}', [SlotController::class, 'slot']);
 
 

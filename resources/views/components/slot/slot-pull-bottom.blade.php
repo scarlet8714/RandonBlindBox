@@ -1,3 +1,4 @@
+@props(['product'])
         <!-- 左_抽獎機區 -->
         <div class="col-lg-12 col-xl-10">
           <!-- 抽獎機桌面外殼  -->
@@ -30,8 +31,12 @@
                 </div>
                 <!-- 機率說明 -->
                 <div class="col-xs-12 col-lg-10 machine_table_probability_text text-center">
-                <!-- 預計: 塞入機率 -->
-                    機率說明 ：全套共6款(每款16%機率) + 隱藏版1款(每款2.08%機率)
+                  機率說明 ：全套共{{ $product[0]['box_count'] }}款(每款{{ $product[1][0]['probability'] }}%機率) + 隱藏版1款(每款
+                  @foreach ($product[1] as $item)
+                    @if(strcmp($item['blind_id'], 'hide') == 0)
+                      {{ $item['probability'] }}
+                    @endif
+                  @endforeach  %機率)
                 </div>
                 <!-- 圈圈叉叉 -->
                 <div class="col-1 machine_table_icon_right">
@@ -60,3 +65,9 @@
             </div>
           </div>
         </div>
+{{-- 
+        <div style='width: 200px; height: 200px;'>
+            <button onclick="testclick('hoyo')">
+              click
+            </button>
+        </div> --}}

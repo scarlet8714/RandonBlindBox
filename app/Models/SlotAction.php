@@ -18,19 +18,75 @@ class SlotAction extends Model
     // 取得商品資訊
     function getProduct($pid) {
         $productImg = DB::select('SELECT showbar,open,box_count FROM `blind_photo` as bp left join `product` as p on bp.pid = p.pid where bp.pid  = ?', [$pid]);
-        $productBox = DB::select('SELECT * FROM `product_status` where pid = ? order by box_id ASC;', [$pid]);
-        // $result = array_merge(json_decode(json_encode($productImg), 1), json_decode(json_encode($productBox), 1));
+        $productBox = DB::select('SELECT * FROM `product_status` where pid = ? order by box_id ASC', [$pid]);
+        $productTypeImg = DB::select('SELECT * FROM `product_photo` where pid = ?', [$pid]);
 
         $result[0] = (json_decode(json_encode($productImg), 1))[0];
         $result[1] = json_decode(json_encode($productBox), 1);
+        $result[2] = json_decode(json_encode($productTypeImg), 1);
 
-        var_dump($result);
+        // 加入最大盲盒編號
+        $result[0]['max_box'] = $this->maxBox($result[1]);
+        // var_dump($result[0]);
+        // var_dump($this->maxBox($result[1]));
         return $result;
+    }
+
+    // 取得最大盲盒編號
+    function maxBox($boxArray) {
+        // var_dump($boxArray);
+        foreach($boxArray as $type) {
+            $temp = 0;
+            if ( $temp < $type['box_id'] ) {
+                $temp = $type['box_id'];
+            }
+        }
+        return $temp;
+    }
+
+    // 取得會員抽取次數
+    function getMemberTimes($mid, $pid) {
+        $times = DB::select('select times from lottery where mid = ? and pid = ?', [$mid, $pid]);
+        $times = json_decode(json_encode($times), 1);
+        return $times;
+    }
+
+    
+    // 抽獎，傳入訂單參數
+    function slot($oid) {
+        // $times = DB::select('select from lottory where oid = ?', []);
+        if($this->remain === 0) {
+            return json_encode('此中盒已空');
+        }
+        else if (0) {
+
+        }
+        else {
+            // 隨機數值
+            $slot = rand(0, (int)($this->countProbability() * 100));
+
+            if ($slot > (($this->countProbability() - $this->hide) * 100) || $this->countProbability() === $this->hide) {
+                // echo $this->countProbability() - $this->hide;
+                $this->getPrize[0] = 'hide';
+            }
+            else {
+                $temp = floor($slot / $this->probability / 100);
+                $this->getPrize = array_splice($this->prize, $temp, 1);
+            }
+            // $this->prizeDelete($this->box, $this->pid, $this->getPrize[0]);
+            // $this->prizeRecord($oid);
+            // var_dump($this->givePrize());
+            $remainTimes = $this->checkTimes(1, 1);
+            var_dump($remainTimes);
+
+            return json_encode($this->givePrize());
+        }
     }
 
     // 取得中盒商品資訊
     function getBoxProduct($box, $pid) {
         // $products = DB::select('select * from product where pid = ?', [$pid]);
+        // 找出該中盒剩餘可抽數量
         $remains = DB::select('select box_remain_blind(?, ?) as remain', [$box, $pid]);
         // 取得商品的抽獎機率以及中盒數量，排序修改後保證一般款的機率在上方
         $lottery = DB::select('select DISTINCT probability, box_count from product_status as ps left join product as p on ps.pid = p.pid where ps.pid = ? and ps.box_id = ? order by ps.probability DESC', [$pid, $box]); 
@@ -50,10 +106,6 @@ class SlotAction extends Model
                 $this->prize [] = 'hide';
             }
         }
-        
-
-        // var_dump($this->prize);
-        // echo '<br>';
 
         // 存入一般款式以及隱藏款式的機率，以及該中盒剩餘數量
         $this->remain = $remains[0]->remain;
@@ -70,40 +122,13 @@ class SlotAction extends Model
         return ($this->remain * $this->probability + $this->hide);
     }
 
-    // 抽獎
-    function slot($oid) {
-        // $times = DB::select('select from lottory where oid = ?', []);
-        if($this->remain === 0) {
-            return json_encode('此中盒已空');
-        }
-        else if (0) {
-
-        }
-        else {
-            // 隨機數值
-            $slot = rand(0, (int)($this->countProbability() * 100));
-            // echo $this->countProbability() - $this->hide . ' *** ' . $slot;
-
-            if ($slot > (($this->countProbability() - $this->hide) * 100) || $this->countProbability() === $this->hide) {
-                // echo $this->countProbability() - $this->hide;
-                $this->getPrize[0] = 'hide';
-            }
-            else {
-                $temp = floor($slot / $this->probability / 100);
-                $this->getPrize = array_splice($this->prize, $temp, 1);
-            }
-            $this->prizeDelete($this->box, $this->pid, $this->getPrize[0]);
-            $this->prizeRecord($oid);
-            return json_encode($this->givePrize());
-            // return $this->givePrize();
-        }
-    }
-
     // 轉換代號成為款式
     function givePrize() {
-        $result = DB::select('select name, photo from product_photo where pid = ? and blind_id = ?', [$this->pid, $this->getPrize[0]]);
-        $result = $result[0]->name;
-        return $result;
+        $results = DB::select('select name, photo_bg from product_photo where pid = ? and blind_id = ?', [$this->pid, $this->getPrize[0]]);
+        $prize = [];
+        $prize['name'] = $results[0]->name;
+        $prize['photo'] = $results[0]->photo_bg;
+        return $prize;
     }
 
     // 扣除該中盒款式數量
@@ -119,6 +144,19 @@ class SlotAction extends Model
 
     // 該會員抽獎次數
     function checkTimes($mid, $pid) {
-        DB::select('select times from lottery where pid = ? and mid = ?', [$mid, $pid]);
+        return DB::select('select times from lottery where pid = ? and mid = ?', [$mid, $pid]);
+    }
+
+    // 測試功能用
+    function test() {
+        $results = DB::select('select pid, sum(quantity) as sold from order_details where sid = 3 GROUP by pid order by sold desc limit 10;');
+        $bestSell = [];
+        foreach($results as $result) {
+            $bestSell[] = $result->pid;
+        }
+        $result = DB::select('select * from product where pid in ('. implode(",", $bestSell) . ')' . 'order by field (pid,' . implode(",", $bestSell) . ')');
+         
+        var_dump($result);
+        // var_dump($bestSell);
     }
 }
