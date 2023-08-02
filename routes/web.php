@@ -21,10 +21,33 @@ use Illuminate\Support\Facades\Cookie;
 
 Route::get('/', [HomeController::class, 'action'])->name('index');
 Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('authmember');
-Route::get('/membercenter', function(){
-    return view('membercenter');
-})->name('membercenter');
-Route::post('/loginauth',[Auth::class, 'auth']);
+///////////////////////////////////////////
+Route::get('/myaccount', function(){
+    return view('membercenterpage.myaccount');
+})->name('myaccount');
+Route::get('/myorder', function(){
+    return view('membercenterpage.myorder');
+})->name('myorder');
+Route::get('/orderdetail', function(){
+    return view('membercenterpage.orderdetail');
+})->name('orderdetail');
+Route::get('/coupon', function(){
+    return view('membercenterpage.coupon');
+})->name('coupon');
+Route::get('/favoritelist', function(){
+    return view('membercenterpage.favoritelist');
+})->name('coupon');
+Route::get('/cartpage', function(){
+    return view('checkoutpage.cart');
+})->name('cartpage');
+Route::get('/information', function(){
+    return view('checkoutpage.information');
+})->name('information');
+Route::get('/confirm', function(){
+    return view('checkoutpage.confirm');
+})->name('confirm');
+////////////////////////////////////////////
+// Route::post('/loginauth',[Auth::class, 'auth']);
 Route::get('/logout', function(){
     Cookie::queue(Cookie::forget('token'));
     return redirect('/');
