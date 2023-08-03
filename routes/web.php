@@ -58,7 +58,11 @@ Route::get('/actionfigure', [ActionFigureController::class, 'action'])->name('ac
 // Route::get('/product/{pid}', ProductController::class);
 
 // 拉霸機，抽獎
-Route::get('/product/slot/go', [SlotController::class, 'slotPrize']);
+Route::post('/product/slot/go', [SlotController::class, 'slotPrize']);
+Route::post('/product/slot/test', [SlotController::class, 'testGo']);
+Route::get('/product/slot/test', function() {
+    return view('sendTest');
+});
 Route::get('/product/slot/{pid}', [SlotController::class, 'slot']);
 
 

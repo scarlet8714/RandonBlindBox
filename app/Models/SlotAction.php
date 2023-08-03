@@ -27,9 +27,13 @@ class SlotAction extends Model
 
         // 加入最大盲盒編號
         $result[0]['max_box'] = $this->maxBox($result[1]);
-        // var_dump($result[0]);
-        // var_dump($this->maxBox($result[1]));
+
         return $result;
+    }
+
+    // 取得商品彈幕
+    function getBullet($pid) {
+        $result = DB::select('select from lottery_details');
     }
 
     // 取得最大盲盒編號
@@ -54,7 +58,6 @@ class SlotAction extends Model
     
     // 抽獎，傳入訂單參數
     function slot($oid) {
-        // $times = DB::select('select from lottory where oid = ?', []);
         if($this->remain === 0) {
             return json_encode('此中盒已空');
         }
@@ -73,13 +76,15 @@ class SlotAction extends Model
                 $temp = floor($slot / $this->probability / 100);
                 $this->getPrize = array_splice($this->prize, $temp, 1);
             }
-            // $this->prizeDelete($this->box, $this->pid, $this->getPrize[0]);
-            // $this->prizeRecord($oid);
+            // 扣除該獎項
+            $this->prizeDelete($this->box, $this->pid, $this->getPrize[0]);
+            // 紀錄該獎項
+            $this->prizeRecord($oid);
             // var_dump($this->givePrize());
-            $remainTimes = $this->checkTimes(1, 1);
-            var_dump($remainTimes);
+            $remainTimes = $this->checkTimes(1, 6);
+            // var_dump($remainTimes);
 
-            return json_encode($this->givePrize());
+            return json_decode(json_encode($this->givePrize()), 1);
         }
     }
 
@@ -128,6 +133,7 @@ class SlotAction extends Model
         $prize = [];
         $prize['name'] = $results[0]->name;
         $prize['photo'] = $results[0]->photo_bg;
+        // var_dump($prize);
         return $prize;
     }
 
@@ -149,14 +155,17 @@ class SlotAction extends Model
 
     // 測試功能用
     function test() {
-        $results = DB::select('select pid, sum(quantity) as sold from order_details where sid = 3 GROUP by pid order by sold desc limit 10;');
-        $bestSell = [];
-        foreach($results as $result) {
-            $bestSell[] = $result->pid;
-        }
-        $result = DB::select('select * from product where pid in ('. implode(",", $bestSell) . ')' . 'order by field (pid,' . implode(",", $bestSell) . ')');
+        // 測試撈熱門商品
+        // $results = DB::select('select pid, sum(quantity) as sold from order_details where sid = 3 GROUP by pid order by sold desc limit 10;');
+        // $bestSell = [];
+        // foreach($results as $result) {
+        //     $bestSell[] = $result->pid;
+        // }
+        // $result = DB::select('select * from product where pid in ('. implode(",", $bestSell) . ')' . 'order by field (pid,' . implode(",", $bestSell) . ')');
          
-        var_dump($result);
-        // var_dump($bestSell);
+        // var_dump($result);
+
+        // return view('test');
     }
+
 }

@@ -1,3 +1,9 @@
+// import Swiper bundle with all modules installed
+import Swiper from 'swiper/bundle';
+
+// import styles bundle
+import 'swiper/css/bundle';
+
 // -----------------------------------------------------------
 // 抽獎機外盒_商品外盒滾動圖
 var swiper = new Swiper('.swiper', {
@@ -20,7 +26,6 @@ var swiper = new Swiper('.swiper', {
 // -----------------------------------------------------------
 // 彈跳視窗_C-2-1確認抽盒
 let btn_checkopen_array = document.querySelectorAll(".popup_show_checkopen");
-console.log(btn_checkopen_array);
 btn_checkopen_array.forEach( function (box) {
 	box.addEventListener("click", function () {
 		checkopen.showModal();
@@ -49,6 +54,7 @@ confirm_checkopen.addEventListener("click", function () {
 
 // -----------------------------------------------------------
 // 彈跳視窗_C-2-2抽獎畫面
+const csrfToken = document.head.querySelector("[name~=csrf-token][content]").content;
 const congratulations = document.getElementById('congratulations');
 let btn_drawpage = document.querySelector("#popup_show_drawpage");
 let drawpage = document.querySelector("#drawpage");
@@ -56,14 +62,28 @@ let drawpage = document.querySelector("#drawpage");
 const slot_start = document.querySelector(".result");
 btn_drawpage.addEventListener("click", function () {
 	drawpage.showModal();
-	fetch('/product/slot/go')
+	fetch('/product/slot/go', {
+		method: 'POST',
+		body: JSON.stringify({
+				pid: 1
+				// token: '',
+			}),
+		headers: {
+			'Content-Type': 'application/json',
+			"X-CSRF-Token": csrfToken
+		}
+	})
 	.then(function (response) {
 		return response.json();
 	})
 	.then(function (prize) {
-		let result = document.getElementById('prize');
 		console.log(prize);
-		result.innerHTML = prize;
+		// 取得紀錄的獎品名稱和圖片
+		let result = document.getElementById('prize');
+		let resultImg = document.querySelector('#prizeImg');
+		// console.log(resultImg);
+		result.innerHTML = prize['name'];
+		resultImg.setAttribute('src', '/' + prize['photo']);
 	})
 	/******************開啟點擊暫停動畫 ****************/
 	slot_start.addEventListener("click", stopAnimation);
@@ -414,6 +434,14 @@ canvas.addEventListener('mouseup', function (e) {
 	e.preventDefault();
 	mousedown = false;
 });
+
+// 彈幕
+let bulletBtn = document.getElementById('switch');
+bulletBtn.addEventListener('click', function() {
+	// 點擊隱藏彈幕
+	let bullet = document.getElementById('bullet');
+	bullet.classList.toggle('hide');
+})
 
 // once the window loads, we are ready for some fireworks!
 window.onload = loop;

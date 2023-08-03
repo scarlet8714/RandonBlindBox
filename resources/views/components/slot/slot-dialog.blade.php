@@ -21,7 +21,12 @@
           您確定要抽這一盒？
         </div>
         <div class="d-flex justify-content-center">
-          <button id="popup_show_drawpage" class="popup_checkopen_button">確定抽盒!</button>
+          {{-- <form action="/product/slot/go" method="post"> --}}
+            {{-- @csrf --}}
+            {{-- <input type="text" style="display: none"> --}}
+            {{-- <input type="text" style="display: none"> --}}
+            <button id="popup_show_drawpage" class="popup_checkopen_button">確定抽盒!</button>            
+          {{-- </form> --}}
         </div>
       </div>
     </div>
@@ -96,7 +101,7 @@
           果醬製作BOB
         </div>
         <div class="popup_congratulations_pic d-flex justify-content-center">
-          <img src="./img/C-2/5.jpg" class="img-fluid" alt="">
+          <img id="prizeImg" src="\imgs\minions\main_minions_at_work\product_pattern\b.jpeg" class="img-fluid" alt="">
         </div>
         <div class="d-flex justify-content-center">
           <div class="popup_congratulations_text pe-1">剩餘</div>

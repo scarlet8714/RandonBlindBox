@@ -362,8 +362,8 @@
 }
 
 .machine_screen_box>img {
-  width: 18em;
-  height: 18em;
+  width: 16.5em;
+  height: 16.5em;
   object-fit: cover;
 
 }
@@ -1184,4 +1184,10 @@ canvas {
 
 .swiper-button-prev {
   color: #a0a0a0;
+}
+
+/* ----------------------------------------------------------- */
+/* 隱藏 */
+.hide {
+  display: none;
 }

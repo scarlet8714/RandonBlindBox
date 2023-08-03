@@ -44,7 +44,7 @@
     </div>
     <!-- 彈幕按鈕 -->
     <div class="checkbox-wrapper-35 position-absolute end-0">
-      <input value="private" name="switch" id="switch" type="checkbox" class="switch">
+      <input value="private" name="switch" id="switch" type="checkbox" class="switch" checked="checked">
       <label for="switch">
         <span class="switch-x-toggletext">
           <span class="switch-x-unchecked"><span id="bullet_close" class="switch-x-hiddenlabel">Unchecked:
