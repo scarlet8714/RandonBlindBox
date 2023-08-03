@@ -132,7 +132,7 @@
 
 }
 
-.products_series_btn:hover {
+.products_series_btn:focus {
     background: #3C3C78;
     color: white;
 }
