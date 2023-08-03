@@ -47,7 +47,7 @@ Route::get('/confirm', function(){
     return view('checkoutpage.confirm');
 })->name('confirm');
 ////////////////////////////////////////////
-Route::post('/loginauth',[Auth::class, 'auth']);
+// Route::post('/loginauth',[Auth::class, 'auth']);
 Route::get('/logout', function(){
     Cookie::queue(Cookie::forget('token'));
     Cookie::queue(Cookie::forget('name'));
