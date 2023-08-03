@@ -36,7 +36,7 @@ Route::get('/coupon', function(){
 })->name('coupon');
 Route::get('/favoritelist', function(){
     return view('membercenterpage.favoritelist');
-})->name('coupon');
+})->name('favoritelist');
 Route::get('/cartpage', function(){
     return view('checkoutpage.cart');
 })->name('cartpage');
@@ -50,9 +50,13 @@ Route::get('/confirm', function(){
 // Route::post('/loginauth',[Auth::class, 'auth']);
 Route::get('/logout', function(){
     Cookie::queue(Cookie::forget('token'));
+    Cookie::queue(Cookie::forget('name'));
     return redirect('/');
 })->name('logout');
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::get('/forgetPassword', [LoginController::class, 'forgetPassword'])->name('forgetPassword');
 Route::get('/actionfigure', [ActionFigureController::class, 'action'])->name('actionfigure');
-// Route::get('/product/{pid}', ProductController::class);
+Route::get('/product', [ProductController::class, 'action']);
+
+Route::post('/addcart', [CartController::class, 'addcart']);
+Route::post('/cart2check', [CartController::class, 'add']);

@@ -18,6 +18,7 @@ class Auth extends Controller
         $res = $this->auth->auth($account, $password);
         if($res[0]->result == 'success'){ 
             Cookie::queue('token', $res[0]->token, 2628000);
+            Cookie::queue('name', $res[0]->name, 2628000);
         }
         return redirect('/');
 
