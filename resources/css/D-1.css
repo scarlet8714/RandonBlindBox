@@ -1,0 +1,218 @@
+/* ----------------------------------------------------------- */
+/* 商品款式圖 */
+/* Swiper */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fuckyou {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.mySwiper2 {
+  height: 80%;
+  width: 100%;
+}
+
+.mySwiper {
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0 !important;
+}
+
+.mySwiper .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+/* ----------------------------------------------------------- */
+/* 商品資訊 */
+
+.q-select{
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  background-color: white;
+  border-width: 0.01em;
+}
+
+
+.product_name {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 600;
+  font-size: 1.6em;
+  letter-spacing: 0.05em;
+}
+
+
+@media (max-width: 760px){
+  .product_name {
+    font-size: 1.4em;
+  }
+}
+
+.product_price {
+  font-family: 'Rubik', sans-serif;
+  color: #F5233C;
+}
+
+
+.product_category {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: white;
+  background-color: #3C3C78;
+  font-size: 0.9em;
+  border-radius: 0.5em;
+  letter-spacing: 0.1em;
+  padding: 0.4em;
+}
+
+
+
+.product_quantity {
+  border: 1px solid transparent;
+  width: 3em;
+}
+
+.product_button_orange {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: white;
+  background-color: #f08c55;
+  font-size: 0.9em;
+  border: none;
+  padding: 0.7em 0em;
+  letter-spacing: 0.2em;
+}
+
+.product_button_blue {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: white;
+  background-color: #3C3C78;
+  border: none;
+  font-size: 0.9em;
+  padding: 0.7em 0em;
+  letter-spacing: 0.2em;
+}
+
+.product_text {
+  font-family: 'Noto Sans TC', sans-serif;
+  letter-spacing: 0.03em;
+}
+
+/* ------------------------------ */
+/* 我的收藏按鈕 */
+
+.button_favorite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.favorite_filled,
+.favorite_empty {
+  fill: #F5233C;
+  transition: opacity 100ms ease-in-out;
+}
+
+.favorite_filled {
+  position: absolute;
+  opacity: 0;
+}
+
+@keyframes beatingHeart {
+  0% {
+    transform: scale(1);
+  }
+
+  15% {
+    transform: scale(1.15);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.15);
+  }
+
+  60% {
+    transform: scale(1);
+  }
+}
+
+.button_favorite:hover .favorite_empty {
+  opacity: 0;
+}
+
+.button_favorite:hover .favorite_filled {
+  opacity: 1;
+  animation: beatingHeart 1.2s infinite;
+}
+/* ----------------------------------------------------------- */
+
+/* 新品上市 */
+.all_title {
+  padding: 1% 8% 1% 8%;
+  color: #3C3C78;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+}
+
+.all_price {
+  color: #F5233C;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+}
+
+
+.top_selling_word {
+  color: #3C3C78;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+}
+
+.new_arrivals_text {
+  color: #3C3C78;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 900;
+}
+
+.swiper_like {
+  width: 100%;
+  /* height: 300px; */
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
