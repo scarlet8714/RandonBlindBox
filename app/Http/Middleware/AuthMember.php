@@ -17,7 +17,7 @@ class AuthMember
     public function handle(Request $request, Closure $next): Response
     {
         if($request->cookie('token')){
-            return redirect('membercenter');
+            return redirect('myaccount');
         }
         return $next($request);
     }
