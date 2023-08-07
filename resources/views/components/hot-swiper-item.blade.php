@@ -2,7 +2,7 @@
 <div class="swiper-slide px-2">
     <div class="position-relative">
       <div>
-        <img src="{{$imgpath->head_photo}}" class="img-fluid" alt="">
+        <a href="/product/{{$imgpath->pid}}"><img src="{{$imgpath->head_photo}}" class="img-fluid" alt=""></a> 
         <table>
           <tr>
             <td>

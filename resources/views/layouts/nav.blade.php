@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg nav_color">
     <div class="container-fluid">
       <!-- logo -->
-      <a class="navbar-brand ms-5" href="#">
+      <a class="navbar-brand ms-5" href="/">
         <x-random-logo />
       </a>
       <!--        -->
@@ -29,7 +29,7 @@
         <!-- navicon -->
         <a href="{{route('login')}}"><x-user-icon /></a>
         <a class="showcart"><x-cart-icon /></a>
-        <div class="position-absolute d-none cart-container">
+        {{-- <div class="position-absolute d-none cart-container">
           <div class="cartitem d-flex p-3 m-3">
             <div class="col-4 pe-3 d-flex"><img class="img-fluid my-auto" src="./img/a_homepage/p01.jpg" alt=""></div>
             <div class="col-8 position-relative">
@@ -44,8 +44,29 @@
           <div class="d-flex checkout-btn justify-content-center py-2">
             <h5 class="my-auto">訂單結帳</h4>
           </div>
-        </div>
+        </div> --}}
+        <x-nav-cart />
+          {{-- @if (isset($membercart))
+              @foreach ($membercart as $item)
+                <x-nav-cart-item>
+                  <x-slot:img>
+                    {{$item->head_photo}}
+                  </x-slot:img>
+                  <x-slot:name>
+                    {{$item->name}}
+                  </x-slot:name>
+                  <x-slot:price>
+                    {{$item->price}}
+                  </x-slot:price>
+                  <x-slot:quantity>
+                    {{$item->quantity}}
+                  </x-slot:quantity>
+                </x-nav-cart-item>
+              @endforeach
+          @endif --}}
+        {{-- </x-nav-cart> --}}
         <x-like-icon />
       </div>
     </div>
 </nav>
+        

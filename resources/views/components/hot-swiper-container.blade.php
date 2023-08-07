@@ -13,7 +13,7 @@
           <!-- 山洞 -->
           <div class="col-md-12 col-lg-9 top_selling_cave p-5 position-relative">
             <div class="rounded-circle top_selling_circle p-5 bg-white">
-              <img src="{{$imgpath[0]->head_photo}}" class="img-fluid" alt="">
+              <a href="/product/{{$imgpath[0]->pid}}"><img src="{{$imgpath[0]->head_photo}}" class="img-fluid" alt=""></a> 
             </div>
             <!-- NO.1 -->
             <div class="position-absolute" style="top: 3%;">

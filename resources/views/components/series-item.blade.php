@@ -7,7 +7,7 @@
             <div class="row">
                 @foreach ($imgpath as $item)
                     <div class="col-6 col-md-6 col-lg-3">
-                        <img src=" {{$item->head_photo}}" class="img-fluid" alt="">
+                        <a href="/product/{{$item->pid}}"><img src=" {{$item->head_photo}}" class="img-fluid" alt=""></a> 
                         <div class="px-4 py-4">
                             <h6 class="text-center top_selling_word lh-1">{{$item->name}}</h6>
                             <h6 class="text-center  all_price lh-1">${{$item->price}}</h6>

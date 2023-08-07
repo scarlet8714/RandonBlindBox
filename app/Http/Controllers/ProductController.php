@@ -17,10 +17,10 @@ class ProductController extends Controller
         $this->hotmodel = new ProductListHot();
     }
     //   
-    public function action(){
-        $pro = $this->product->imgpath();
-        $proph = $this->productphoto->imgpath();
-        $pay = $this->payment->payment();
+    public function action($pid){
+        $pro = $this->product->imgpath($pid);
+        $proph = $this->productphoto->imgpath($pid);
+        $pay = $this->payment->payment($pid);
         $hot = $this->hotmodel->imgpath();
         return view('productdetail', ['product'=> $pro, 'productphoto' => $proph, 'payment' => $pay, 'hot' => $hot]);
     }

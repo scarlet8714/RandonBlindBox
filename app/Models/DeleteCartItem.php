@@ -6,11 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class ProductPhotoAll extends Model
+class DeleteCartItem extends Model
 {
     use HasFactory;
-    public function imgpath($pid){
-        $productphoto = DB::select('select * from product_photo where pid = ?;', [$pid]);
-        return $productphoto;
+    public function dci($cid){
+        DB::delete('delete from cart where cid = ?', [$cid]);
     }
 }
