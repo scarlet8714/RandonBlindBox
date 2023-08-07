@@ -1,7 +1,5 @@
 /* icon---------------------------------- */
 
-
-
 ul {
     margin:0;
     padding:0;
@@ -12,18 +10,18 @@ ul {
   
   .pub-wrap {
     position: relative;
-    padding: 0 38px 10px 31px;
-    margin-top: 90px;
+    padding: 0 38px 0px 31px !important;
+    margin-top: 90px !important; 
     border-radius: 6px;
     /* background-color: #edf2f2; */
   }
 
-  
+
   .pub-process {
     position: relative;
     height: 35px;
     margin-top: 28px;
-    margin-left: 35px;
+    /* margin-left: 35px; */
     font-size: 0;
     color: #fff;
   }
@@ -252,7 +250,7 @@ ol {
 
 }
 
-.confirm_draw>button {
+.confirm_draw button {
     float: right;
     /* margin-right: 55px; */
     background-color: #3c3c78;
@@ -262,7 +260,7 @@ ol {
     padding: 8px 25px 8px 35px;
 }
 
-.confirm_draw>button:hover {
+.confirm_draw button:hover {
     background-color: white;
     border: 2px solid #3c3c78;
     color: #3c3c78;
@@ -554,7 +552,7 @@ th {
     color: white;   
 }
 
-.submit_order>button {
+.submit_order button {
     float: right;
     /* margin-right: 55px; */
     background-color: #3c3c78;
@@ -564,7 +562,7 @@ th {
     padding: 8px 27px 8px 35px;
 }
 
-.submit_order>button:hover{
+.submit_order button:hover{
     background-color: white;
     border: 2px solid #3c3c78;
     color: #3c3c78;
@@ -601,7 +599,7 @@ th {
   border: 2px solid #3c3c78;
     
 }
-.confirm_draw>button {
+.confirm_draw>a>button {
     float: right;
     background-color: #3c3c78;
     color: white;
@@ -610,7 +608,7 @@ th {
     border-radius: 30px;
     padding: 8px 35px;
 }
-.confirm_draw>button:hover {
+.confirm_draw button:hover {
   background-color: white;
   border: 2px solid #3c3c78;
   color: #3c3c78;
