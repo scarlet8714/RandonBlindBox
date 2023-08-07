@@ -25,14 +25,14 @@ class SlotController extends Controller
             $times = $this->action->getMemberTimes(1, $pid);
         }
         if (isset($times)) {
-            return view('slot', ["product" => $product, "times" => $times]);
+            return view('slot', ["product" => $product, "times" => $times, "pid" => $pid]);
         }
-        return view('slot', ["product" => $product]);
+        return view('slot', ["product" => $product, "pid" => $pid]);
     }
 
     // 正式用
     function slotPrize(Request $request) {
-        $this->action->getBoxProduct(1, 1);
+        $this->action->getBoxProduct($request->boxId, $request->pid);
         // 傳送訂單號
         $result = $this->action->slot(987);
         return json_encode($result);

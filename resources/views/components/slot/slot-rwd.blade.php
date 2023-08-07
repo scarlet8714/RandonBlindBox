@@ -1,3 +1,4 @@
+@props(['times'])
   <!-- RWD BAR -->
   <div class="fixed-bottom rwd_bar">
     <div class="position-absolute rwd_bar_content ">
@@ -65,8 +66,16 @@
           </li>
           <!-- 剩餘_次 -->
           <li class=" ms-3  d-flex align-self-end">
-            <div class="rwd_bar_text2 text-center">
-              剩餘 0 次
+            <div class="rwd_bar_text2 text-center remainTimes">
+              剩餘 
+              @if (isset($times[0]['times']) && $times[0]['times'] > 9)
+                  {{ $times[0]['times'] }}
+              @elseif (isset($times[0]['times']))
+                  {{ '0' . $times[0]['times'] }}
+              @else
+                  {{ 0 }}
+              @endif
+              次
             </div>
           </li>
           <!-- 購買抽盒機會 -->

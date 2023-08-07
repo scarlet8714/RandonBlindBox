@@ -17,19 +17,18 @@ class SlotAction extends Model
 
     // 取得商品資訊
     function getProduct($pid) {
-        $productImg = DB::select('SELECT showbar,open,box_count FROM `blind_photo` as bp left join `product` as p on bp.pid = p.pid where bp.pid  = ?', [$pid]);
+        $productImg = DB::select('SELECT showbar,open,box_count,sold FROM `blind_photo` as bp left join `product` as p on bp.pid = p.pid left join product_status as ps on bp.pid = ps.pid where bp.pid  = ? ORDER BY ps.box_id ASC, ps.blind_id ASC', [$pid]);
         $productBox = DB::select('SELECT * FROM `product_status` where pid = ? order by box_id ASC', [$pid]);
         $productTypeImg = DB::select('SELECT * FROM `product_photo` where pid = ?', [$pid]);
         $whoGot = DB::select('select DISTINCT m.name, pp.name as prize from lottery_details as ld left join product_photo as pp on ld.pid = pp.pid left join orders as o on o.oid = ld.oid left join member as m on o.mid = m.mid where ld.pid = ? and pp.blind_id in (select blind_id from lottery_details where pid = ?);', [$pid, $pid]);
 
-        $result[0] = (json_decode(json_encode($productImg), 1))[0];
+        $result[0] = (json_decode(json_encode($productImg), 1));
         $result[1] = json_decode(json_encode($productBox), 1);
         $result[2] = json_decode(json_encode($productTypeImg), 1);
         $result[3] = json_decode(json_encode($whoGot), 1);
 
         // 加入最大盲盒編號
         $result[0]['max_box'] = $this->maxBox($result[1]);
-        // var_dump($result[3]);
 
         return $result;
     }
@@ -68,10 +67,11 @@ class SlotAction extends Model
             $temp = floor($slot / $this->probability / 100);
             $this->getPrize = array_splice($this->prize, $temp, 1);
             // 扣除該獎項
-            // $this->prizeDelete($this->box, $this->pid, $this->getPrize[0]);
+            $this->prizeDelete($this->box, $this->pid, $this->getPrize[0]);
             // 紀錄該獎項
-            // $this->prizeRecord($oid);
+            $this->prizeRecord($oid);
             $remainTimes = $this->checkTimes(1, $this->pid);
+            // var_dump($remainTimes);
 
             $prize = json_decode(json_encode($this->givePrize()), 1);
             $prize['remainTimes'] = $remainTimes[0]->times;
@@ -145,7 +145,7 @@ class SlotAction extends Model
 
     // 該會員抽獎次數，預計會傳入token
     function checkTimes($mid, $pid) {
-        return DB::select('select times from lottery where pid = ? and mid = ?', [$mid, $pid]);
+        return DB::select('select times from lottery where pid = ? and mid = ?', [$pid, $mid]);
     }
 
     // 測試功能用

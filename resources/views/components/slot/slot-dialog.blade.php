@@ -15,7 +15,7 @@
         </a>
         <!-- 內容 -->
         <div class="popup_checkopen_pic pt-5">
-          <img src="/{{ $product[0]['open'] }}" class="img-fluid" alt="">
+          <img src="/{{ $product[0][0]['open'] }}" class="img-fluid" alt="">
         </div>
         <div class="popup_checkopen_text text-center">
           您確定要抽這一盒？

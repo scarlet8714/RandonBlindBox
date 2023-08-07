@@ -31,7 +31,7 @@
                 </div>
                 <!-- 機率說明 -->
                 <div class="col-xs-12 col-lg-10 machine_table_probability_text text-center">
-                  機率說明 ：全套共{{ $product[0]['box_count'] }}款(每款{{ $product[1][0]['probability'] }}%機率) + 隱藏版1款(每款
+                  機率說明 ：全套共{{ $product[0][0]['box_count'] }}款(每款{{ $product[1][0]['probability'] }}%機率) + 隱藏版1款(每款
                   @foreach ($product[1] as $item)
                     @if(strcmp($item['blind_id'], 'hide') == 0)
                       {{ $item['probability'] }}

@@ -65,10 +65,12 @@
                     剩餘
                   </div>
                   <div class="position-absolute handle_text2 remainTimes">
-                    @if (isset($times[0]['times']))
+                    @if (isset($times[0]['times']) && $times[0]['times'] > 9)
                         {{ $times[0]['times'] }}
+                    @elseif (isset($times[0]['times']))
+                        {{ '0' . $times[0]['times'] }}
                     @else
-                        {{ 99 }}
+                        {{ 0 }}
                     @endif
                   </div>
                   <div class="position-absolute handle_text3">

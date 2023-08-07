@@ -26,10 +26,17 @@ var swiper = new Swiper('.swiper', {
 // -----------------------------------------------------------
 // 彈跳視窗_C-2-1確認抽盒
 let btn_checkopen_array = document.querySelectorAll(".popup_show_checkopen");
+
+// 紀錄哪個中盒以及哪個盲盒
+var selectedBox = '';
+var selectedBlind = '';
 btn_checkopen_array.forEach( function (box) {
 	box.addEventListener("click", function () {
 		checkopen.showModal();
 		darkMask.classList.remove('d-none');
+		selectedBlind = this.id;
+		selectedBox = this.parentNode.parentNode.id;
+		selectedBox = selectedBox.replace('box', '');
 	})
 } )
 
@@ -58,15 +65,21 @@ const csrfToken = document.head.querySelector("[name~=csrf-token][content]").con
 const congratulations = document.getElementById('congratulations');
 let btn_drawpage = document.querySelector("#popup_show_drawpage");
 let drawpage = document.querySelector("#drawpage");
+
 // let close_drawpage = document.querySelector("#popup_close_drawpage");
 const slot_start = document.querySelector(".result");
 btn_drawpage.addEventListener("click", function () {
 	drawpage.showModal();
 	document.getElementById(`result`).classList.add('is-play');
+	alert(selectedBox);
+	let product = document.getElementById('pid').value;
+	// 傳遞抽獎請求
 	fetch('/product/slot/go', {
 		method: 'POST',
 		body: JSON.stringify({
-				pid: 1
+				pid: product,
+				boxId: selectedBox
+				// 預設存token
 				// token: '',
 			}),
 		headers: {
@@ -82,14 +95,23 @@ btn_drawpage.addEventListener("click", function () {
 		// 取得紀錄的獎品名稱和圖片
 		let result = document.getElementById('prize');
 		let resultImg = document.querySelector('#prizeImg');
-		// console.log(resultImg);
 		result.innerHTML = prize['name'];
 		resultImg.setAttribute('src', '/' + prize['photo']);
 
+		// 將會使用到剩餘次數的部分都修改
 		const times = document.querySelectorAll('.remainTimes');
 		times.forEach( function (time) {
-			time.innerHTML = prize['remainTimes'];
+			if (prize['remainTimes'] < 9) {
+				time.innerHTML = '0' + prize['remainTimes'];
+			}
+			else {
+				time.innerHTML = prize['remainTimes'];
+			}
 		})
+
+		// 加上灰階及不可點擊
+		let off = document.getElementById(selectedBlind);
+		off.setAttribute('style', 'pointer-events:none ; filter:grayscale(1)');
 	})
 	/******************開啟點擊暫停動畫 ****************/
 	slot_start.addEventListener("click", stopAnimation);

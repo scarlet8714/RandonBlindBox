@@ -1,4 +1,5 @@
 @props(['product'])
+@props(['pid'])
 <div class="col-lg-12 col-xl-10">
   <div class="position-relative">
     <!-- 抽獎機招牌_Logo -->
@@ -60,7 +61,7 @@
       <div class="machine_in">
         <!-- 商品款式橫幅 -->
         <div class="machine_screen_top_out position-relative">
-          <img src="/{{ $product[0]['showbar'] }}" class="img-fluid machine_screen_top_in" alt="">
+          <img src="/{{ $product[0][0]['showbar'] }}" class="img-fluid machine_screen_top_in" alt="">
           <!-- 彈幕 -->
           <div id="bullet" class="bullet position-absolute top-0">
             @foreach ($product[3] as $bulletLine)
@@ -74,20 +75,28 @@
           </div>
         </div>
         <!-- 商品外盒滾動圖 -->
+        <!-- 傳送pid用 -->
+        <input type="text" value={{ $pid }} style='display:none' id='pid'>
         <div class="machine_screen_down_out">
           <div class="machine_screen_down_in position-relative">
             <div class="position-relative">
               <div class="swiper">
                 <div class="swiper-wrapper">
                   @for ($j = 0; $j < $product[0]['max_box']; $j++)
-                    <div class="swiper-slide">
+                    <div id="box{{ $j+1 }}" class="swiper-slide">
                       <div class="row row-cols-3 row-cols-md-3 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5">
-                        @for( $i = 0 ; $i < $product[0]['box_count'] ; $i++ )
-                          <a id="popup_show_checkopen" class="popup_show_checkopen" href="#">
-                            <div class="col machine_screen_box">
-                              <img src="/{{ $product[0]['open'] }}" class="img-fluid" alt="">
-                            </div>
-                          </a>
+                        @for( $i = 0 ; $i < $product[0][0]['box_count'] ; $i++ )
+                              @if ( $product[0][($j * $product[0][0]['box_count']) +$i]['sold'] == 0 )
+                              <a id="blind{{ ($j * $product[0][0]['box_count']) + $i }}" class="popup_show_checkopen" href="#">
+                                <div class="col machine_screen_box">
+                                  <img src="/{{ $product[0][0]['open'] }}" class="img-fluid" alt="">
+                                </div>
+                              </a>
+                              @else
+                                <div style="pointer-events:none" class="col machine_screen_box">
+                                  <img style='filter:grayscale(1) ' src="/{{ $product[0][0]['open'] }}" class="img-fluid" alt="">
+                                </div>                             
+                              @endif
                         @endfor
                       </div>
                     </div>
