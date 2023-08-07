@@ -32,12 +32,9 @@ class SlotController extends Controller
 
     // 正式用
     function slotPrize(Request $request) {
-        // return json_encode($request->pid);
-
-        $this->action->getBoxProduct(1, $request->pid);
+        $this->action->getBoxProduct(1, 1);
         // 傳送訂單號
         $result = $this->action->slot(987);
-        // var_dump($result);
         return json_encode($result);
     }
 

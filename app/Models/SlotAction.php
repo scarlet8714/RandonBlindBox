@@ -29,14 +29,13 @@ class SlotAction extends Model
 
         // 加入最大盲盒編號
         $result[0]['max_box'] = $this->maxBox($result[1]);
-        var_dump($result[3]);
+        // var_dump($result[3]);
 
         return $result;
     }
 
     // 取得最大盲盒編號
     function maxBox($boxArray) {
-        // var_dump($boxArray);
         foreach($boxArray as $type) {
             $temp = 0;
             if ( $temp < $type['box_id'] ) {
@@ -59,28 +58,20 @@ class SlotAction extends Model
         if($this->remain === 0) {
             return json_encode('此中盒已空');
         }
-        else if (0) {
-
-        }
         else {
-            // 隨機數值
-            $slot = rand(0, (int)($this->countProbability() * 100));
+            // 扣除會員抽獎次數，目前為預設token，最後須傳入token
+            $this->timesDed();
 
-            if ($slot > (($this->countProbability() - $this->hide) * 100) || $this->countProbability() === $this->hide) {
-                // echo $this->countProbability() - $this->hide;
-                $this->getPrize[0] = 'hide';
-            }
-            else {
-                $temp = floor($slot / $this->probability / 100);
-                $this->getPrize = array_splice($this->prize, $temp, 1);
-            }
+            // 隨機數值
+            $slot = rand(0, (($this->countProbability() * 100)));
+
+            $temp = floor($slot / $this->probability / 100);
+            $this->getPrize = array_splice($this->prize, $temp, 1);
             // 扣除該獎項
             $this->prizeDelete($this->box, $this->pid, $this->getPrize[0]);
             // 紀錄該獎項
             $this->prizeRecord($oid);
-            // var_dump($this->givePrize());
             $remainTimes = $this->checkTimes(1, 6);
-            // var_dump($remainTimes);
 
             return json_decode(json_encode($this->givePrize()), 1);
         }
@@ -88,7 +79,6 @@ class SlotAction extends Model
 
     // 取得中盒商品資訊
     function getBoxProduct($box, $pid) {
-        // $products = DB::select('select * from product where pid = ?', [$pid]);
         // 找出該中盒剩餘可抽數量
         $remains = DB::select('select box_remain_blind(?, ?) as remain', [$box, $pid]);
         // 取得商品的抽獎機率以及中盒數量，排序修改後保證一般款的機率在上方
@@ -131,14 +121,18 @@ class SlotAction extends Model
         $prize = [];
         $prize['name'] = $results[0]->name;
         $prize['photo'] = $results[0]->photo_bg;
-        // var_dump($prize);
         return $prize;
     }
 
-    // 扣除該中盒款式數量
+    // 扣除該中盒款式數量，並扣除會員的抽獎次數
     function prizeDelete($box, $pid, $blind){ 
         DB::update('update product_status set sold = ? where box_id = ? and pid = ? and blind_id =?', [1, $box, $pid, $blind]);
         DB::update('update product_photo set quantity = quantity - 1 where pid = ? and blind_id =?', [$pid, $blind]);
+    }
+
+    // 扣除會員抽獎次數
+    function timesDed() {
+        DB::update('update lottery set times = times - 1 where mid IN (select mid from member where token = ?)', ['d5716fec-29f6-11ee-8e3f-28b20503fdef']);
     }
 
     // 將品項記錄到抽獎明細
