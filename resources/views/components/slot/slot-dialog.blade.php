@@ -1,4 +1,5 @@
 @props(['product'])
+@props(['times'])
 <!-- 彈跳視窗_C-2-1確認抽盒 -->
 <dialog id="checkopen">
     <div class="position-relative d-flex justify-content-center">
@@ -18,19 +19,24 @@
           <img src="/{{ $product[0][0]['open'] }}" class="img-fluid" alt="">
         </div>
         <div class="popup_checkopen_text text-center">
-          您確定要抽這一盒？
+          @if (isset($times[0]['times']) && $times[0]['times'] == 0) 
+            抽盒次數不足!
+          @else
+            您確定要抽這一盒？
+          @endif
         </div>
         <div class="d-flex justify-content-center">
-          {{-- <form action="/product/slot/go" method="post"> --}}
-            {{-- @csrf --}}
-            {{-- <input type="text" style="display: none"> --}}
-            {{-- <input type="text" style="display: none"> --}}
-            <button id="popup_show_drawpage" class="popup_checkopen_button">確定抽盒!</button>            
-          {{-- </form> --}}
+            <button id="popup_show_drawpage" class="popup_checkopen_button">
+            @if (isset($times[0]['times']) && $times[0]['times'] == 0) 
+              前往購買抽盒機會!
+            @else
+              確定抽盒!
+            @endif  
+            </button>            
         </div>
       </div>
     </div>
-  </dialog>
+</dialog>
 
   <!-- 彈跳視窗_C-2-2抽盒畫面 -->
   <dialog id="drawpage">

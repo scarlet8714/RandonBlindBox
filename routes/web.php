@@ -65,9 +65,9 @@ Route::post('/cart2check', [CartController::class, 'add']);
 
 // 拉霸機，抽獎
 Route::post('/product/slot/go', [SlotController::class, 'slotPrize']);
-Route::get('/product/slot/go', [SlotController::class, 'slotPrize']);
-Route::post('/product/slot/test', [SlotController::class, 'testGo']);
-Route::get('/product/slot/test', function() {
-    return view('sendTest');
-});
 Route::get('/product/slot/{pid}', [SlotController::class, 'slot']);
+
+// 收藏櫃
+Route::get('/collection', function() {
+    return view('collection');
+});

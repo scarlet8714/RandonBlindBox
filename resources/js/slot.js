@@ -45,11 +45,6 @@ let checkopen = document.querySelector("#checkopen");
 let close_checkopen = document.querySelector("#popup_close_checkopen");
 // *關閉C-2-2
 let confirm_checkopen = document.querySelector("#popup_show_drawpage");
-
-// btn_checkopen.addEventListener("click", function () {
-// 	checkopen.showModal();
-// 	darkMask.classList.remove('d-none');
-// })
 close_checkopen.addEventListener("click", function () {
 	checkopen.close();
 	darkMask.classList.add('d-none');
@@ -69,53 +64,60 @@ let drawpage = document.querySelector("#drawpage");
 // let close_drawpage = document.querySelector("#popup_close_drawpage");
 const slot_start = document.querySelector(".result");
 btn_drawpage.addEventListener("click", function () {
-	drawpage.showModal();
-	document.getElementById(`result`).classList.add('is-play');
-	alert(selectedBox);
-	let product = document.getElementById('pid').value;
-	// 傳遞抽獎請求
-	fetch('/product/slot/go', {
-		method: 'POST',
-		body: JSON.stringify({
-				pid: product,
-				boxId: selectedBox
-				// 預設存token
-				// token: '',
-			}),
-		headers: {
-			'Content-Type': 'application/json',
-			"X-CSRF-Token": csrfToken
-		}
-	})
-	.then(function (response) {
-		return response.json();
-	})
-	.then(function (prize) {
-		console.log(prize);
-		// 取得紀錄的獎品名稱和圖片
-		let result = document.getElementById('prize');
-		let resultImg = document.querySelector('#prizeImg');
-		result.innerHTML = prize['name'];
-		resultImg.setAttribute('src', '/' + prize['photo']);
-
-		// 將會使用到剩餘次數的部分都修改
-		const times = document.querySelectorAll('.remainTimes');
-		times.forEach( function (time) {
-			if (prize['remainTimes'] < 9) {
-				time.innerHTML = '0' + prize['remainTimes'];
-			}
-			else {
-				time.innerHTML = prize['remainTimes'];
+	let remain = document.getElementById('times').innerText
+	if (remain > 0) {
+		drawpage.showModal();
+		document.getElementById(`result`).classList.add('is-play');
+		alert(selectedBox);
+		let product = document.getElementById('pid').value;
+		// 傳遞抽獎請求
+		fetch('/product/slot/go', {
+			method: 'POST',
+			body: JSON.stringify({
+					pid: product,
+					boxId: selectedBox
+					// 預設存token
+					// token: '',
+				}),
+			headers: {
+				'Content-Type': 'application/json',
+				"X-CSRF-Token": csrfToken
 			}
 		})
+		.then(function (response) {
+			return response.json();
+		})
+		.then(function (prize) {
+			console.log(prize);
+			// 取得紀錄的獎品名稱和圖片
+			let result = document.getElementById('prize');
+			let resultImg = document.querySelector('#prizeImg');
+			result.innerHTML = prize['name'];
+			resultImg.setAttribute('src', '/' + prize['photo']);
+	
+			// 將會使用到剩餘次數的部分都修改
+			const times = document.querySelectorAll('.remainTimes');
+			times.forEach( function (time) {
+				if (prize['remainTimes'] < 9) {
+					time.innerHTML = '0' + prize['remainTimes'];
+				}
+				else {
+					time.innerHTML = prize['remainTimes'];
+				}
+			})
+	
+			// 加上灰階及不可點擊
+			let off = document.getElementById(selectedBlind);
+			off.setAttribute('style', 'pointer-events:none ; filter:grayscale(1)');
+		})
 
-		// 加上灰階及不可點擊
-		let off = document.getElementById(selectedBlind);
-		off.setAttribute('style', 'pointer-events:none ; filter:grayscale(1)');
-	})
-	/******************開啟點擊暫停動畫 ****************/
-	slot_start.addEventListener("click", stopAnimation);
-	/************************************************ */
+		/******************開啟點擊暫停動畫 ****************/
+		slot_start.addEventListener("click", stopAnimation);
+		/************************************************ */
+	}
+	else {
+		location.href = "./../";
+	}
 })
 // close_drawpage.addEventListener("click", function () {
 //     drawpage.close();
@@ -123,16 +125,6 @@ btn_drawpage.addEventListener("click", function () {
 
 
 const canvas_start = document.querySelector("#canvas");
-
-
-
-// 拉霸機
-// function startAnimation() {
-//     if (document.getElementById(`result`)) {
-//         document.getElementById(`result`).classList.add('is-play');
-//         document.getElementById(`result`).style.transform = 'none';
-//     }
-// }
 
 const darkMask = document.getElementById('darkmask');
 function stopAnimation() {
@@ -155,15 +147,10 @@ function stopAnimation() {
 	}
 }
 
-
-
 // -----------------------------------------------------------
 // 彈跳視窗_C-2-3抽獎畫面
 let btn_congratulations = document.querySelector("#popup_show_congratulations");
-// let congratulations = document.querySelector("#congratulations");
 const close_congratulations = document.querySelectorAll(".popup_close_congratulations");
-// btn_congratulations.addEventListener("click", function () {
-//     congratulations.showModal();
 
 // })
 close_congratulations.forEach(element => {
@@ -463,7 +450,7 @@ canvas.addEventListener('mouseup', function (e) {
 	mousedown = false;
 });
 
-// 彈幕
+// 彈幕開關設定
 let bulletBtn = document.getElementById('switch');
 bulletBtn.addEventListener('click', function() {
 	// 點擊隱藏彈幕
