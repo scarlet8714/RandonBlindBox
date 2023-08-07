@@ -1,0 +1,484 @@
+/* ----------------------------------------------------------- */
+/* ---標題--- */
+
+/* 圓形 */
+.title_circle1 {
+    width: 17em;
+    height: 17em;
+    background-color: #f08c55;
+}
+
+.title_circle2 {
+    padding: 5em;
+    background-color: white;
+    border: 1em solid #f0cd96;
+
+}
+
+.title_icon {
+    width: 7em;
+    margin: 2em;
+}
+
+@media (max-width: 800px) {
+    .title_circle1 {
+        width: 10em;
+        height: 10em;
+        background-color: #f08c55;
+    }
+
+    .title_circle2 {
+        padding: 1em;
+        background-color: white;
+        border: 1em solid #f0cd96;
+
+    }
+
+    .title_icon {
+        width: 4.5em;
+        margin: 0em;
+        padding: 0.5em;
+
+    }
+}
+
+/* MY COLLECTION */
+.title_mc_text {
+    font-family: 'Rubik', sans-serif;
+    width: 90%;
+    background-color: #f08c55;
+    border-radius: 0 0 10em 0;
+    left: -22%;
+    z-index: -1;
+    padding: 0.1em 2em 0.1em 2.2em;
+    font-size: 3em;
+    letter-spacing: 0.11em;
+}
+
+@media (max-width: 760px) {
+    .title_mc_text {
+        width: 65%;
+        top: -140%;
+        left: 30%;
+        padding: 0.2em 0em 0.2em 2.5em;
+        font-size: 1.3em;
+    }
+}
+
+@media (min-width: 760px) and (max-width: 800px) {
+    .title_mc_text {
+        width: 60%;
+        top: -140%;
+        left: 15%;
+        padding: 0.2em 0em 0.2em 5em;
+        font-size: 1.3em;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1400px) {
+    .title_mc_text {
+        font-size: 2.5em;
+        left: -17%;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1000px) {
+    .title_mc_text {
+        font-size: 2.2em;
+        left: 30%;
+        top: -240%;
+        width: 80%;
+        padding: 0.2em 0em 0.2em 3em
+    }
+}
+
+
+/* xxx的收集櫃 */
+.title_user_text {
+    color: #f08c55;
+    left: 10%;
+    top: 65%;
+    font-weight: 900;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.8em;
+}
+
+@media (max-width: 800px) {
+    .title_user_text {
+        left: 48%;
+        top: -70%;
+        font-size: 1.1em;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1000px) {
+    .title_user_text {
+        left: 55%;
+        top: -120%;
+        font-size: 1.5em;
+    }
+}
+
+
+/* 前往抽盒 */
+.title_blue_button {
+    background-color: #3c3c7b;
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    border: none;
+}
+
+.title_blue_button:hover {
+    background-color: #3c3c7b;
+    box-shadow: 0px 15px 20px #f08c55(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
+
+@media (max-width: 780px) {
+    .title_blue_button {
+        font-size: 0.8em;
+    }
+}
+
+/* 虛線 */
+.title_dash {
+    width: 120%;
+    height: 10px;
+    background-image: linear-gradient(to right,
+            #f08c55 0%,
+            #f08c55 50%,
+            transparent 50%);
+    background-size: 20px 5px;
+    background-repeat: repeat-x;
+    bottom: 1%;
+    right: 3%;
+}
+
+.title_dash_arrow {
+    border-style: solid;
+    border-width: 10px 0 10px 20px;
+    border-color: transparent transparent transparent #f08c55;
+    bottom: 0;
+    right: 0;
+}
+
+
+@media (max-width: 760px) {
+    .title_dash {
+        width: 60%;
+        height: 4px;
+        bottom: 108%;
+        right: 8%;
+    }
+
+    .title_dash_arrow {
+        bottom: 100%;
+    }
+}
+
+@media (min-width: 760px) and (max-width: 800px) {
+    .title_dash {
+        width: 80%;
+        height: 4px;
+        bottom: 108%;
+        right: 5%;
+    }
+
+    .title_dash_arrow {
+        bottom: 100%;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1000px) {
+    .title_dash {
+        width: 80%;
+        height: 4px;
+        bottom: 108%;
+        right: -5%;
+    }
+
+    .title_dash_arrow {
+        bottom: 100%;
+        right: -10%;
+
+    }
+}
+
+/* ----------------------------------------------------------- */
+/* 收藏卡片 */
+
+.card_back1 {
+    padding: 7em 0em 0em 0em;
+}
+
+@media (max-width: 1000px) {
+    .card_back1 {
+        padding: 0em 0em 0em 0em;
+    }
+}
+
+.card_back2 {
+    padding: 5.5em 3em 2em 3em;
+    border-radius: 3em;
+}
+
+.card_back2:hover {
+    scale: 1.1;
+    box-shadow: 0 0 0.3em #b6b6b8;
+}
+
+.card_text {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 500;
+}
+
+.card_text2 {
+
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 500;
+}
+
+.card_progress {
+    background-color: #f08c55;
+}
+
+.card_pic {
+    width: 14em;
+    left: 39%;
+    top: -40%;
+}
+
+@media (max-width: 1000px) {
+    .card_pic {
+        width: 10em;
+        left: 50%;
+        top: -10%;
+    }
+
+}
+
+@media (min-width: 1000px) and (max-width: 1500px) {
+    .card_pic {
+        width: 10em;
+        left: 45%;
+        top: -30%;
+    }
+
+}
+
+/* ----------------------------------------------------------- */
+/* 彈跳視窗_收藏卡 */
+
+
+dialog {
+    border: none;
+    background-color: none;
+    background-color: white;
+    border: 1.5em solid #f08c55;
+    border-radius: 2em;
+    padding: 4em 2em 5em 2em;
+    width: 50vw;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#popup_show {
+    text-decoration: none;
+    color: black;
+}
+
+#popup_close {
+    padding: 4%;
+    opacity: 0.3;
+}
+
+#popup_close:hover {
+    padding: 4%;
+    opacity: 0.5;
+}
+
+.popup_back {
+    background-color: #3c3c7b;
+    border-radius: 3em;
+    padding: 2.5em 2em 6em 2em;
+    width: 43vw;
+    margin: 0;
+}
+
+.popup_circle {
+    background-color: #f08c55;
+    width: 20em;
+    height: 20em;
+
+}
+
+.popup_circle2 {
+    background-color: white;
+    border: 1em solid #f0cd96;
+    width: 18em;
+    height: 18em;
+
+}
+
+.popup_circle_text {
+    background-color: #784123;
+    border: 0.5em solid #f0cd96;
+    padding: 0.5em 4em;
+    font-size: 1em;
+    font-family: 'Noto Sans TC', sans-serif;
+    top: 84%;
+    width: 15em;
+    height: 3.5em;
+}
+
+
+.popup_title {
+    font-family: 'Rubik', sans-serif;
+    font-size: 4em;
+    color: #3c3c7b;
+}
+
+.popup_title2 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 4em;
+    color: #f08c55;
+}
+
+.popup_pic:hover {
+    scale: 1.02;
+}
+
+.popup_text {
+    font-size: 1em;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.popup_ticket {
+    bottom: -5%;
+    z-index: 2;
+}
+
+.popup_ticket_text {
+    top: 50%;
+}
+
+@media (min-width: 900px) {
+
+    .popup_collection_rwd {
+        display: none
+    }
+}
+
+@media (max-width: 900px) {
+    dialog {
+        border: 1em solid #f08c55;
+        padding: 2em 2em 4em 2em;
+        width: 100vw;
+    }
+
+    .popup_collection {
+        display: none;
+    }
+
+    .popup_title {
+        font-family: 'Rubik', sans-serif;
+        font-size: 3em;
+        color: #3c3c7b;
+    }
+
+    .popup_title2 {
+        font-family: 'Rubik', sans-serif;
+        font-size: 3em;
+        color: #f08c55;
+    }
+
+    .popup_back {
+        padding: 2.5em 2em 5em 2em;
+        width: 75vw;
+
+    }
+
+    .popup_ticket {
+        bottom: -3%;
+        z-index: 2;
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1200px) {
+
+    dialog {
+        border: 1em solid #f08c55;
+        padding: 3em 2em 4em 2em;
+        width: 85vw;
+    }
+
+    .popup_title {
+        font-size: 3.5em;
+        color: #3c3c7b;
+        margin: 0.5em 0 0 0.5em;
+    }
+
+    .popup_title2 {
+        font-family: 'Rubik', sans-serif;
+        font-size: 3.5em;
+        color: #f08c55;
+    }
+
+    .popup_back {
+        padding: 2.5em 2em 5em 2em;
+        width: 75vw;
+
+    }
+
+    .popup_ticket {
+        bottom: -3%;
+        z-index: 2;
+    }
+}
+
+
+@media (min-width: 1200px) and (max-width: 1500px) {
+
+    dialog {
+        border: 1em solid #f08c55;
+        padding: 3em 2em 4em 4em;
+        width: 55vw;
+    }
+
+    .popup_title {
+        font-size: 3em;
+        color: #3c3c7b;
+        margin: 0.5em 0 0 0.5em;
+    }
+
+    .popup_title2 {
+        font-family: 'Rubik', sans-serif;
+        font-size: 3.2em;
+        color: #f08c55;
+    }
+
+    .popup_back {
+        border-radius: 3em;
+        padding: 2.5em 2em 6em 2em;
+        width: 48vw;
+        margin: 0;
+
+    }
+
+}
+
+/* ----------------------------------------------------------- */
+/* 換頁按鈕 */
+.swiper-button-next {
+    color: #F0F0F0;
+
+}
+
+.swiper-button-prev {
+    color: #a0a0a0;
+}
+
+/* ----------------------------------------------------------- */

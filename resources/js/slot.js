@@ -119,10 +119,6 @@ btn_drawpage.addEventListener("click", function () {
 		location.href = "./../";
 	}
 })
-// close_drawpage.addEventListener("click", function () {
-//     drawpage.close();
-// })
-
 
 const canvas_start = document.querySelector("#canvas");
 

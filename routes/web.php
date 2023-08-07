@@ -68,6 +68,7 @@ Route::post('/product/slot/go', [SlotController::class, 'slotPrize']);
 Route::get('/product/slot/{pid}', [SlotController::class, 'slot']);
 
 // 收藏櫃
-Route::get('/collection', function() {
-    return view('collection');
-});
+Route::get('/collection', [CollectController::class, 'show']);
+// Route::get('/collection', function() {
+//     return view('collection');
+// });
