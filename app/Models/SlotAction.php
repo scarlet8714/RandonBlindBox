@@ -68,12 +68,15 @@ class SlotAction extends Model
             $temp = floor($slot / $this->probability / 100);
             $this->getPrize = array_splice($this->prize, $temp, 1);
             // 扣除該獎項
-            $this->prizeDelete($this->box, $this->pid, $this->getPrize[0]);
+            // $this->prizeDelete($this->box, $this->pid, $this->getPrize[0]);
             // 紀錄該獎項
-            $this->prizeRecord($oid);
-            $remainTimes = $this->checkTimes(1, 6);
+            // $this->prizeRecord($oid);
+            $remainTimes = $this->checkTimes(1, $this->pid);
 
-            return json_decode(json_encode($this->givePrize()), 1);
+            $prize = json_decode(json_encode($this->givePrize()), 1);
+            $prize['remainTimes'] = $remainTimes[0]->times;
+
+            return $prize;
         }
     }
 
@@ -124,7 +127,7 @@ class SlotAction extends Model
         return $prize;
     }
 
-    // 扣除該中盒款式數量，並扣除會員的抽獎次數
+    // 扣除該中盒款式數量
     function prizeDelete($box, $pid, $blind){ 
         DB::update('update product_status set sold = ? where box_id = ? and pid = ? and blind_id =?', [1, $box, $pid, $blind]);
         DB::update('update product_photo set quantity = quantity - 1 where pid = ? and blind_id =?', [$pid, $blind]);
@@ -132,7 +135,7 @@ class SlotAction extends Model
 
     // 扣除會員抽獎次數
     function timesDed() {
-        DB::update('update lottery set times = times - 1 where mid IN (select mid from member where token = ?)', ['d5716fec-29f6-11ee-8e3f-28b20503fdef']);
+        DB::update('update lottery set times = times - 1 where mid IN (select mid from member where token = ?) and pid = ?', ['d5716fec-29f6-11ee-8e3f-28b20503fdef', $this->pid]);
     }
 
     // 將品項記錄到抽獎明細
@@ -140,7 +143,7 @@ class SlotAction extends Model
         DB::insert('insert into lottery_details values (?, ?, ?, ?)', [$order, $this->pid, $this->getPrize[0], $this->box]);
     }
 
-    // 該會員抽獎次數
+    // 該會員抽獎次數，預計會傳入token
     function checkTimes($mid, $pid) {
         return DB::select('select times from lottery where pid = ? and mid = ?', [$mid, $pid]);
     }

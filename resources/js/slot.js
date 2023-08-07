@@ -85,6 +85,11 @@ btn_drawpage.addEventListener("click", function () {
 		// console.log(resultImg);
 		result.innerHTML = prize['name'];
 		resultImg.setAttribute('src', '/' + prize['photo']);
+
+		const times = document.querySelectorAll('.remainTimes');
+		times.forEach( function (time) {
+			time.innerHTML = prize['remainTimes'];
+		})
 	})
 	/******************開啟點擊暫停動畫 ****************/
 	slot_start.addEventListener("click", stopAnimation);

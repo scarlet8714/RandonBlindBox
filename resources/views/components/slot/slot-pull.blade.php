@@ -64,7 +64,7 @@
                   <div class="position-absolute handle_text1">
                     剩餘
                   </div>
-                  <div class="position-absolute handle_text2">
+                  <div class="position-absolute handle_text2 remainTimes">
                     @if (isset($times[0]['times']))
                         {{ $times[0]['times'] }}
                     @else

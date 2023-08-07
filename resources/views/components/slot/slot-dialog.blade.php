@@ -105,7 +105,7 @@
         </div>
         <div class="d-flex justify-content-center">
           <div class="popup_congratulations_text pe-1">剩餘</div>
-          <div class="popup_congratulations_text3 px-1">2</div>
+          <div class="popup_congratulations_text3 px-1 remainTimes">2</div>
           <div class="popup_congratulations_text ps-1">次抽獎機會</div>
         </div>
         <div class="d-flex justify-content-center">
