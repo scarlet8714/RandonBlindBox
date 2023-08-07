@@ -34,7 +34,7 @@ const seriesintro = document.querySelectorAll('.seriesintro');
 const seriesphoto = document.querySelectorAll('.seriesphoto');
 
 seriesbutton.forEach((element, key) => {
-    element.addEventListener('click', function(){
+    element.addEventListener('click', function () {
         serieslist.forEach(e => {
             e.classList.add('d-none');
         });

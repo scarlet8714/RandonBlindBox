@@ -1,4 +1,5 @@
 @vite(['resources/css/B-1.css', 'resources/js/B-1.js'])
+<x-fontsrc />
 @extends('layouts.app')
 @section('content')
     <div class="carousel_css">
