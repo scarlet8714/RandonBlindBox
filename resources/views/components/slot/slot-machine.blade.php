@@ -63,30 +63,14 @@
           <img src="/{{ $product[0]['showbar'] }}" class="img-fluid machine_screen_top_in" alt="">
           <!-- 彈幕 -->
           <div id="bullet" class="bullet position-absolute top-0">
-            <div class="bullet_track">
-              <div class="bullet_content bullet_speed_3 text-center rounded-pill d-flex justify-content-center">
-                <div class="bullet_color_1 pe-1">堤拉米* 抽到了</div>
-                <div class="bullet_color_2">BEACH PARTY JERRY</div>
+            @foreach ($product[3] as $bulletLine)
+              <div class="bullet_track">
+                <div class="bullet_content bullet_speed_{{ floor(rand(1, 4)) }} text-center rounded-pill d-flex justify-content-center">
+                  <div class="bullet_color_1 pe-1">{{ $bulletLine['name'] }} 抽到了</div>
+                  <div class="bullet_color_2">{{ $bulletLine['prize'] }}</div>
+                </div>
               </div>
-            </div>
-            <div class="bullet_track">
-              <div class="bullet_content bullet_speed_1 text-center rounded-pill d-flex justify-content-center">
-                <div class="bullet_color_1 pe-1">堤拉米* 抽到了</div>
-                <div class="bullet_color_3">BEACH PARTY JERRY</div>
-              </div>
-            </div>
-            <div class="bullet_track">
-              <div class="bullet_content bullet_speed_2 text-center rounded-pill d-flex justify-content-center">
-                <div class="bullet_color_1 pe-1">堤拉米* 抽到了</div>
-                <div class="bullet_color_2">BEACH PARTY JERRY</div>
-              </div>
-            </div>
-            <div class="bullet_track">
-              <div class="bullet_content bullet_speed_3 text-center rounded-pill d-flex justify-content-center">
-                <div class="bullet_color_1 pe-1">堤拉米* 抽到了</div>
-                <div class="bullet_color_2">BEACH PARTY JERRY</div>
-              </div>
-            </div>
+            @endforeach
           </div>
         </div>
         <!-- 商品外盒滾動圖 -->

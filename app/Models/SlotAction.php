@@ -20,20 +20,18 @@ class SlotAction extends Model
         $productImg = DB::select('SELECT showbar,open,box_count FROM `blind_photo` as bp left join `product` as p on bp.pid = p.pid where bp.pid  = ?', [$pid]);
         $productBox = DB::select('SELECT * FROM `product_status` where pid = ? order by box_id ASC', [$pid]);
         $productTypeImg = DB::select('SELECT * FROM `product_photo` where pid = ?', [$pid]);
+        $whoGot = DB::select('select DISTINCT m.name, pp.name as prize from lottery_details as ld left join product_photo as pp on ld.pid = pp.pid left join orders as o on o.oid = ld.oid left join member as m on o.mid = m.mid where ld.pid = ? and pp.blind_id in (select blind_id from lottery_details where pid = ?);', [$pid, $pid]);
 
         $result[0] = (json_decode(json_encode($productImg), 1))[0];
         $result[1] = json_decode(json_encode($productBox), 1);
         $result[2] = json_decode(json_encode($productTypeImg), 1);
+        $result[3] = json_decode(json_encode($whoGot), 1);
 
         // 加入最大盲盒編號
         $result[0]['max_box'] = $this->maxBox($result[1]);
+        var_dump($result[3]);
 
         return $result;
-    }
-
-    // 取得商品彈幕
-    function getBullet($pid) {
-        $result = DB::select('select from lottery_details');
     }
 
     // 取得最大盲盒編號

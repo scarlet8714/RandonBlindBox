@@ -32,7 +32,7 @@ class SlotController extends Controller
 
     // 正式用
     function slotPrize(Request $request) {
-        // return json_encode($request->pid . 'get');
+        // return json_encode($request->pid);
 
         $this->action->getBoxProduct(1, $request->pid);
         // 傳送訂單號
@@ -43,7 +43,9 @@ class SlotController extends Controller
 
     function testGo(Request $request) {
         // $test = $request->test;
+        echo floor(rand(1, 4));
         $test2 = $request->pid;
+        // $this->action->getBullet($test2);
         // $test = $test . $test2;
         // echo $test;
         // var_dump($test);

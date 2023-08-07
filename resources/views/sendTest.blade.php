@@ -13,8 +13,8 @@
 
     <form action="/product/slot/test" method="post">
         @csrf
-        <input id="1" style="display: none" type="text" value="2" name="pid">
-        <input id="2" style="display: none" type="text" value="2" name="mid">
+        <input id="1" style="display: none" type="text" value="1" name="pid">
+        <input id="2" style="display: none" type="text" value="1" name="mid">
         <input type="submit" value="測啦!">
     </form>
     <form action="/product/slot/test" method="get">

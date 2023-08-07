@@ -62,6 +62,7 @@ let drawpage = document.querySelector("#drawpage");
 const slot_start = document.querySelector(".result");
 btn_drawpage.addEventListener("click", function () {
 	drawpage.showModal();
+	document.getElementById(`result`).classList.add('is-play');
 	fetch('/product/slot/go', {
 		method: 'POST',
 		body: JSON.stringify({

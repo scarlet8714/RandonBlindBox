@@ -53,7 +53,7 @@
         <!-- 拉霸機 -->
         <div class="results">
           <div class="result">
-            <div class="is-play row" id="result">
+            <div class="row" id="result">
                 {{-- 拉取 圖片資料 拉霸機三格 --}}
                 @for ( $i = 0; $i < 3; $i++ )
                 <div class="col popup_drawpage_pic ">

@@ -886,7 +886,6 @@ canvas {
 
 }
 
-
 .result-item {
   background-color: white;
   border: 1em solid #f0cd96;
@@ -1184,6 +1183,10 @@ canvas {
 
 .swiper-button-prev {
   color: #a0a0a0;
+}
+
+.swiper-wrapper {
+  height: auto !important;
 }
 
 /* ----------------------------------------------------------- */
