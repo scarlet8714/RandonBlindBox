@@ -22,9 +22,7 @@ use Illuminate\Support\Facades\Cookie;
 Route::get('/', [HomeController::class, 'action'])->name('index');
 Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('authmember');
 ///////////////////////////////////////////
-Route::get('/myaccount', function(){
-    return view('membercenterpage.myaccount');
-})->name('myaccount');
+Route::get('/myaccount', [MyAccountController::class, 'action'])->name('myaccount');
 Route::get('/myorder', function(){
     return view('membercenterpage.myorder');
 })->name('myorder');
@@ -62,3 +60,8 @@ Route::post('/addcart', [CartController::class, 'addcart']);
 Route::post('/cart2check', [CartController::class, 'add']);
 Route::get('/navcart', [CartItemController::class, 'action']);
 Route::delete('/removecartitem/{cid}', [CartItemController::class, 'deleteitem']);
+
+Route::get('sendmail', [ForgotPWDController::class, 'forgotpwd']);
+
+Route::get('/resetpwd', [ResetPWDController::class, 'resetpage']);
+Route::post('/resetpwd', [ResetPWDController::class, 'reset']);
