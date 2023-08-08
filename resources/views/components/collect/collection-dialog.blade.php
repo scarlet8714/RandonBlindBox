@@ -1,4 +1,7 @@
-  <!-- 彈跳視窗_商品收集卡 -->
+@props(['product'])
+<!-- 彈跳視窗_商品收集卡 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <dialog id="infoModal">
     <!-- 關閉按鈕 -->
     <a href="#" id="popup_close" class="position-absolute top-0 end-0">
@@ -12,7 +15,7 @@
 
     <div class="position-relative d-flex justify-content-center">
       <div class="">
-
+        {{-- {{ var_dump($product) }} --}}
         <!-- 上_圓形/COLLECTION -->
         <div class="popup_collection">
           <div class="row pb-5 px-4">
@@ -23,50 +26,9 @@
                     <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
                       class="swiper mySwiper2">
                       <div class="swiper-wrapper ">
-                        <div class="swiper-slide ">
-                          <img src="./img/C-3/1.jpg" class="img-fluid">
-                          <div class="text-center text-white">技術支持Phil</div>
-                        </div>
-                        <div class="swiper-slide">
-                          <img src="./img/C-3/2.jpg" class="img-fluid" />
-                          <div class="text-center text-white">鉚釘錘擊Jerry</div>
-                        </div>
-                        <div class="swiper-slide">
-                          <img src="./img/C-3/3.jpg" class="img-fluid" />
-                          <div class="text-center text-white">鉚釘錘擊Jerry</div>
-                        </div>
-                        <div class="swiper-slide">
-                          <img src="./img/C-3/4.jpg" class="img-fluid" />
-                          <div class="text-center text-white">鉚釘錘擊Jerry</div>
-                        </div>
-                        <div class="swiper-slide">
-                          <img src="./img/C-3/5.jpg" class="img-fluid" />
-                          <div class="text-center text-white">鉚釘錘擊Jerry</div>
-                        </div>
-                        <div class="swiper-slide">
-                          <img src="./img/C-3/6.jpg" class="img-fluid" />
-                          <div class="text-center text-white">鉚釘錘擊Jerry</div>
-                        </div>
-                        <div class="swiper-slide">
-                          <img src="./img/C-3/7.jpg" class="img-fluid" />
-                          <div class="text-center text-white">鉚釘錘擊Jerry</div>
-                        </div>
-                        <div class="swiper-slide">
-                          <img src="./img/C-3/8.jpg" class="img-fluid" />
-                          <div class="text-center text-white">鉚釘錘擊Jerry</div>
-                        </div>
-                        <div class="swiper-slide">
-                          <img src="./img/C-3/9.jpg" class="img-fluid" />
-                          <div class="text-center text-white">鉚釘錘擊Jerry</div>
-                        </div>
-                        <div class="swiper-slide">
-                          <img src="./img/C-3/10.jpg" class="img-fluid" />
-                          <div class="text-center text-white">鉚釘錘擊Jerry</div>
-                        </div>
-
-
-
-
+                        @for ($i = 0; $i < $product[2]; $i++)
+                          <x-collect.collection-dialog-item :id="$i"/>
+                        @endfor
                       </div>
                     </div>
                   </div>
@@ -97,106 +59,28 @@
                   <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
                     class="swiper mySwiper2">
                     <div class="swiper-wrapper ">
-                      <div class="swiper-slide ">
-                        <img src="./img/C-3/1.jpg" class="img-fluid">
-                        <div class="text-center text-white">技術支持Phil</div>
-                      </div>
-                      <div class="swiper-slide">
-                        <img src="./img/C-3/2.jpg" class="img-fluid" />
-                        <div class="text-center text-white">鉚釘錘擊Jerry</div>
-                      </div>
-                      <div class="swiper-slide">
-                        <img src="./img/C-3/3.jpg" class="img-fluid" />
-                        <div class="text-center text-white">鉚釘錘擊Jerry</div>
-                      </div>
-                      <div class="swiper-slide">
-                        <img src="./img/C-3/4.jpg" class="img-fluid" />
-                        <div class="text-center text-white">鉚釘錘擊Jerry</div>
-                      </div>
-                      <div class="swiper-slide">
-                        <img src="./img/C-3/5.jpg" class="img-fluid" />
-                        <div class="text-center text-white">鉚釘錘擊Jerry</div>
-                      </div>
+                      @for ($i = 0; $i < $product[2]; $i++)
+                        <x-collect.collection-dialog-item  :id="$i"/>
+                      @endfor
                     </div>
-
                   </div>
-
                 </div>
-
               </div>
               <div class="position-absolute popup_circle_text text-white text-center rounded-pill">
               </div>
             </div>
-
           </div>
         </div>
 
         <!-- 下 -->
         <div class="swiper mySwiper popup_back">
           <!-- 系列標題 -->
-          <h6 class="pb-4 text-white popup_text">POP MART 小小兵秘密基地系列 </h6>
+          <h6 id="dialogTitle" class="pb-4 text-white popup_text">POP MART 小小兵秘密基地系列 </h6>
           <!-- 白底圖 -->
           <div class="swiper-wrapper row">
-            <div class="swiper-slide">
-              <div class="popup_pic rounded-5 bg-white popup_pic">
-                <img src="./img/C-3/1.jpg" class="img-fluid">
-              </div>
-              <h6 class="text-center text-white py-3 popup_text">技術支持Phil</h6>
-            </div>
-            <div class="swiper-slide">
-              <div class="popup_pic rounded-5 bg-white">
-                <img src="./img/C-3/2.jpg" class="img-fluid">
-              </div>
-              <h6 class="text-center text-white py-3 popup_text">技術支持Phil</h6>
-            </div>
-            <div class="swiper-slide">
-              <div class="popup_pic rounded-5 bg-white">
-                <img src="./img/C-3/3.jpg" class="img-fluid">
-              </div>
-              <h6 class="text-center text-white py-3 popup_text">鉚釘錘擊Jerry</h6>
-            </div>
-            <div class="swiper-slide">
-              <div class="popup_pic rounded-5 bg-white">
-                <img src="./img/C-3/4.jpg" class="img-fluid">
-              </div>
-              <h6 class="text-center text-white py-3 popup_text">技術支持Phil</h6>
-            </div>
-            <div class="swiper-slide">
-              <div class="popup_pic rounded-5 bg-white">
-                <img src="./img/C-3/5.jpg" class="img-fluid">
-              </div>
-              <h6 class="text-center text-white py-3 popup_text">技術支持Phil</h6>
-            </div>
-            <div class="swiper-slide">
-              <div class="popup_pic rounded-5 bg-white">
-                <img src="./img/C-3/6.jpg" class="img-fluid">
-              </div>
-              <h6 class="text-center text-white py-3 popup_text">技術支持Phil</h6>
-            </div>
-            <div class="swiper-slide">
-              <div class="popup_pic rounded-5 bg-white">
-                <img src="./img/C-3/7.jpg" class="img-fluid">
-              </div>
-              <h6 class="text-center text-white py-3 popup_text">技術支持Phil</h6>
-            </div>
-            <div class="swiper-slide">
-              <div class="popup_pic rounded-5 bg-white">
-                <img src="./img/C-3/8.jpg" class="img-fluid">
-              </div>
-              <h6 class="text-center text-white py-3 popup_text">技術支持Phil</h6>
-            </div>
-            <div class="swiper-slide">
-              <div class="popup_pic rounded-5 bg-white">
-                <img src="./img/C-3/9.jpg" class="img-fluid">
-              </div>
-              <h6 class="text-center text-white py-3 popup_text">技術支持Phil</h6>
-            </div>
-            <div class="swiper-slide">
-              <div class="popup_pic rounded-5 bg-white">
-                <img src="./img/C-3/10.jpg" class="img-fluid">
-              </div>
-              <h6 class="text-center text-white py-3 popup_text">技術支持Phil</h6>
-            </div>
+            @for ($i = 0; $i < $product[2]; $i++)
+              <x-collect.collection-dialog-item-down :id="$i"/>
+            @endfor
           </div>
         </div>
 
@@ -225,7 +109,7 @@
           </svg>
         </div>
         <div class="d-flex justify-content-center">
-          <a href="#" class="position-absolute popup_ticket_text text-white">購買抽盒機會!</a>
+          <a href="/" class="position-absolute popup_ticket_text text-white">購買抽盒機會!</a>
         </div>
       </div>
     </div>

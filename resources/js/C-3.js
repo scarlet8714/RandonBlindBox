@@ -18,14 +18,9 @@ var swiper = new Swiper(".mySwiper", {
     },
 
   },
-  // slidesPerColumn: 2,
-  // slidesPerGroup: 2,
-  // freeMode: true,
   allowSlideNext: false,
   allowSlidePrev: false,
   allowTouchMove: false,
-  // cssMode: true,
-  // watchSlidesProgress: true,
 });
 var swiper2 = new Swiper(".mySwiper2", {
   spaceBetween: 0,
@@ -38,10 +33,10 @@ var swiper2 = new Swiper(".mySwiper2", {
 // -----------------------------------------------------------
 // 彈跳視窗_收藏卡
 var csrfToken = document.head.querySelector("[name~=csrf-token][content]").content;
+var max = document.getElementById("max").value;
 let cards = document.querySelectorAll(".popup_show");
 let infoModal = document.querySelector("#infoModal");
 let close = document.querySelector("#popup_close");
-console.log(csrfToken);
 cards.forEach( function(card) {
   let product = card.id.replace('popup_show', '');
   card.addEventListener("click", function () {
@@ -57,7 +52,22 @@ cards.forEach( function(card) {
     }).then(function(response) {
       return response.json();
     }).then(function(types) {
-      console.log(types);
+      // console.log(0 == null);
+      for (let i = 0 ; i < max ; i++) {
+        if(typeof(types[i]) == 0 || typeof(types[i]) == 'undefined') {
+          console.log('這裡只有一隻小貓');
+          // document.getElementById('type' + i).style = 'display:none';
+          // document.getElementById('down' + i).style = 'display:none';
+        }
+        else {
+        console.log(types[i]);
+          // 設定
+          document.getElementById('name' + i).innerHTML = types[i].name;
+          document.getElementById('downName' + i).innerHTML = types[i].name;
+          document.getElementById('img' + i).setAttribute('src', '/' + types[i].photo_bg);
+          document.getElementById('downImg' + i).setAttribute('src', '/' + types[i].photo_bg);
+        }
+      }
     })
     infoModal.showModal();
   })
@@ -66,3 +76,4 @@ cards.forEach( function(card) {
 close.addEventListener("click", function () {
   infoModal.close();
 })
+

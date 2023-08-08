@@ -22,7 +22,7 @@ class CollectController extends Controller
     }
 
     function collectDetail(Request $request) {
-        
-        return json_encode($request->pid);
+        $types =  $this->collect->getProductDetails($request->pid);
+        return json_encode($types);
     }
 }

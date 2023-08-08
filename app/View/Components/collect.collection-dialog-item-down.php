@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class collect.collection-quote extends Component
+class collect.collection-dialog-item-down extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class collect.collection-quote extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.collect.collection-quote');
+        return view('components.collect.collection-dialog-item-down');
     }
 }

@@ -11,11 +11,19 @@ class CollectModel extends Model
     use HasFactory;
 
     function getProduct() {
-        $result = DB::select('select head_photo, name, publish from product');
-        json_decode(json_encode($result), 1);
-        $product = DB::select('select * from product_photo where pid = ? and blind_id <> "all"', [1]);
-        var_dump($product);
-        return $result;
+        $result = DB::select('select head_photo, name, publish, pid, box_count from product');
+        // 紀錄最大中盒數量
+        $temp = 0;
+        foreach($result as $item) {
+            if ($item->box_count > $temp) {
+                $temp = $item->box_count;
+            }
+        }
+        $product = DB::select('select * from product_photo where blind_id <> "all"');
+        $collect[0] = $result;
+        $collect[1] = $product;
+        $collect[2] = $temp;
+        return $collect;
     }
     
     function getProductDetails($pid) {
