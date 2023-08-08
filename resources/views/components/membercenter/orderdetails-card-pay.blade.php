@@ -23,6 +23,6 @@
       </div>
     </div>
     <div>
-      <a class="btn" id="backOrder" href="#">回我的訂單</a>
+      <a class="btn" id="backOrder" href="{{route('myorder')}}">回我的訂單</a>
     </div>
 </div>

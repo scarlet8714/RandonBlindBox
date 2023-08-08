@@ -11,5 +11,8 @@
         @case('forget')
             <x-forget-password />
             @break        
+        @case('reset')
+            <x-reset-password />
+            @break        
     @endswitch
 @endsection

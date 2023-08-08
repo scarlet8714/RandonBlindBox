@@ -4,7 +4,7 @@
     <div class="my_account_card_inner px-3">
       <div class="px-3 py-3 ">
         <h6 class="pt-3">一般會員</h6>
-        <h6 class="py-1">帳號 : abc@gmail.com</h6>
+        <h6 class="py-1">{{$memberEmail[0]->mail}}</h6>
       </div>
       <div class="px-3 py-3">
         <h6 class="pt-2">累積消費金額</h6>
