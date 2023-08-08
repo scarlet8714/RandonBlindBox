@@ -35,12 +35,9 @@ Route::get('/coupon', function(){
 Route::get('/favoritelist', function(){
     return view('membercenterpage.favoritelist');
 })->name('favoritelist');
-Route::get('/cartpage', function(){
-    return view('checkoutpage.cart');
-})->name('cartpage');
-Route::get('/information', function(){
-    return view('checkoutpage.information');
-})->name('information');
+Route::get('/cartpage', [CartDetailController::class, 'action'])->name('cartpage');
+Route::get('/information', [CartDetailController::class, 'action1'])->name('information');
+
 Route::get('/confirm', function(){
     return view('checkoutpage.confirm');
 })->name('confirm');
@@ -65,3 +62,5 @@ Route::get('sendmail', [ForgotPWDController::class, 'forgotpwd']);
 
 Route::get('/resetpwd', [ResetPWDController::class, 'resetpage']);
 Route::post('/resetpwd', [ResetPWDController::class, 'reset']);
+
+Route::post('/ordersubmit', [OrderController::class, 'order']);

@@ -1,5 +1,5 @@
 <div class="submit_order col-6">
-  <a href="{{route('confirm')}}">
+  <a class="o_submit">
     <button>
       提交訂單
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right"
