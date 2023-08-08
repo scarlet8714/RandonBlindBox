@@ -1,12 +1,13 @@
-{{-- @props(['index']) --}}
+@props(['cartinfo'])
+@props(['sellspec'])
 <ul id="first">
-    <li><img src="./img/I_check/head.png" alt="" width="120"></li>
-    <li>小小兵秘密基地系列</li>
-    <li>盲盒線上抽</li>
-    <li>NT$<input type="text" name="price" value="340"></li>
-    <li><input id="minus" type="button" name="minus" value="-" onClick="minus(0)"><input type="text" name="amount"
-        value="1"><input id="plus" type="button" name="plus" value="+" onclick="@{{<script>plus(0);</script>}}"></li>
-    <li id="price0">NT$340</li>
+    <li><img src="{{$cartinfo->head_photo}}" alt="" width="120"></li>
+    <li>{{$cartinfo->name}}</li>
+    <li>{{$sellspec[0]->spec_intro}}</li>
+    <li>NT$<input type="text" name="price" value="{{$cartinfo->price}}"></li>
+    <li><input id="minus" type="button" name="minus" value="-" onclick="minus(0)"><input type="text" name="amount"
+        value="{{$cartinfo->quantity}}"><input id="plus" type="button" name="plus" value="+" onclick="plus(0)"></li>
+    <li id="price0">NT{{$cartinfo->price}}</li>
     <li>
       <p><svg onclick="delete1()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
           class="bi bi-trash3 mt-3" viewBox="0 0 16 16">
