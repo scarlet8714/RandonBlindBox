@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
         {{-- 123icon --}}
-        <x-checkout.circle123 :state="['cart' => 'active', 'information' => 'active', 'confirm' => 'active']"/>
+        <x-checkout.circle123 :state="['cart' => 'active', 'information' => 'active', 'confirm' => '']"/>
         <x-checkout.navbar />   
     </div>
     {{-- 購買清單 --}}
@@ -13,10 +13,11 @@
     <div class="row justify-content-center mb-4">
         <div class="cartList col-xs-6 col-sm-10 col-lg-8 py-3">
             <x-checkout.cartlist />
-            
-            <x-checkout.cartlist-info />
-            <x-checkout.cartlist-info1 />
+            @foreach ($cartproduct as $item)
+            <x-checkout.cartlist-info :cartinfo="$item" :sellspec="$sellspec"/>
+            @endforeach
             <x-checkout.cupon />
+            {{-- 小計 --}}
             <x-checkout.subtotal />
             <x-checkout.delivery-fee />
             <x-checkout.discount />
@@ -26,17 +27,15 @@
     {{-- 收件方式 --}}
     <x-checkout.receive-method />
     <x-checkout.receive-method-inner>
-        <x-checkout.home-delivery />
-        <x-checkout.convenience-delivery />
-        <x-checkout.home-delivery-info />
-        <x-checkout.convenience-delivery-info />
+            <x-checkout.delivery1 />
+            <x-checkout.delivery2 />
+            <x-checkout.delivery3 />
     </x-checkout.receive-method-inner>
     {{-- 付款方式 --}}
     <x-checkout.payment-method />
     <x-checkout.payment-method-inner>
-        <x-checkout.credit-card />
-        <x-checkout.atm />
-        <x-checkout.cash />
+            <x-checkout.payment1 />
+            <x-checkout.payment2 />
     </x-checkout.payment-method-inner>
     {{-- 顧客資料 --}}
     <x-checkout.client-info />
