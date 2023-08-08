@@ -56,12 +56,16 @@ Route::get('/logout', function(){
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::get('/forgetPassword', [LoginController::class, 'forgetPassword'])->name('forgetPassword');
 Route::get('/actionfigure', [ActionFigureController::class, 'action'])->name('actionfigure');
-// Route::get('/product/{pid}', ProductController::class);
-
-Route::get('/product', [ProductController::class, 'action']);
 
 Route::post('/addcart', [CartController::class, 'addcart']);
 Route::post('/cart2check', [CartController::class, 'add']);
+
+Route::get('/product/{pid}', [ProductController::class, 'action']);
+
+Route::post('/addcart', [CartController::class, 'addcart']);
+Route::post('/cart2check', [CartController::class, 'add']);
+Route::get('/navcart', [CartItemController::class, 'action']);
+Route::delete('/removecartitem/{cid}', [CartItemController::class, 'deleteitem']);
 
 // 拉霸機，抽獎
 Route::post('/product/slot/go', [SlotController::class, 'slotPrize']);

@@ -21,8 +21,5 @@
     <x-checkout.cart-bottom-button>
         <x-checkout.go-shopping />
         <x-checkout.go-checkout />
-    </x-checkout.cart-bottom-button>
-
-    
-    
+    </x-checkout.cart-bottom-button>   
 @endsection

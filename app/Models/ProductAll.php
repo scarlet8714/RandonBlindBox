@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\DB;
 class ProductAll extends Model
 {
     use HasFactory;
-    public function imgpath(){
-        $product = DB::select('select * from product where pid = 1;');
+    public function imgpath($pid){
+        $product = DB::select('select * from product where pid = ?;', [$pid]);
         return $product;
     }
 }

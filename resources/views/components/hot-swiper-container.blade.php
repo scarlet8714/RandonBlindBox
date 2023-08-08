@@ -13,7 +13,7 @@
           <!-- 山洞 -->
           <div class="col-md-12 col-lg-9 top_selling_cave p-5 position-relative">
             <div class="rounded-circle top_selling_circle p-5 bg-white">
-              <img src="{{$imgpath[0]->head_photo}}" class="img-fluid" alt="">
+              <a href="/product/{{$imgpath[0]->pid}}"><img src="{{$imgpath[0]->head_photo}}" class="img-fluid" alt=""></a> 
             </div>
             <!-- NO.1 -->
             <div class="position-absolute" style="top: 3%;">
@@ -32,15 +32,15 @@
     </div>
   </div>
   <!-- 灰底 -->
-  <div class="position-absolute bg-light p-5 w-100" style="top:45%">
+  <div class="position-absolute bg-light p-5 w-100" style="top:40%">
     <div class="p-5"></div>
   </div>
   <!-- 下 -->
   <!-- 滾動圖 -->
-  <div class="bg-light ">
-    <div class="container">
+  <div class="bg-light" >
+    <div class="container" >
       <div class="swiper py-5" style="margin: 0;">
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper"style="height: 50vh;">
           @foreach ($imgpath as $item)
             @if ($loop->index > 0)
               <x-hot-swiper-item index="{{$loop->index + 1}}" :imgpath="$item"/> 

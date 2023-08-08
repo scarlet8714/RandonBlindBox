@@ -1,4 +1,3 @@
-<meta name="csrf-token" content="{{ csrf_token() }}">
 @vite(['resources/css/D-1.css', 'resources/js/D-1.js'])
 <x-fontsrc />
 @extends('layouts.app')
@@ -28,7 +27,7 @@
         </x-slot:right>
         <x-slot:intro>
             <x-productdetail.intro>
-                <img src="{{$product[0]->intro_photo}}" class="img-fluid">
+                <img src="{{URL::to($product[0]->intro_photo)}}" class="img-fluid">
             </x-productdetail.intro>
         </x-slot:intro>
     </x-productdetail.container>

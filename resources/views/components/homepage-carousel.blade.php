@@ -5,13 +5,13 @@
       @foreach ($imgpaths as $index => $imgpath)
           @if ($index == 0)
             <div class="carousel-item active">
-              <a href="">
+              <a href="/product/{{$imgpath->pid}}">
                   <img src="{{$imgpath->main_carousel}}" class="d-block w-100" alt="..." >
               </a>
             </div>
           @else
           <div class="carousel-item">
-            <a href="">
+            <a href="/product/{{$imgpath->pid}}">
               <img src="{{$imgpath->main_carousel}}" class="d-block w-100" alt="...">
             </a>
           </div>

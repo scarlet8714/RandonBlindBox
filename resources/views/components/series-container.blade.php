@@ -16,16 +16,16 @@
           <h6>小小兵</h6>
         </button>
         <button class="products_series_btn rounded-pill px-5 pt-2 pb-1  me-2 seriesbutton">
-          <h6>小小兵</h6>
+          <h6>名偵探柯南</h6>
         </button>
         <button class="products_series_btn rounded-pill px-5 pt-2 pb-1  me-2 seriesbutton">
-          <h6>小小兵</h6>
+          <h6>奇奇與蒂蒂</h6>
         </button>
         <button class="products_series_btn rounded-pill px-5 pt-2 pb-1  me-2 seriesbutton">
-          <h6>小小兵</h6>
+          <h6>HACIPUPU</h6>
         </button>
         <button class="products_series_btn rounded-pill px-5 pt-2 pb-1  me-2 seriesbutton">
-          <h6>小小兵</h6>
+          <h6>MOLLY</h6>
         </button>
       </div>
 
