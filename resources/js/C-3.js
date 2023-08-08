@@ -37,12 +37,32 @@ var swiper2 = new Swiper(".mySwiper2", {
 
 // -----------------------------------------------------------
 // 彈跳視窗_收藏卡
-let btn = document.querySelector("#popup_show");
+var csrfToken = document.head.querySelector("[name~=csrf-token][content]").content;
+let cards = document.querySelectorAll(".popup_show");
 let infoModal = document.querySelector("#infoModal");
 let close = document.querySelector("#popup_close");
-btn.addEventListener("click", function () {
-  infoModal.showModal();
+console.log(csrfToken);
+cards.forEach( function(card) {
+  let product = card.id.replace('popup_show', '');
+  card.addEventListener("click", function () {
+    fetch('/collection/product', {
+      method: 'POST',
+      body: JSON.stringify({
+        pid: product
+      }),
+      headers: {
+				'Content-Type': 'application/json',
+				"X-CSRF-Token": csrfToken
+      }
+    }).then(function(response) {
+      return response.json();
+    }).then(function(types) {
+      console.log(types);
+    })
+    infoModal.showModal();
+  })
 })
+
 close.addEventListener("click", function () {
   infoModal.close();
 })

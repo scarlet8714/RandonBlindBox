@@ -8,10 +8,9 @@
     <div class="bg-light">
         <div class="container p-5">
             <div class="row card_back1">
-            <x-collect.collection-card />
-            <x-collect.collection-card />
-            <x-collect.collection-card />
-            <x-collect.collection-card />
+            @for ($i = 0; $i < count($product); $i++)
+                <x-collect.collection-card :product="$product[$i]" :number="($i+1)"/>                      
+            @endfor
             </div>
         </div>
     </div>

@@ -3,11 +3,9 @@
             <div class="col-2 handle">
                 <!-- 搖桿_購買抽盒機會按鈕 -->
                 <div class="d-flex justify-content-center">
-                  <a href="/product">
-                    <button class="handle_buy_button rounded-pill pt-2 pb-1 shadow">
-                      <h6>購買抽盒機會</h6>
-                    </button>
-                  </a>
+                  <button id="goBuy" class="handle_buy_button rounded-pill pt-2 pb-1 shadow">
+                    <h6>購買抽盒機會</h6>
+                  </button>
                 </div>
                 <!-- 搖桿_主體 -->
                 <div class="position-relative handle_main">

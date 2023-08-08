@@ -63,13 +63,12 @@ let drawpage = document.querySelector("#drawpage");
 
 // let close_drawpage = document.querySelector("#popup_close_drawpage");
 const slot_start = document.querySelector(".result");
+var product = document.getElementById('pid').value;
 btn_drawpage.addEventListener("click", function () {
 	let remain = document.getElementById('times').innerText
 	if (remain > 0) {
 		drawpage.showModal();
 		document.getElementById(`result`).classList.add('is-play');
-		alert(selectedBox);
-		let product = document.getElementById('pid').value;
 		// 傳遞抽獎請求
 		fetch('/product/slot/go', {
 			method: 'POST',
@@ -116,7 +115,7 @@ btn_drawpage.addEventListener("click", function () {
 		/************************************************ */
 	}
 	else {
-		location.href = "./../";
+		location.href = "./../" + product;
 	}
 })
 
@@ -452,6 +451,12 @@ bulletBtn.addEventListener('click', function() {
 	// 點擊隱藏彈幕
 	let bullet = document.getElementById('bullet');
 	bullet.classList.toggle('hide');
+})
+
+// 跳轉該商品的購買畫面
+let buyBtn = document.getElementById('goBuy');
+buyBtn.addEventListener('click', function() {
+	location.href = "./../" + product;
 })
 
 // once the window loads, we are ready for some fireworks!

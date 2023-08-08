@@ -1,9 +1,11 @@
-  <!-- 收集款式卡片 -->
+@props(['product'])
+@props(['number'])
+<!-- 收集款式卡片 -->
         <div class="col-xs-12 col-lg-4 px-3 pb-5 position-relative">
-          <a id="popup_show" href="#">
+          <a id="popup_show{{ $number }}" class="popup_show" href="#">
             <div class="bg-white card_back2">
-              <h6 class="card_text pb-1">POP MART</h6>
-              <h6 class="card_text pb-2">小小兵秘密基地系列</h6>
+              <h6 class="card_text pb-1">{{ strtoupper($product->publish) }}</h6>
+              <h6 class="card_text pb-2">{{ $product->name }}</h6>
               <div class="row">
                 <div class="col-10 px-2 py-1">
                   <div class="progress" style="height: 12px;">
@@ -18,7 +20,7 @@
               </div>
             </div>
             <div class="position-absolute card_pic">
-              <img src="./img/C-3/小小兵_秘密基地.png" class="img-fluid">
+              <img src="/{{ $product->head_photo }}" class="img-fluid">
             </div>
           </a>
         </div>
