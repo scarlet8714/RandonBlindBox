@@ -130,7 +130,7 @@
   .login-footer h4 {
     position: relative;
     margin-left: 180px;
-    margin-top: 40px;
+    margin-top: 10px;
   }
   
   .login-footer button {
@@ -149,6 +149,7 @@
   
   /*  註冊 ------------------------------------ */
   
+  
   .register_container {
     background-color: #F5F5F5;
     padding: 20px;
@@ -157,24 +158,22 @@
   
     position: relative;
     width: 550px;
-    height: 510px;
+    height: 680px;
     margin-bottom: 50px;
   }
   
   .register-header {
     position: absolute;
-    top: 10%;
+    top: 6%;
     left: 50%;
     transform: translate(-50%, -50%);
-  
   }
-  
   
   /* 帳密輸入 */
   #registerEmail {
     position: relative;
     margin-left: 14%;
-    margin-top: 60px;
+    margin-top: 70px;
     width: 90%;
   }
   
@@ -192,75 +191,25 @@
     width: 90%;
   }
   
-  
-  
-  .wave-group .input {
-    font-size: 16px;
-    padding: 10px 10px 10px 5px;
-    display: block;
-    width: 350px;
-    border: none;
-    border-bottom: 1px solid #515151;
-    background: transparent;
-  }
-  
-  .wave-group .input:focus {
-    outline: none;
-  }
-  
-  .wave-group .label {
-    color: #999;
-    font-size: 18px;
-    font-weight: normal;
-    position: absolute;
-    pointer-events: none;
-    left: 5px;
-    top: 10px;
-    display: flex;
-  }
-  
-  .wave-group .label-char {
-    transition: 0.2s ease all;
-    transition-delay: calc(var(--index) * .05s);
-  }
-  
-  .wave-group .input:focus~label .label-char,
-  .wave-group .input:valid~label .label-char {
-    transform: translateY(-20px);
-    font-size: 14px;
-    color: #5264AE;
-  }
-  
-  .wave-group .bar {
+  #customerName {
     position: relative;
-    display: block;
-    width: 350px;
+    margin-left: 14%;
+    margin-top: 30px;
+    width: 90%;
   }
   
-  .wave-group .bar:before,
-  .wave-group .bar:after {
-    content: '';
-    height: 2px;
-    width: 0;
-    bottom: 1px;
-    position: absolute;
-    background: #5264AE;
-    transition: 0.2s ease all;
-    -moz-transition: 0.2s ease all;
-    -webkit-transition: 0.2s ease all;
+  #phoneNumber {
+    position: relative;
+    margin-left: 14%;
+    margin-top: 30px;
+    width: 90%;
   }
   
-  .wave-group .bar:before {
-    left: 50%;
-  }
-  
-  .wave-group .bar:after {
-    right: 50%;
-  }
-  
-  .wave-group .input:focus~.bar:before,
-  .wave-group .input:focus~.bar:after {
-    width: 50%;
+  #birthday {
+    position: relative;
+    margin-left: 14%;
+    margin-top: 30px;
+    width: 90%;
   }
   
   .btn-forget {
@@ -348,3 +297,57 @@
   #btnforget:hover {
     background-color: #5061a8;
   }
+
+
+
+
+  /* 忘記密碼確認------------------------------- */
+
+.reset_container {
+  background-color: #F5F5F5;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 0 auto;
+
+  position: relative;
+  width: 550px;
+  height: 400px;
+  margin-bottom: 120px;
+  margin-top: 120px;
+}
+
+.reset-header {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* 新密碼輸入 */
+#newCode{
+  position: relative;
+  margin-left: 23%;
+  margin-top: 100px;
+  width: 90%;
+}
+
+#passwordCheck{
+  position: relative;
+  margin-left: 23%;
+  margin-top: 50px;
+  width: 90%;
+}
+
+#resetPassword{
+  background-color: #3c3c78;
+  color: white;
+  border-radius: 20px;
+  padding: 5px 160px;
+  margin-left: 20%;
+  margin-top: 28px;
+}
+
+#resetPassword:hover{
+  background-color: #4e4eb1;
+}

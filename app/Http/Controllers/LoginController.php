@@ -16,4 +16,7 @@ class LoginController extends Controller
     public function forgetPassword(){
         return view('loginpage', ['mode'=>'forget']);
     }
+    public function resetPassword(){
+        return view('loginpage', ['mode'=>'reset']);
+    }
 }

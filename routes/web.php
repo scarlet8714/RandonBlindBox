@@ -22,12 +22,15 @@ use Illuminate\Support\Facades\Cookie;
 Route::get('/', [HomeController::class, 'action'])->name('index');
 Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('authmember');
 ///////////////////////////////////////////
-Route::get('/myaccount', function(){
-    return view('membercenterpage.myaccount');
-})->name('myaccount');
-Route::get('/myorder', function(){
-    return view('membercenterpage.myorder');
-})->name('myorder');
+// Route::get('/myaccount', function(){
+//     return view('membercenterpage.myaccount');
+// })->name('myaccount');
+Route::get('/myaccount',[MyaccountControllers::class, 'action'])->name('myaccount');
+
+Route::get('/myorder',[MyorderController::class, 'action'])->name('myorder');
+
+
+
 Route::get('/orderdetail', function(){
     return view('membercenterpage.orderdetail');
 })->name('orderdetail');
@@ -55,6 +58,7 @@ Route::get('/logout', function(){
 })->name('logout');
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::get('/forgetPassword', [LoginController::class, 'forgetPassword'])->name('forgetPassword');
+Route::get('/resetPassword', [LoginController::class, 'resetPassword'])->name('resetPassword');
 Route::get('/actionfigure', [ActionFigureController::class, 'action'])->name('actionfigure');
 Route::get('/product', [ProductController::class, 'action']);
 
