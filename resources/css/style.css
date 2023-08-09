@@ -133,6 +133,7 @@ footer {
 
 .trashcan-ic:hover {
     fill: #F5233C;
+    cursor: pointer;
 }
 
 .co:hover{

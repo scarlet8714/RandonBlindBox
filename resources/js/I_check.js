@@ -154,3 +154,21 @@ $('.o_submit').click(function (e) {
   });
 
 });
+
+$('.rci').on('click', function (e) {
+  // const csrfToken = document.getElementsByName('csrf-token');
+  let cid = $(this).attr('cid');
+  let kono = $(this).parents('#first');
+  $.ajax({
+      headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      type: "DELETE",
+      url: `/removecartitem/${cid}`,
+      success: function (response) {
+          kono.remove();
+          total();
+          calculateTotal();
+      }
+  });
+});
