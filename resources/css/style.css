@@ -139,3 +139,15 @@ footer {
 .co:hover{
     cursor: pointer;
 }
+
+/* .addlike, .addcart{
+    position: absolute;
+    right: 0 !important;
+    top: calc(1.625rem + 49.212px);
+    width: 25%;
+    background-color: #3C3C78 !important;
+    color: white !important;
+    z-index: 100;
+    display: flex;
+} */
+

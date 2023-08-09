@@ -7,6 +7,8 @@ use App\Models\ProductAll;
 use App\Models\ProductPhotoAll;
 use App\Models\Delipay;
 use App\Models\ProductListHot;
+use App\Models\GetPid;
+use App\Models\AddLike;
 
 class ProductController extends Controller
 {
@@ -15,6 +17,9 @@ class ProductController extends Controller
         $this->productphoto = new ProductPhotoAll();
         $this->payment = new Delipay();
         $this->hotmodel = new ProductListHot();
+        $this->mid = new GetPid();
+        $this->like = new AddLike();
+
     }
     //   
     public function action($pid){
@@ -23,5 +28,11 @@ class ProductController extends Controller
         $pay = $this->payment->payment($pid);
         $hot = $this->hotmodel->imgpath();
         return view('productdetail', ['product'=> $pro, 'productphoto' => $proph, 'payment' => $pay, 'hot' => $hot]);
+    }
+    public function like(Request $request){
+        $membertoken = $request->cookie('token');
+        $mid = $this->mid->respid($membertoken);
+        $this->like->addlike($mid[0]->mid, $request->pid);
+        return 'success';
     }
 }

@@ -9,13 +9,13 @@
               <!-- <span class="ball">1</span> -->
             </li>
             <li class="active">
-              <span class="normal_member ball">
-                <img src="./img/Ｈ_member/member.png" alt="">
+              <span class="normal_member ball d-flex">
+                <img class="m-auto" src="../imgs/material/member.png" alt="">
               </span>
             </li>
             <li class="">
-              <span class="vip_member ball">
-                <img src="./img/Ｈ_member/vipmember.png" alt="">
+              <span class="vip_member ball d-flex">
+                <img class="m-auto" src="../imgs/material/vipmember.png" alt="">
               </span>
             </li>
           </ul>

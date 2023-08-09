@@ -81,7 +81,27 @@ addCart.addEventListener('click', () => {
             console.log('failed');
         }
     });
-})
+});
+
+// $('.button_favorite').click(function (e) { 
+//     e.preventDefault();
+//     let senddata = {
+//         pid: $(this).attr('pid')
+//     }
+//     $.ajax({
+//         contentType: 'application/json',
+//         headers: {
+//             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//         },
+//         type: "post",
+//         url: '/likeitem',
+//         data: JSON.stringify(senddata),
+//         success: function (response) {
+//             console.log(response);
+//         }
+//     });
+    
+// });
 
 
 

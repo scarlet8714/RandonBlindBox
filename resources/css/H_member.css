@@ -27,6 +27,7 @@
   transition: .3s;
 }
 
+
 .my_account>a>svg {
   color: black;
 }
@@ -123,21 +124,18 @@
 }
 
 /* 登出按鈕 */
-.log_out>div>button {
+#log_out {
   background-color: white;
   border: 1px solid white;
-  border-bottom: 1px solid black;
-  /* position: relative;
-    top:30px;
-    right:0px */
   float: right;
 }
 
 
 
 
-/* icon----------------------------- */
+/* My Account------------------------- */
 
+/* 會員卡片 */
 
 ul {
   margin: 0;
@@ -265,15 +263,11 @@ li {
 }
 
 
-
-
-/* My Account------------------------- */
-
-/* 會員卡片 */
 .my_account_card {
   background-image: linear-gradient(to left, #3c3c78, #7887AA);
   height: 50%;
 }
+
 
 .my_account_card>div {
   height: 235px;
@@ -348,14 +342,14 @@ li {
 /* 確定修改按鈕 */
 .my_account_info>div>div>button {
   width: 100%;
-  background-color: #3c3c78;
-  color: white;
+  background-color: #3c3c78 !important;
+  color: white !important;
   padding: 10px 0px;
   border: 1px solid white;
 }
 
 .my_account_info>div>div>button:hover {
-  background-color: #505098;
+  background-color: #505098  !important;
 }
 
 .myAccount {

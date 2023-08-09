@@ -5,7 +5,7 @@
       <div class="col-11 product_name">{{$content[0]->name}}</div>
       <!-- 收藏按鈕 -->
       <div class="position-absolute end-0">
-        <a href="#" class="button_favorite">
+        <a class="button_favorite" pid="{{$content[0]->pid}}">
           <svg class="favorite_empty" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
             <path fill="none" d="M0 0H24V24H0z"></path>
             <path

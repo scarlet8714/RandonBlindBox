@@ -150,3 +150,4 @@ $('.series-list').on('mouseenter', function () {
     $('.hot-detail').addClass('d-none');
     $('.hot-list').removeClass('color_red');
 });
+

@@ -1,11 +1,13 @@
+@props(['orderTable', 'total'])
+<!-- order-tbody.blade.php 視圖 -->
 <tbody>
-    <tr class="text-center">
-      <td scope="row">27975843897</td>
-      <td>2023-01-01</td>
-      <td>NT $300</td>
-      <td>待發貨</td>
-      <td>
-        <a class="btn" id="btnDetail" href="#">訂單詳情</a>
-      </td>
-    </tr>
+  <tr class="text-center">
+    <td scope="row">{{$orderTable->oid}}</td>
+    <td>{{$orderTable->order_date}}</td>
+    <td>NT ${{$total}}</td>
+    <td>待發貨</td>
+    <td>
+      <a class="btn" id="btnDetail" href="{{route('orderdetail')}}">訂單詳情</a>
+    </td>
+  </tr>
 </tbody>
