@@ -69,9 +69,9 @@
         </div>
       </div>
       <!-- 登出按鈕 -->
-      <div class="log_out col-xs-1 col-lg-1" style="height: 60px;">
+      <div class="col-xs-1 col-lg-1" style="height: 60px;">
         <div>
-          <button>登出</button>
+          <a class="btn" id="logout" style="border-bottom: 1px solid black;" href="{{route('index')}}">登出</a>
         </div>
       </div>
       <!-- <div class="col-xs-1 col-lg-1">4</div> -->
