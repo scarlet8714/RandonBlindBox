@@ -486,5 +486,13 @@ dialog::backdrop {
 
 /* 展示設定 */
 .show-text-white {
-    color: #000;
+    color: #fff !important;
+}
+
+.row {
+    display: flex !important;
+}
+
+#dialogTitle {
+    padding: 1em;
 }

@@ -75,6 +75,7 @@ class SlotAction extends Model
 
             $prize = json_decode(json_encode($this->givePrize()), 1);
             $prize['remainTimes'] = $remainTimes[0]->times;
+            // $peize['']
 
             return $prize;
         }

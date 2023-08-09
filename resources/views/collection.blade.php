@@ -15,5 +15,7 @@
             </div>
         </div>
     </div>
-    <x-collect.collection-dialog :product="$product"/>                      
+    @for ($i = 0; $i < count($product[0]); $i++)
+        <x-collect.collection-dialog :product="$product"/>                      
+    @endfor
 @endsection

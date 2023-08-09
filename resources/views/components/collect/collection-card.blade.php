@@ -15,7 +15,7 @@
                   </div>
                 </div>
                 <div class="col-2">
-                  <h6 class="card_text2 ">7/9</h6>
+                  <h6 class="card_text2 ">6/9</h6>
                 </div>
               </div>
             </div>

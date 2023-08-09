@@ -378,15 +378,9 @@
 
 
 
-<<<<<<< HEAD
 /*  註冊 ------------------------------------ */
 
 .register_container {
-=======
-  /* 忘記密碼確認------------------------------- */
-
-.reset_container {
->>>>>>> origin/develop_center
   background-color: #F5F5F5;
   padding: 20px;
   border-radius: 20px;
@@ -394,7 +388,6 @@
 
   position: relative;
   width: 550px;
-<<<<<<< HEAD
   height: 510px;
   margin-bottom: 50px;
 }
@@ -486,14 +479,6 @@
 }
 
 .forget-header {
-=======
-  height: 400px;
-  margin-bottom: 120px;
-  margin-top: 120px;
-}
-
-.reset-header {
->>>>>>> origin/develop_center
   position: absolute;
   top: 20%;
   left: 50%;
@@ -501,39 +486,20 @@
 }
 
 
-<<<<<<< HEAD
 
 /* 帳密輸入 */
 #forgetEmail {
   position: relative;
   margin-left: 14%;
-=======
-/* 新密碼輸入 */
-#newCode{
-  position: relative;
-  margin-left: 23%;
->>>>>>> origin/develop_center
   margin-top: 100px;
   width: 90%;
 }
 
-<<<<<<< HEAD
 #btnforget {
-=======
-#passwordCheck{
-  position: relative;
-  margin-left: 23%;
-  margin-top: 50px;
-  width: 90%;
-}
-
-#resetPassword{
->>>>>>> origin/develop_center
   background-color: #3c3c78;
   color: white;
   border-radius: 20px;
   padding: 5px 160px;
-<<<<<<< HEAD
   margin-left: 13%;
   margin-top: 28px;
 }
@@ -718,12 +684,4 @@
   top:30px;
   right:0px */
   float: right;
-=======
-  margin-left: 20%;
-  margin-top: 28px;
-}
-
-#resetPassword:hover{
-  background-color: #4e4eb1;
->>>>>>> origin/develop_center
 }

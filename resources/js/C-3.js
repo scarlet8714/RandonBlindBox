@@ -52,15 +52,15 @@ cards.forEach( function(card) {
     }).then(function(response) {
       return response.json();
     }).then(function(types) {
-      // console.log(0 == null);
-      for (let i = 0 ; i < max ; i++) {
+      console.log(max);
+      for (let i = 0 ; i < max-1 ; i++) {
         if(typeof(types[i]) == 0 || typeof(types[i]) == 'undefined') {
           console.log('這裡只有一隻小貓');
-          // document.getElementById('type' + i).style = 'display:none';
-          // document.getElementById('down' + i).style = 'display:none';
+          console.log(document.getElementById('type' + i));
+          document.getElementById('type' + i).setAttribute('style', 'display:none');
+          document.getElementById('down' + i).setAttribute('style', 'display:none');
         }
         else {
-        console.log(types[i]);
           // 設定
           document.getElementById('name' + i).innerHTML = types[i].name;
           document.getElementById('downName' + i).innerHTML = types[i].name;

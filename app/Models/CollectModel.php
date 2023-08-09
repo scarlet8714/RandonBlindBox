@@ -27,7 +27,7 @@ class CollectModel extends Model
     }
     
     function getProductDetails($pid) {
-        $product = DB::select('select * from product_photo where pid = ? and blind_id <> "all"', [$pid]);
+        $product = DB::select('select * from product_photo where blind_id <> "all"', [$pid]);
         $product = json_decode(json_encode($product), 1);
         return $product;
     }

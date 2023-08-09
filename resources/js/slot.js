@@ -60,6 +60,8 @@ const csrfToken = document.head.querySelector("[name~=csrf-token][content]").con
 const congratulations = document.getElementById('congratulations');
 let btn_drawpage = document.querySelector("#popup_show_drawpage");
 let drawpage = document.querySelector("#drawpage");
+var imgStore = document.querySelectorAll('.slot1')[0].getAttribute('src');
+console.log(imgStore);
 
 // let close_drawpage = document.querySelector("#popup_close_drawpage");
 const slot_start = document.querySelector(".result");
@@ -69,6 +71,9 @@ btn_drawpage.addEventListener("click", function () {
 	if (remain > 0) {
 		drawpage.showModal();
 		document.getElementById(`result`).classList.add('is-play');
+		document.querySelectorAll('.slot1').forEach(function(Img){
+			Img.setAttribute('src', imgStore);
+		})
 		// 傳遞抽獎請求
 		fetch('/product/slot/go', {
 			method: 'POST',
@@ -93,7 +98,11 @@ btn_drawpage.addEventListener("click", function () {
 			let resultImg = document.querySelector('#prizeImg');
 			result.innerHTML = prize['name'];
 			resultImg.setAttribute('src', '/' + prize['photo']);
-	
+			let slotResult = document.querySelectorAll('.slot1');
+			slotResult.forEach(function(resultPrize) {
+				resultPrize.setAttribute('src', '/' + prize['photo']);
+			})
+
 			// 將會使用到剩餘次數的部分都修改
 			const times = document.querySelectorAll('.remainTimes');
 			times.forEach( function (time) {
@@ -104,6 +113,11 @@ btn_drawpage.addEventListener("click", function () {
 					time.innerHTML = prize['remainTimes'];
 				}
 			})
+
+			if (prize['remainTimes'] == 0) {
+				document.getElementById('popup_checkopen_drawpage').innerHTML = '抽盒次數不足!';
+				document.getElementById('popup_show_drawpage').innerHTML = '前往購買抽盒機會!';
+			}
 	
 			// 加上灰階及不可點擊
 			let off = document.getElementById(selectedBlind);
@@ -124,9 +138,9 @@ const canvas_start = document.querySelector("#canvas");
 const darkMask = document.getElementById('darkmask');
 function stopAnimation() {
 	if (document.getElementById(`result`)) {
-		const num = Math.floor(Math.random() * 10);
+		// const num = Math.floor(Math.random() * 10);
 		document.getElementById(`result`).classList.remove('is-play');
-		document.getElementById(`result`).style.transform = `translateY(${-num * 10}%)`;
+		// document.getElementById(`result`).style.transform = `translateY(${-num * 10}%)`;
 		/**********************關閉點擊暫停動畫 ********************/
 		slot_start.removeEventListener("click", stopAnimation);
 		/**********************************************************/
@@ -135,7 +149,7 @@ function stopAnimation() {
 		setTimeout(() => {
 			// canvas_start.start()
 			drawpage.close();
-			console.log(congratulations);
+			// console.log(congratulations);
 			congratulations.showModal();
 		}, 3000);
 

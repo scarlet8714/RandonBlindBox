@@ -18,7 +18,7 @@
         <div class="popup_checkopen_pic pt-5">
           <img src="/{{ $product[0][0]['open'] }}" class="img-fluid" alt="">
         </div>
-        <div class="popup_checkopen_text text-center">
+        <div id="popup_checkopen_drawpage" class="popup_checkopen_text text-center">
           @if (isset($times[0]['times']) && $times[0]['times'] == 0) 
             抽盒次數不足!
           @else
@@ -63,13 +63,13 @@
                 {{-- 拉取 圖片資料 拉霸機三格 --}}
                 @for ( $i = 0; $i < 3; $i++ )
                 <div class="col popup_drawpage_pic ">
-                    @foreach ($product[2] as $item)
-                        @if ($item['blind_id'] !== NULL)
+                    @for ($j = 0 ; $j < count($product[2]) ; $j++)
+                        @if ($product[2][$j]['blind_id'] !== NULL)
                         <div class="result-item ">
-                            <img src="/{{ $item['photo_bg'] }}" class="img-fluid" alt="">
+                            <img src="/{{ $product[2][$j]['photo_bg'] }}" class="img-fluid slot{{ $j+1 }}" alt="">
                         </div>
                         @endif
-                    @endforeach
+                    @endfor
                 </div>
                 @endfor
             </div>
