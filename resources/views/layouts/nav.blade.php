@@ -34,6 +34,6 @@
       </div>
     </div>
 </nav>
-{{-- <x-addcartbar />
-<x-addlikebar /> --}}
+<x-addcartbar />
+{{-- <x-addlikebar /> --}}
         

@@ -136,11 +136,12 @@ footer {
     cursor: pointer;
 }
 
-.co:hover{
+.co:hover {
     cursor: pointer;
 }
 
-/* .addlike, .addcart{
+.likeadd,
+.cartadd {
     position: absolute;
     right: 0 !important;
     top: calc(1.625rem + 49.212px);
@@ -149,5 +150,18 @@ footer {
     color: white !important;
     z-index: 100;
     display: flex;
-} */
+}
 
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.cani {
+    animation: fadeout 2s forwards;
+}

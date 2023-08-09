@@ -1,11 +1,11 @@
 <tbody>
 
     <tr>
-      <td><img src="./img/Ｈ_member/good_chipS.jpg" alt="收藏圖">
+      <td><img src="imgs/minions/main_minions_at_work/product_frontcover/head.png" alt="收藏圖">
       </td>
-      <td>奇奇蒂蒂</td>
-      <td>玩具公仔</td>
-      <td>NT $450</td>
+      <td>泡泡馬特 小小兵 秘密基地系列盲盒</td>
+      <td>盲盒線上抽</td>
+      <td>NT $320</td>
       <td>
         <a class="btn btn-primary" id="JoinShop" href="#" role="button">加入購物車</a>
       </td>

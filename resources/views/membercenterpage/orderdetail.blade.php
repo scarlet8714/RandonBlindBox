@@ -24,7 +24,6 @@
         <tbody>
 
             <x-membercenter.orderresult-tbody />
-            <x-membercenter.orderresult-tbody />
 
         </tbody>
       </table>
