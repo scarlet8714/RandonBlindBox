@@ -24,7 +24,7 @@
     </div>
     <!-- 商品價格 -->
     <div class="product_price color_red pt-3">
-      <h5>$320</h5>
+      <h5>${{$content[0]->price}}</h5>
     </div>
     <!-- 商品類別_線上抽盲盒 -->
     <div class="product_category col-3 d-flex align-items-center justify-content-center mt-5">

@@ -5,7 +5,7 @@
       </td>
       <td>泡泡馬特 小小兵 秘密基地系列盲盒</td>
       <td>盲盒線上抽</td>
-      <td>NT $320</td>
+      <td>NT $330</td>
       <td>
         <a class="btn btn-primary" id="JoinShop" href="#" role="button">加入購物車</a>
       </td>

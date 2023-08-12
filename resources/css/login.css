@@ -25,14 +25,14 @@
   /* 帳密輸入 */
   #logEmail {
     position: relative;
-    margin-left: 60px;
+    /* margin-left: 60px; */
     margin-top: 40px;
     width: 90%;
   }
   
   #logpassword {
     position: relative;
-    margin-left: 60px;
+    /* margin-left: 60px; */
     margin-top: 30px;
     width: 90%;
   }
@@ -111,7 +111,7 @@
     font-size: 5px;
     text-align: center;
     color: #3c3c78;
-    margin-left: 50px;
+    /* margin-left: 50px; */
   }
   
   #btnBuy {
@@ -119,7 +119,7 @@
     color: white;
     border-radius: 20px;
     padding: 5px 160px;
-    margin-left: 11%;
+    /* margin-left: 11%; */
     margin-top: 20px;
   }
   
@@ -129,8 +129,8 @@
   
   .login-footer h4 {
     position: relative;
-    margin-left: 180px;
-    margin-top: 10px;
+    /* margin-left: 180px;
+    margin-top: 10px; */
   }
   
   .login-footer button {
@@ -138,7 +138,7 @@
     color: #3c3c78;
     border-radius: 20px;
     padding: 5px 160px;
-    margin-left: 11%;
+    /* margin-left: 11%; */
     margin-top: 20px;
   }
   
@@ -158,7 +158,7 @@
   
     position: relative;
     width: 550px;
-    height: 680px;
+    height: 780px;
     margin-bottom: 50px;
   }
   
@@ -177,7 +177,7 @@
     width: 90%;
   }
   
-  #registerPassword {
+  .registerPassword {
     position: relative;
     margin-left: 14%;
     margin-top: 30px;
@@ -216,7 +216,7 @@
     font-size: 5px;
     text-align: center;
     color: #3c3c78;
-    margin-left: 50px;
+    /* margin-left: 50px; */
   }
   
   #btnAccount {
@@ -350,4 +350,25 @@
 
 #resetPassword:hover{
   background-color: #4e4eb1;
+}
+
+
+input[type="date"] {
+  color: #F5F5F5;
+}
+
+input[type="date"]:focus {
+  color: #999;
+}
+
+input[type="date"]:valid {
+  color: black;
+}
+
+.authicon {
+  /* display: inline-block;  */
+  box-sizing:border-box;
+  position: relative;
+  top: 8px;
+  /* margin-top:20px; */
 }

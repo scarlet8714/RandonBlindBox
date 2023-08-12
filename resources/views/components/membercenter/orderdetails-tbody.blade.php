@@ -5,7 +5,7 @@
       </td>
       <td a href="商品詳情頁">小小兵秘密基地系列</td>
       <td>盲盒線上抽</td>
-      <td>NT $300</td>
+      <td>NT $330</td>
       <td>2</td>
     </tr>
 </tbody>

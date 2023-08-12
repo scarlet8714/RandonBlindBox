@@ -9,7 +9,7 @@
       </div>
       <div class="px-3 py-3">
         <h6 class="pt-2">累積消費金額</h6>
-        <h6 class="py-2">NT $ 0</h6>
+        <h6 class="py-2">NT $ 4520</h6>
       </div>
     </div>
   </div>

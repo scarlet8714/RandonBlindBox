@@ -55,6 +55,7 @@ Route::get('/logout', function(){
     return redirect('/');
 })->name('logout');
 Route::get('/register', [LoginController::class, 'register'])->name('register');
+Route::post('/register', [RegisterController::class, 'action']);
 Route::get('/forgetPassword', [LoginController::class, 'forgetPassword'])->name('forgetPassword');
 Route::get('/resetPassword', [LoginController::class, 'resetPassword'])->name('resetPassword');
 Route::get('/actionfigure', [ActionFigureController::class, 'action'])->name('actionfigure');

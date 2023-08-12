@@ -83,8 +83,8 @@
         style="border-radius: 50%; background-color: white; position: absolute; bottom: 1em; right: 1em; width: 1em; height: 1em;">
       </div>
       <!-- body -->
-      <div class="login-body">
-        <form method="POST" action="/loginauth">
+      <div class="login-body d-flex">
+        <form method="POST" action="/loginauth" class="mx-auto">
           <!-- email -->
           @csrf
           <div id="logEmail" class="wave-group" style="margin-bottom: 15px;">
@@ -118,7 +118,7 @@
       </div>
       <!-- footer -->
       <div class="login-footer">
-        <div class="singup">
+        <div class="singup text-center">
           <h4>還不是會員？</h4>
           <a href="{{route('register')}}"><button class="btn btn-register text-center">註冊會員</button></a>
         </div>
