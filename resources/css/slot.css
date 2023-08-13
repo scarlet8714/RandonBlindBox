@@ -364,7 +364,8 @@
   width: 16.5em;
   height: 16.5em;
   object-fit: cover;
-
+  padding-left: 0.5em;
+  /* padding-right: 0.5em; */
 }
 
 .machine_screen_box:hover {

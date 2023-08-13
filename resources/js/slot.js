@@ -67,7 +67,8 @@ console.log(imgStore);
 const slot_start = document.querySelector(".result");
 var product = document.getElementById('pid').value;
 btn_drawpage.addEventListener("click", function () {
-	let remain = document.getElementById('times').innerText
+	document.getElementById(`popup_close_congratulations`).classList.add('hide');
+	let remain = document.getElementById('times').innerText;
 	if (remain > 0) {
 		drawpage.showModal();
 		document.getElementById(`result`).classList.add('is-play');
@@ -150,6 +151,7 @@ function stopAnimation() {
 			// canvas_start.start()
 			drawpage.close();
 			// console.log(congratulations);
+			document.getElementById(`popup_close_congratulations`).classList.remove('hide');
 			congratulations.showModal();
 		}, 3000);
 

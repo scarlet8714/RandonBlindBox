@@ -1,10 +1,10 @@
 @props(['product'])
+@props(['types'])
+{{-- @props(['type']) --}}
 <!-- 彈跳視窗_商品收集卡 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <dialog id="infoModal">
+<dialog id="infoModal{{ $product->pid }}">
     <!-- 關閉按鈕 -->
-    <a href="#" id="popup_close" class="position-absolute top-0 end-0">
+    <a href="#" id="popup_close{{ $product->pid }}" class="position-absolute top-0 end-0 popup_close">
       <svg width="35" height="35" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
         id="cross-circle" class="icon glyph">
         <path
@@ -15,7 +15,6 @@
 
     <div class="position-relative d-flex justify-content-center">
       <div class="">
-        {{-- {{ var_dump($product) }} --}}
         <!-- 上_圓形/COLLECTION -->
         <div class="popup_collection">
           <div class="row pb-5 px-4">
@@ -24,22 +23,35 @@
                 <div class="popup_circle rounded-circle p-3">
                   <div class="popup_circle2 p-1 rounded-circle">
                     <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
-                      class="swiper mySwiper2">
-                      <div class="swiper-wrapper ">
-                        @for ($i = 0; $i < $product[2]; $i++)
-                          <x-collect.collection-dialog-item :id="$i"/>
-                        @endfor
+                      class="swiper mySwiper2{{ $product->pid }} swiperSet">
+                      <div class="swiper-wrapper showSwiper{{ $product->pid }}">
+                        {{-- 有資料的讀取圖片 --}}
+                        @if (isset($types))
+                          @foreach ($types as $type)
+                            <x-collect.collection-dialog-content :type="$type"/>
+                          @endforeach
+                        {{-- 沒有資料的放預設圖 --}}
+                        @else
+                          <x-collect.collection-dialog-content />
+                          <x-collect.collection-dialog-content />
+                          <x-collect.collection-dialog-content />
+                          <x-collect.collection-dialog-content />
+                          <x-collect.collection-dialog-content />
+                          <x-collect.collection-dialog-content />
+                          <x-collect.collection-dialog-content />    
+                        @endif
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="position-absolute popup_circle_text text-white text-center rounded-pill">
+                <div id="showName{{ $product->pid }}" class="position-absolute popup_circle_text text-white text-center rounded-pill">
+                  Random!
                 </div>
               </div>
             </div>
             <div class="col-7">
               <div class="pt-5">
-                <h3 class="popup_title fst-italic pt-4">MINIONS</h3>
+                <h3 class="popup_title fst-italic pt-4">{{ strtoupper($product->gate) }}</h3>
                 <h3 class="popup_title2 ps-5 fst-italic">COLLETION</h3>
               </div>
             </div>
@@ -57,36 +69,52 @@
               <div class="popup_circle rounded-circle p-3">
                 <div class="popup_circle2 p-1 rounded-circle">
                   <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
-                    class="swiper mySwiper2">
-                    <div class="swiper-wrapper ">
-                      @for ($i = 0; $i < $product[2]; $i++)
-                        <x-collect.collection-dialog-item  :id="$i"/>
-                      @endfor
+                    class="swiper mySwiper2333 swiperSet">
+                    <div class="swiper-wrapper">
+                        <x-collect.collection-dialog-content />
+                        <x-collect.collection-dialog-content />
+                        <x-collect.collection-dialog-content />
+                        <x-collect.collection-dialog-content />
+                        <x-collect.collection-dialog-content />
+                        <x-collect.collection-dialog-content />
+                        <x-collect.collection-dialog-content />
                     </div>
+
                   </div>
+
                 </div>
+
               </div>
               <div class="position-absolute popup_circle_text text-white text-center rounded-pill">
               </div>
             </div>
+
           </div>
         </div>
-
         <!-- 下 -->
-        <div class="swiper mySwiper popup_back">
+        <div class="swiper popup_back mySwiper{{ $product->pid }} swiperSetDown">
           <!-- 系列標題 -->
-          <h6 id="dialogTitle" class="pb-4 text-white popup_text">POP MART 小小兵秘密基地系列 </h6>
+          <h6 class="pb-4 text-white popup_text popup_text_title">{{ $product->name }}</h6>
           <!-- 白底圖 -->
-          <div class="swiper-wrapper row">
-            @for ($i = 0; $i < $product[2]; $i++)
-              <x-collect.collection-dialog-item-down :id="$i"/>
-            @endfor
+          <div class="swiper-wrapper row showDownSwiper{{ $product->pid }}">
+            @if (isset($types))
+              @foreach ($types as $type)
+                <x-collect.collection-dialog-down-content :type="$type"/>
+              @endforeach
+            @else
+              <x-collect.collection-dialog-down-content />
+              <x-collect.collection-dialog-down-content />
+              <x-collect.collection-dialog-down-content />
+              <x-collect.collection-dialog-down-content />
+              <x-collect.collection-dialog-down-content />
+              <x-collect.collection-dialog-down-content />
+              <x-collect.collection-dialog-down-content />  
+            @endif
           </div>
         </div>
-
       </div>
       <!-- 購買抽盒機會 -->
-      <div class="position-absolute popup_ticket ">
+      <div class="position-absolute popup_ticket buyTest">
         <div class="">
           <svg width="300" height="120" viewBox="0 0 360 177" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="360" height="49" rx="10" fill="#7887AA" />

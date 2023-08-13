@@ -1,4 +1,5 @@
 @props(['times'])
+@props(['pid'])
   <!-- RWD BAR -->
   <div class="fixed-bottom rwd_bar">
     <div class="position-absolute rwd_bar_content ">
@@ -6,7 +7,7 @@
         <div class="d-flex">
           <!-- icon_回首頁 -->
           <li class="me-2 rwd_bar_icon">
-            <a href="#">
+            <a href="/product/{{ $pid }}">
               <svg id="圖層_1" data-name="圖層 1" height="2.5em" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 468.65 493.39">
                 <defs>
@@ -30,13 +31,13 @@
             </a>
           </li>
           <li class="me-2 d-flex align-self-end">
-            <a href="#" class="rwd_bar_text">
+            <a href="/" class="rwd_bar_text">
               回首頁
             </a>
           </li>
           <!-- icon_其他盲盒 -->
           <li class="me-2 rwd_bar_icon">
-            <a href="#">
+            <a href="/actionfigure">
               <svg id="圖層_1" data-name="圖層 1" height="2.5em" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 557.72 479.23">
                 <defs>
@@ -80,7 +81,7 @@
           </li>
           <!-- 購買抽盒機會 -->
           <li class="ms-2 d-flex align-self-end">
-            <a href="#" class="rwd_bar_text3">
+            <a href="/product/" class="rwd_bar_text3">
               購買抽盒機會
               <svg height="1.5em" viewBox="0 0 25.00 25.00" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_iconCarrier">

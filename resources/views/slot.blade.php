@@ -22,7 +22,7 @@
         </div>
         <x-slot.slot-dialog :product="$product" :times="$times"/>
         <x-slot.slot-dailog-show-types :product="$product"/>
-        <x-slot.slot-rwd :times="$times"/>
+        <x-slot.slot-rwd :pid="$pid" :times="$times"/>
         <!-- 頁尾(for抽獎機)-->
 </body>
 </html>

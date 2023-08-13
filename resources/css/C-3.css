@@ -331,7 +331,7 @@ dialog::backdrop {
     font-size: 1em;
     font-family: 'Noto Sans TC', sans-serif;
     top: 84%;
-    width: 15em;
+    width: 16em;
     height: 3.5em;
 }
 
@@ -355,6 +355,13 @@ dialog::backdrop {
 .popup_text {
     font-size: 1em;
     font-family: 'Noto Sans TC', sans-serif;
+    padding-right: 1em;
+    padding-top: 2em;
+}
+
+.popup_text_title {
+    padding-left: 1em;
+    padding-top: 2em;
 }
 
 .popup_ticket {
@@ -495,4 +502,15 @@ dialog::backdrop {
 
 #dialogTitle {
     padding: 1em;
+}
+
+.img-fix {
+    /* padding-left: 1em; */
+    width: 9em;
+    height: 9em;
+    margin-left: 1em;
+}
+
+.buyTest {
+    position: relative !important;
 }
