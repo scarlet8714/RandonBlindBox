@@ -4,5 +4,5 @@
     <td></td>
     <td></td>
     <td>折扣:</td>
-    <td>- NT $100</td>
+    <td>- NT $0</td>
 </tr>

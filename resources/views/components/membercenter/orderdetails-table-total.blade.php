@@ -4,5 +4,5 @@
     <td></td>
     <td></td>
     <td>合計:</td>
-    <td>NT $260</td>
+    <td>NT $720</td>
 </tr>

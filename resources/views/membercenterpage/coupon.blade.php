@@ -1,8 +1,9 @@
 @extends('layouts.app')
-@vite(['resources/css/H_member.css'])
+@vite(['resources/css/H_member.css', 'resources/css/H_navbar3.css'])
 @section('content')
 
     <x-membercenter.small-navbar />
+
 
     <div class="container mt-5">
         <div class="d-flex justify-content-center row">

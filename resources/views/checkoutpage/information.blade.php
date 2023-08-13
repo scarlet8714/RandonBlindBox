@@ -5,8 +5,8 @@
     <div class="container">
         {{-- 123icon --}}
         <x-checkout.circle123 :state="['cart' => 'active', 'information' => 'active', 'confirm' => '']"/>
-        <x-checkout.navbar />   
-    </div>
+        <x-checkout.navbar />
+    </div> 
     {{-- 購買清單 --}}
     <x-checkout.checkorder />
     {{-- 商品資料 --}}
@@ -23,7 +23,7 @@
             <x-checkout.discount />
             <x-checkout.total-price />
         </div>
-    </div>
+    </div> 
     {{-- 收件方式 --}}
     <x-checkout.receive-method />
     <x-checkout.receive-method-inner>
@@ -50,12 +50,4 @@
         <x-checkout.back-cart />
         <x-checkout.submit-order />
     </x-checkout.information-bottom-button>
-    
-    
-
-
-   
-
-
-    
 @endsection

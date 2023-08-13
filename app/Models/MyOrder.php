@@ -10,11 +10,12 @@ class MyOrder extends Model
 {
     use HasFactory;
 
-    public function orderTable(){
-        $orderNumber = DB::select('select * from orders where oid = 1;');
+    public function orderTable($mid){
+        $orderNumber = DB::select('select * from orders where mid = ?;', [$mid[0]->mid]);
         return $orderNumber;
     }
 }
+
 
 
 // class Myorder extends Model

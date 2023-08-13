@@ -59,7 +59,7 @@
 /* ----------------------------------------------------------- */
 /* 商品資訊 */
 
-.q-select{
+.q-select {
   border-radius: 50%;
   width: 2em;
   height: 2em;
@@ -76,7 +76,7 @@
 }
 
 
-@media (max-width: 760px){
+@media (max-width: 760px) {
   .product_name {
     font-size: 1.4em;
   }
@@ -180,6 +180,7 @@
   opacity: 1;
   animation: beatingHeart 1.2s infinite;
 }
+
 /* ----------------------------------------------------------- */
 
 /* 新品上市 */
@@ -215,4 +216,8 @@
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
+}
+
+.ignite {
+  fill: #F5233C;
 }

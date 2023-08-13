@@ -25,7 +25,7 @@ Route::get('/login', [LoginController::class, 'login'])->name('login')->middlewa
 // Route::get('/myaccount', function(){
 //     return view('membercenterpage.myaccount');
 // })->name('myaccount');
-Route::get('/myaccount',[MyaccountControllers::class, 'action'])->name('myaccount');
+Route::get('/myaccount',[MyAccountController::class, 'action'])->name('myaccount');
 
 Route::get('/myorder',[MyorderController::class, 'action'])->name('myorder');
 
@@ -34,20 +34,14 @@ Route::get('/myorder',[MyorderController::class, 'action'])->name('myorder');
 Route::get('/orderdetail', function(){
     return view('membercenterpage.orderdetail');
 })->name('orderdetail');
+// Route::get('/orderdetail/{oid}', [MyOrderDetailController::class, 'action'])->name('orderdetail');
 Route::get('/coupon', function(){
     return view('membercenterpage.coupon');
 })->name('coupon');
 Route::get('/favoritelist', function(){
     return view('membercenterpage.favoritelist');
 })->name('favoritelist');
-// Route::get('/cartpage', function(){
-    // return view('checkoutpage.cart');
-// })->name('cartpage');
 Route::get('/cartpage', [CartDetailController::class, 'action'])->name('cartpage');
-
-// Route::get('/information', function(){
-//     return view('checkoutpage.information');
-// })->name('information');
 Route::get('/information', [CartDetailController::class, 'action1'])->name('information');
 
 Route::get('/confirm', function(){
@@ -61,6 +55,7 @@ Route::get('/logout', function(){
     return redirect('/');
 })->name('logout');
 Route::get('/register', [LoginController::class, 'register'])->name('register');
+Route::post('/register', [RegisterController::class, 'action']);
 Route::get('/forgetPassword', [LoginController::class, 'forgetPassword'])->name('forgetPassword');
 Route::get('/resetPassword', [LoginController::class, 'resetPassword'])->name('resetPassword');
 Route::get('/actionfigure', [ActionFigureController::class, 'action'])->name('actionfigure');
@@ -74,6 +69,16 @@ Route::post('/addcart', [CartController::class, 'addcart']);
 Route::post('/cart2check', [CartController::class, 'add']);
 Route::get('/navcart', [CartItemController::class, 'action']);
 Route::delete('/removecartitem/{cid}', [CartItemController::class, 'deleteitem']);
+
+Route::get('sendmail', [ForgotPWDController::class, 'forgotpwd']);
+
+Route::get('/resetpwd', [ResetPWDController::class, 'resetpage']);
+Route::post('/resetpwd', [ResetPWDController::class, 'reset']);
+
+Route::post('/ordersubmit', [OrderController::class, 'order']);
+Route::post('/likeitem', [ProductController::class, 'like']);
+
+Route::get('/likelist', [LikeListController::class, 'action'])->name('likelist');
 
 // 拉霸機，抽獎
 Route::post('/product/slot/go', [SlotController::class, 'slotPrize']);

@@ -47,10 +47,10 @@ const minus = document.querySelector('.minus');
 const plus = document.querySelector('.plus');
 const quantity = document.querySelector('.quantity');
 
-plus.addEventListener('click', ()=>{
+plus.addEventListener('click', () => {
     quantity.value = Number(quantity.value) + 1;
 })
-minus.addEventListener('click', ()=>{
+minus.addEventListener('click', () => {
     quantity.value = Number(quantity.value) - 1;
 })
 
@@ -72,16 +72,49 @@ addCart.addEventListener('click', () => {
         },
         type: "POST",
         url: "/addcart",
-        // dataType: 'text',
         data: JSON.stringify(senddata),
         success: function (res) {
-            console.log(res);
+            $('.cartadd').removeClass('d-none');
+            $('.cartadd').addClass('cani');
         },
-        error: function(res){
+        error: function (res) {
             console.log('failed');
         }
     });
-})
+});
+
+$('.cartadd').on('animationend', function (e) {
+    $('.cartadd').removeClass('cani');
+    $('.cartadd').addClass('d-none');
+});
+
+$('.cartadd').on('mouseenter', function (e) {
+    $('.cartadd').removeClass('cani');
+});
+$('.cartadd').on('mouseleave', function (e) {
+    $('.cartadd').addClass('cani');
+});
+$('.button_favorite').click(function (e) {
+    e.preventDefault();
+    let senddata = {
+        pid: $(this).attr('pid')
+    }
+    $.ajax({
+        contentType: 'application/json',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        type: "post",
+        url: '/likeitem',
+        data: JSON.stringify(senddata),
+        success: function (response) {
+            $('.favorite_empty').addClass('d-none');
+            $('.ignite').removeClass('favorite_filled');
+            $('.buttin_favorite').css(pointer - events, 'none');
+        }
+    });
+
+});
 
 
 

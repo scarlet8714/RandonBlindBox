@@ -133,4 +133,35 @@ footer {
 
 .trashcan-ic:hover {
     fill: #F5233C;
+    cursor: pointer;
+}
+
+.co:hover {
+    cursor: pointer;
+}
+
+.likeadd,
+.cartadd {
+    position: absolute;
+    right: 0 !important;
+    top: calc(1.625rem + 49.212px);
+    width: 25%;
+    background-color: #3C3C78 !important;
+    color: white !important;
+    z-index: 100;
+    display: flex;
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.cani {
+    animation: fadeout 1.35s forwards;
 }

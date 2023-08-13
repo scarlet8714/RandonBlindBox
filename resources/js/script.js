@@ -28,7 +28,7 @@ $('.showcart').click(function (e) {
                         $('.cart-container').append(content);
                     });
                     $('.cart-container').append(`<div class="d-flex checkout-btn justify-content-center py-2">
-                    <h5 class="my-auto">訂單結帳</h4>
+                    <h5 class="my-auto co" onclick="window.location='/cartpage'">訂單結帳</h5>
                 </div>`);
                     $('.cart-container').removeClass('d-none');
                     $('.removeproduct').on('click', function (e) {
@@ -150,3 +150,4 @@ $('.series-list').on('mouseenter', function () {
     $('.hot-detail').addClass('d-none');
     $('.hot-list').removeClass('color_red');
 });
+

@@ -1,0 +1,468 @@
+/* 動態＿輸入帳密(重複使用) */
+
+.wave-group .input {
+  font-size: 16px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 350px;
+  border: none;
+  border-bottom: 1px solid #515151;
+  background: transparent;
+}
+
+.wave-group .input:focus {
+  outline: none;
+}
+
+.wave-group .label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  display: flex;
+}
+
+.wave-group .label-char {
+  transition: 0.2s ease all;
+  transition-delay: calc(var(--index) * .05s);
+}
+
+.wave-group .input:focus~label .label-char,
+.wave-group .input:valid~label .label-char {
+  transform: translateY(-20px);
+  font-size: 14px;
+  color: #5264AE;
+}
+
+.wave-group .bar {
+  position: relative;
+  display: block;
+  width: 350px;
+}
+
+.wave-group .bar:before,
+.wave-group .bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #5264AE;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.wave-group .bar:before {
+  left: 50%;
+}
+
+.wave-group .bar:after {
+  right: 50%;
+}
+
+.wave-group .input:focus~.bar:before,
+.wave-group .input:focus~.bar:after {
+  width: 50%;
+}
+
+/* ----------------------------------- */
+
+
+
+
+
+/* 登入  ------------------------------------------------ */
+
+
+.login_container {
+  background-color: #F5F5F5;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 0 auto;
+
+  position: relative;
+  width: 550px !important;
+  height: 480px;
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
+
+.login-header {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+/* 帳密輸入 */
+#logEmail {
+  position: relative;
+  margin-left: 60px;
+  margin-top: 40px;
+  width: 90%;
+}
+
+#logpassword {
+  position: relative;
+  margin-left: 60px;
+  margin-top: 30px;
+  width: 90%;
+}
+
+.btn-forget {
+  font-size: 5px !important;
+  text-align: center;
+  color: #3c3c78 !important;
+  margin-left: 50px;
+}
+
+#btnBuy {
+  background-color: #3c3c78;
+  color: white;
+  border-radius: 20px;
+  padding: 5px 160px;
+  margin-left: 11%;
+  margin-top: 20px;
+}
+
+#btnBuy:hover {
+  background-color: #4e4eb1;
+}
+
+
+
+.login-footer h4 {
+  position: relative;
+  margin-left: 180px;
+  margin-top: 40px;
+}
+
+.login-footer button {
+  background-color: #e0e5f8;
+  color: #3c3c78;
+  border-radius: 20px;
+  padding: 5px 160px;
+  margin-left: 11%;
+  margin-top: 20px;
+}
+
+.login-footer button:hover {
+  background-color: #B8C6FF;
+}
+
+
+
+
+/*  註冊 ------------------------------------ */
+
+.register_container {
+  background-color: #F5F5F5;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 0 auto;
+
+  position: relative;
+  width: 550px;
+  height: 510px;
+  margin-bottom: 50px;
+}
+
+.register-header {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 帳密輸入 */
+#registerEmail {
+  position: relative;
+  margin-left: 14%;
+  margin-top: 60px;
+  width: 90%;
+}
+
+#registerPassword {
+  position: relative;
+  margin-left: 14%;
+  margin-top: 30px;
+  width: 90%;
+}
+
+#registerDouble {
+  position: relative;
+  margin-left: 14%;
+  margin-top: 30px;
+  width: 90%;
+}
+
+.btn-forget {
+  font-size: 5px;
+  text-align: center;
+  color: #3c3c78;
+  margin-left: 50px;
+}
+
+#btnAccount {
+  background-color: #3c3c78;
+  color: white;
+  border-radius: 20px;
+  padding: 5px 160px;
+  margin-left: 13%;
+  margin-top: 20px;
+}
+
+#btnAccount:hover {
+  background-color: #4e4eb1;
+}
+
+.register-footer h4 {
+  position: relative;
+  margin-left: 38%;
+  margin-top: 40px;
+}
+
+.register-footer button {
+  background-color: #e0e5f8;
+  color: #3c3c78;
+  border-radius: 20px;
+  padding: 5px 160px;
+  margin-left: 13%;
+  margin-top: 10px;
+  height: 40px;
+}
+
+.register-footer button:hover {
+  background-color: #B8C6FF;
+}
+
+
+
+/* 忘記密碼----------------------------- */
+
+.forget_container {
+  background-color: #F5F5F5;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 0 auto;
+
+  position: relative;
+  width: 550px;
+  height: 300px;
+  margin-bottom: 140px;
+  margin-top: 120px;
+}
+
+.forget-header {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+/* 帳密輸入 */
+#forgetEmail {
+  position: relative;
+  margin-left: 14%;
+  margin-top: 100px;
+  width: 90%;
+}
+
+#btnforget {
+  background-color: #3c3c78;
+  color: white;
+  border-radius: 20px;
+  padding: 5px 160px;
+  margin-left: 13%;
+  margin-top: 28px;
+}
+
+#btnforget:hover {
+  background-color: #4e4eb1;
+}
+
+
+
+
+
+/* 歡迎回來------------------------------ */
+
+.welcomeContainer {
+  background-color: #f5f3f3;
+  width: 500px;
+  height: 230px;
+  padding: 10px;
+  border-radius: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.welcome {
+  font-size: 35px;
+  height: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+
+.btnMember {
+  background-color: #d5daec;
+  color: #3c3c78;
+  border-radius: 20px;
+  padding: 5px 20px;
+  margin-left: -5px;
+  margin-top: 70px;
+  width: 200px;
+}
+
+.btnShop {
+  background-color: #3c3c78;
+  color: white;
+  border-radius: 20px;
+  padding: 5px 20px;
+  margin-left: 30px;
+  margin-top: 70px;
+  width: 200px;
+}
+
+.btnMember:hover {
+  background-color: #B8C6FF;
+}
+
+.btnShop:hover {
+  background-color: #4e4eb1;
+}
+
+
+/* 中間icon導覽列
+/* 我的訂單 */
+.my_account>a {
+  position: relative;
+  text-decoration: none;
+}
+
+.my_account>a::after {
+  content: "";
+  position: absolute;
+  right: 30%;
+  left: 30%;
+  bottom: 0px;
+  border-bottom: 1px solid gray;
+  transition: .3s;
+}
+
+.my_account>a>svg {
+  color: black;
+}
+
+.my_account>a:hover {
+  opacity: 80%;
+}
+
+/* 我的訂單 */
+.my_order>a {
+  position: relative;
+  text-decoration: none;
+}
+
+.my_order>a::after {
+  content: "";
+  position: absolute;
+  right: 50%;
+  left: 50%;
+  bottom: 0px;
+  border-bottom: 1px solid gray;
+  transition: .3s;
+}
+
+.my_order a:hover::after {
+  right: 31%;
+  left: 31%;
+}
+
+.my_order>a>svg {
+  color: black;
+}
+
+.my_order>a:hover {
+  opacity: 80%;
+}
+
+/* 我的訊息 */
+.my_message>a {
+  position: relative;
+  text-decoration: none;
+}
+
+.my_message>a::after {
+  content: "";
+  position: absolute;
+  right: 50%;
+  left: 50%;
+  bottom: 0px;
+  border-bottom: 1px solid gray;
+  transition: .3s;
+}
+
+.my_message a:hover::after {
+  right: 31%;
+  left: 31%;
+}
+
+.my_message>a>svg {
+  color: black;
+}
+
+.my_message>a:hover {
+  opacity: 80%;
+}
+
+/* 收藏清單 */
+.favorite_list>a {
+  position: relative;
+  text-decoration: none;
+}
+
+.favorite_list>a::after {
+  content: "";
+  position: absolute;
+  right: 50%;
+  left: 50%;
+  bottom: 0px;
+  border-bottom: 1px solid gray;
+  transition: .3s;
+}
+
+.favorite_list a:hover::after {
+  right: 31%;
+  left: 31%;
+}
+
+.favorite_list>a>svg {
+  color: black;
+}
+
+.favorite_list>a:hover {
+  opacity: 80%;
+}
+
+/* 登出按鈕 */
+.log_out>div>button {
+  background-color: white;
+  border: 1px solid white;
+  border-bottom: 1px solid black;
+  /* position: relative;
+  top:30px;
+  right:0px */
+  float: right;
+}

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@vite(['resources/css/H_member.css'])
+@vite(['resources/css/H_member.css', 'resources/css/H_navbar4.css'])
 @section('content')
 
     <x-membercenter.small-navbar />
