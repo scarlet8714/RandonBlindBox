@@ -4,5 +4,5 @@
     <td></td>
     <td></td>
     <td>折扣:</td>
-    <td>- NT $0</td>
+    <td class="text-start">NT $0</td>
 </tr>

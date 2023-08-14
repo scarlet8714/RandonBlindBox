@@ -12,17 +12,17 @@
       <div class="row col-9 ms-1 new-detail d-none">
         <div class="col-4">
           <a href="/product/{{$imglists['new'][0]->pid}}">
-            <img class="img-fluid" src="{{URL::to($imglists['new'][0]->head_photo)}}" alt="">
+            <img class="img-fluid" src="..\imgs\conan\conan_summer_carmival\product_frontcover\head.png" alt="">
           </a>
         </div>
         <div class="col-4">
           <a href="/product/{{$imglists['new'][1]->pid}}">
-            <img class="img-fluid" src="{{URL::to($imglists['new'][1]->head_photo)}}" alt="">
+            <img class="img-fluid" src="..\imgs\hacipupu\hacipupu_the_growth_diary\product_frontcover\head.png" alt="">
           </a>
         </div>
         <div class="col-4">
           <a href="/product/{{$imglists['new'][2]->pid}}">
-            <img class="img-fluid" src="{{URL::to($imglists['new'][2]->head_photo)}}" alt="">
+            <img class="img-fluid" src="..\imgs\molly\molly_mega_space\product_frontcover\head.png" alt="">
           </a>
         </div>
       </div>

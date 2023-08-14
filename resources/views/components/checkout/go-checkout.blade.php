@@ -1,6 +1,7 @@
 <div class="confirm_draw col-6 p-0">
-  <a href="{{route('information')}}">
-    <button>
+  {{-- <a href="{{route('information')}}"> --}}
+  <a>
+    <button class="update-cart">
       前往結帳
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right"
         viewBox="0 0 16 16">
@@ -9,4 +10,4 @@
       </svg>
     </button>
   </a>  
-  </div>
+</div>

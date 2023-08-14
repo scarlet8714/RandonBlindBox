@@ -16,5 +16,6 @@ class ForgotPWDController extends Controller
         ];
        
         \Mail::to('randomm0824@gmail.com')->send(new \App\Mail\forgotpassword($details));
+        return view('pwdpage.mailsent');
     }
 }

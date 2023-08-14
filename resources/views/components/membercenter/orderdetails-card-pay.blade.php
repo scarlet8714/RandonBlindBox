@@ -1,4 +1,4 @@
-<div class="row col-xs-4 col-sm-6 col-lg-6">
+<div class="row col-xs-4 col-sm-6 col-lg-6 position-relative mb-5">
     <div id="cardContainer" class="cardInfo">
       <div class="table-responsive">
         <table class="table tableCustomer">
@@ -23,6 +23,6 @@
       </div>
     </div>
     <div>
-      <a class="btn" id="backOrder" href="{{route('myorder')}}">回我的訂單</a>
+      <a class="btn position-absolute end-0" id="backOrder" href="{{route('myorder')}}">回我的訂單</a>
     </div>
 </div>

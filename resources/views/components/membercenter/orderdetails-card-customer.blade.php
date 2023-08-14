@@ -12,11 +12,11 @@
           <tbody>
             <tr>
               <td>訂貨人姓名：</td>
-              <td>喵星人</td>
+              <td>{{$name}}</td>
             </tr>
             <tr>
               <td>訂貨人電話：</td>
-              <td>0912345678</td>
+              <td>{{$phone}}</td>
             </tr>
           </tbody>
         </table>

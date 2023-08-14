@@ -12,19 +12,19 @@
           <tbody>
             <tr>
               <td>訂單編號：</td>
-              <td>8272910</td>
+              <td>{{$ordernumber}}</td>
             </tr>
             <tr>
               <td>訂單日期：</td>
-              <td>2023-08-010</td>
+              <td>{{$ordertime}}</td>
             </tr>
             <tr>
               <td>訂單狀態：</td>
-              <td style="color: red;">待發貨</td>
+              <td style="color: red;">{{$orderstatus}}</td>
             </tr>
             <tr>
               <td>訂單完成時間：</td>
-              <td>2023-08-10</td>
+              <td>{{$ordertime}}</td>
             </tr>
           </tbody>
         </table>

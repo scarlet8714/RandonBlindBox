@@ -19,7 +19,15 @@
       </div>
       <div class="inputGroup">
         <input type="password" required="" autocomplete="off">
-        <label for="password">修改密碼</label>
+        <label for="password">舊密碼</label>
+      </div>
+      <div class="inputGroup">
+        <input type="password" required="" autocomplete="off">
+        <label for="password">新密碼</label>
+      </div>
+      <div class="inputGroup">
+        <input type="password" required="" autocomplete="off">
+        <label for="password">再次確認新密碼</label>
       </div>
       <div class="inputGroup pb-3">
         <button class="btn">確定修改</button>

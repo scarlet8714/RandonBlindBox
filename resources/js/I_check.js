@@ -10,6 +10,7 @@ window.onload = function () {
 }
 //減法
 function minus(index) {
+  console.log(index);
   var amounts = document.getElementsByName("amount");
   var count = parseInt(amounts[index].value); //數量加1
   if (count <= 1) {
@@ -160,15 +161,40 @@ $('.rci').on('click', function (e) {
   let cid = $(this).attr('cid');
   let kono = $(this).parents('#first');
   $.ajax({
-      headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      },
-      type: "DELETE",
-      url: `/removecartitem/${cid}`,
-      success: function (response) {
-          kono.remove();
-          total();
-          calculateTotal();
-      }
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    type: "DELETE",
+    url: `/removecartitem/${cid}`,
+    success: function (response) {
+      kono.remove();
+      total();
+      calculateTotal();
+    }
+  });
+});
+
+$('.update-cart').on('click', function () {
+  let senddata = { data: [] };
+  const amounts = document.getElementsByName('amount');
+  amounts.forEach(e => {
+    let sendobj = {
+      cid: e.dataset.cid,
+      quantity: e.value
+    }
+    senddata.data.push(sendobj);
+  });
+  console.log(senddata);
+  $.ajax({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    contentType: 'application/json',
+    type: "post",
+    url: "/updatecart",
+    data: JSON.stringify(senddata),
+    success: function (response) {
+      window.location = '/information';
+    }
   });
 });

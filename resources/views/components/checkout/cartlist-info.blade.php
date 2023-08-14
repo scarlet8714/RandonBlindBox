@@ -1,13 +1,14 @@
 @props(['cartinfo'])
 @props(['sellspec'])
+@props(['index'])
 <ul id="first">
     <li><img src="{{$cartinfo->head_photo}}" alt="" width="120"></li>
     <li>{{$cartinfo->name}}</li>
     <li>{{$sellspec[0]->spec_intro}}</li>
     <li>NT$<input type="text" name="price" value="{{$cartinfo->price}}"></li>
-    <li><input id="minus" type="button" name="minus" value="-" onclick="minus(0)"><input type="text" name="amount"
-        value="{{$cartinfo->quantity}}"><input id="plus" type="button" name="plus" value="+" onclick="plus(0)"></li>
-    <li id="price0">NT{{$cartinfo->price}}</li>
+    <li><input id="minus" type="button" name="minus" value="-" onclick="minus({{$index}})"><input type="text" name="amount"
+        value="{{$cartinfo->quantity}}" data-pid="{{$cartinfo->pid}}" data-cid="{{$cartinfo->cid}}"><input id="plus" type="button" name="plus" value="+" onclick="plus({{$index}})"></li>
+    <li id="price{{$index}}">NT{{$cartinfo->price * $cartinfo->quantity}}</li>
     <li>
       <span class="rci" cid="{{$cartinfo->cid}}"><svg class="trashcan-ic" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
           class="bi bi-trash3 mt-3" viewBox="0 0 16 16">

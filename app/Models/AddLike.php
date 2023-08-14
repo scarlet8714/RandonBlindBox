@@ -10,7 +10,12 @@ class AddLike extends Model
 {
     use HasFactory;
     public function addlike($mid, $pid){
-        DB::insert('insert into collect (mid, pid) values (?, ?)', [$mid, $pid]);
+        $flag = DB::select('select * from collect where mid = ? and pid = ?', [$mid, $pid]);
+        if($flag) {
+            DB::delete('delete from collect where mid = ? and pid = ?', [$mid, $pid]);
+        } else {
+            DB::insert('insert into collect (mid, pid) values (?, ?)', [$mid, $pid]);
+        }
         return;
     }
 }

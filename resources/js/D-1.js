@@ -108,9 +108,9 @@ $('.button_favorite').click(function (e) {
         url: '/likeitem',
         data: JSON.stringify(senddata),
         success: function (response) {
-            $('.favorite_empty').addClass('d-none');
-            $('.ignite').removeClass('favorite_filled');
-            $('.buttin_favorite').css(pointer - events, 'none');
+            $('.favorite_empty').toggleClass('d-none');
+            $('.ignite').toggleClass('favorite_filled');
+            // $('.buttin_favorite').css(pointer - events, 'none');
         }
     });
 

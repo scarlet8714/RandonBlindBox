@@ -31,10 +31,10 @@ Route::get('/myorder',[MyorderController::class, 'action'])->name('myorder');
 
 
 
-Route::get('/orderdetail', function(){
-    return view('membercenterpage.orderdetail');
-})->name('orderdetail');
-// Route::get('/orderdetail/{oid}', [MyOrderDetailController::class, 'action'])->name('orderdetail');
+// Route::get('/orderdetail', function(){
+//     return view('membercenterpage.orderdetail');
+// })->name('orderdetail');
+Route::get('/orderdetail/{oid}', [MyOrderDetailController::class, 'action'])->name('orderdetail');
 Route::get('/coupon', function(){
     return view('membercenterpage.coupon');
 })->name('coupon');
@@ -75,3 +75,9 @@ Route::post('/ordersubmit', [OrderController::class, 'order']);
 Route::post('/likeitem', [ProductController::class, 'like']);
 
 Route::get('/likelist', [LikeListController::class, 'action'])->name('likelist');
+
+Route::get('/mailtest', function(){
+    return view('pwdpage.regissent');
+});
+
+Route::post('/updatecart', [UpdateCartController::class, 'updatecart']);
