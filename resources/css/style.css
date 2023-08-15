@@ -37,7 +37,8 @@ body {
 .toy-container {
     width: 100%;
     height: 20vw;
-    top: calc(1.625rem + 49.212px);
+    /* top: calc(1.625rem + 49.212px); */
+    top: 67.83px;
     left: 0;
     background-color: #F5F5F5;
     z-index: 100;
@@ -49,7 +50,8 @@ body {
 .blind-container {
     width: 100%;
     height: 20vw;
-    top: calc(1.625rem + 49.212px);
+    /* top: calc(1.625rem + 49.212px); */
+    top: 67.83px;
     left: 0;
     background-color: #F5F5F5;
     z-index: 100;
@@ -144,7 +146,8 @@ footer {
 .cartadd {
     position: absolute;
     right: 0 !important;
-    top: calc(1.625rem + 49.212px);
+    top: 67.83px;
+    /* top: calc(1.625rem + 49.212px); */
     width: 25%;
     background-color: #3C3C78 !important;
     color: white !important;
@@ -164,4 +167,24 @@ footer {
 
 .cani {
     animation: fadeout 1.35s forwards;
+}
+
+@media(max-width: 992px) {
+
+
+
+    .user-ic,
+    .cart-ic,
+    .like-ic {
+        display: none;
+    }
+}
+
+@media(min-width: 992px) {
+
+    .user-ic-n,
+    .cart-ic-n,
+    .like-ic-n {
+        display: none;
+    }
 }

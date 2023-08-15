@@ -151,3 +151,20 @@ $('.series-list').on('mouseenter', function () {
     $('.hot-list').removeClass('color_red');
 });
 
+// window.addEventListener('change', () => {
+//     if ($(window).width() <= 960) {
+//         $('svg[namae="inner"]').addClass('d-none');
+//         $('svg[namae="inner"]').addClass('d-none');
+//         $('svg[namae="inner"]').addClass('d-none');
+//         $('svg[namae="outer"]').removeClass('d-none');
+//     }
+//     if ($(window).width() > 960) {
+//         $('svg[namae="inner"]').removeClass('d-none');
+//         $('svg[namae="inner"]').removeClass('d-none');
+//         $('svg[namae="inner"]').removeClass('d-none');
+//         $('svg[namae="outer"]').addClass('d-none');
+//     }
+
+// })
+
+

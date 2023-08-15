@@ -21,7 +21,7 @@
             </x-productdetail.left>
         </x-slot:left>
         <x-slot:right>
-            <x-productdetail.right :content="$product" :payment="$payment"/>
+            <x-productdetail.right :content="$product" :payment="$payment" flag="{{$flag}}"/>
 
             {{-- </x-productdetail.right> --}}
         </x-slot:right>

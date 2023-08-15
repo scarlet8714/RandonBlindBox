@@ -1,4 +1,4 @@
-@props(['width' => 200])
+@props(['width' => 170])
 
 <svg width="{{$width}}" id="圖層_1" data-name="圖層 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 515.9 126.95">
     <defs>

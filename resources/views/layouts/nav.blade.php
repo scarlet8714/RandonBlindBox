@@ -5,6 +5,10 @@
       <a class="navbar-brand ms-5" href="/">
         <x-random-logo />
       </a>
+
+      <x-u-ic-none />
+      <x-c-ic-none />
+      <x-l-ic-none />
       <!--        -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,23 +19,24 @@
           <!-- navitem -->
           <li class="nav-item">
             <a class="nav-link text-white ms-5 mt-1 showtoy" aria-current="page" href="#">
-              <span class="fw-bold toy-text h5 pb-1">玩具公仔</span>
+              <span class="fw-bold toy-text h6 pb-1">玩具公仔</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white ms-4 mt-1 showblind" href="#">
-              <span class="fw-bold blind-text h5 pb-1">線上抽盲盒</span>
+            <a class="nav-link text-white ms-5 mt-1 showblind" href="#">
+              <span class="fw-bold blind-text h6 pb-1">線上抽盲盒</span>
             </a>
           </li>
           <!--        -->
         </ul>
         <x-homepage-list :imglists="$imglists"/>
         <!-- navicon -->
-        <a href="{{route('login')}}"><x-user-icon /></a>
-        <a class="showcart"><x-cart-icon /></a>
+        <a href="{{route('login')}}"><x-user-icon/></a>
+        <a class="showcart"><x-cart-icon/></a>
         <x-nav-cart />
-        <x-like-icon />
+        <x-like-icon/>
       </div>
+
     </div>
 </nav>
 <x-addcartbar />

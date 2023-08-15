@@ -31,10 +31,10 @@ Route::get('/myorder',[MyorderController::class, 'action'])->name('myorder');
 
 
 
-Route::get('/orderdetail', function(){
-    return view('membercenterpage.orderdetail');
-})->name('orderdetail');
-// Route::get('/orderdetail/{oid}', [MyOrderDetailController::class, 'action'])->name('orderdetail');
+// Route::get('/orderdetail', function(){
+//     return view('membercenterpage.orderdetail');
+// })->name('orderdetail');
+Route::get('/orderdetail/{oid}', [MyOrderDetailController::class, 'action'])->name('orderdetail');
 Route::get('/coupon', function(){
     return view('membercenterpage.coupon');
 })->name('coupon');
@@ -80,6 +80,12 @@ Route::post('/likeitem', [ProductController::class, 'like']);
 
 Route::get('/likelist', [LikeListController::class, 'action'])->name('likelist');
 
+Route::get('/mailtest', function(){
+    return view('pwdpage.regissent');
+});
+
+Route::post('/updatecart', [UpdateCartController::class, 'updatecart']);
+
 // 拉霸機，抽獎
 Route::post('/product/slot/go', [SlotController::class, 'slotPrize']);
 Route::get('/product/slot/{pid}', [SlotController::class, 'slot']);
@@ -87,9 +93,7 @@ Route::get('/product/slot/{pid}', [SlotController::class, 'slot']);
 // 收藏櫃
 Route::get('/collection', [CollectController::class, 'show']);
 Route::post('/collection/product', [CollectController::class, 'collectDetail']);
-// Route::get('/collection', function() {
-//     return view('collection');
-// });
 
 // 收藏櫃測試
 Route::post('/collectOwn', [CollectController::class, 'showTypes']);
+

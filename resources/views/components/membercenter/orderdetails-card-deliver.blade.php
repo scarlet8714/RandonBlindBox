@@ -12,15 +12,15 @@
           <tbody>
             <tr>
               <td>收件人姓名：</td>
-              <td>喵星人</td>
+              <td>{{$name}}</td>
             </tr>
             <tr>
               <td>收件人電話：</td>
-              <td>0912345678</td>
+              <td>{{$phone}}</td>
             </tr>
             <tr>
               <td>送貨方式：</td>
-              <td>超商取貨</td>
+              <td>{{$deliver}}</td>
             </tr>
             <tr>
               <td>送貨狀態：</td>

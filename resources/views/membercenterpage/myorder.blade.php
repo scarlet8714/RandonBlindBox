@@ -11,7 +11,21 @@
             
             <x-membercenter.order-thead />
             @foreach ($orderNum as $item)
-                <x-membercenter.order-tbody :orderTable="$item" total="{{$total[$item->oid][0]->total}}"/>
+                @php
+                    $fee = 0;
+                    switch ($item->deliver_method) {
+                        case '超商取貨':
+                            $fee = 60;
+                            break;
+                        case '郵寄宅配':
+                            $fee = 80;
+                            break;
+                        case '黑貓宅急便':
+                            $fee = 130;
+                            break;
+                    }                    
+                @endphp
+                <x-membercenter.order-tbody :orderTable="$item" total="{{$total[$item->oid][0]->total + $fee}}"/>
             @endforeach
             
 

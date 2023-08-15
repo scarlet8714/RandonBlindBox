@@ -221,3 +221,7 @@
 .ignite {
   fill: #F5233C;
 }
+
+.button_favorite {
+  cursor: pointer;
+}

@@ -1,11 +1,12 @@
+@props(['content'])
 <tbody>
 
     <tr>
-      <td><img src="imgs/minions/main_minions_at_work/product_frontcover/head.png" alt="收藏圖">
+      <td><img src="{{$content[0]->head_photo}}" alt="收藏圖">
       </td>
-      <td>泡泡馬特 小小兵 秘密基地系列盲盒</td>
+      <td>{{$content[0]->name}}</td>
       <td>盲盒線上抽</td>
-      <td>NT $330</td>
+      <td>NT ${{$content[0]->price}}</td>
       <td>
         <a class="btn btn-primary" id="JoinShop" href="#" role="button">加入購物車</a>
       </td>

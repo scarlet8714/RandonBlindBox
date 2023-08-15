@@ -11,7 +11,8 @@
         <div class="cartList col-xs-6 col-sm-10 col-lg-8 py-3">
             <x-checkout.cartlist />
             @foreach ($cartproduct as $item)
-            <x-checkout.cartlist-info :cartinfo="$item" :sellspec="$sellspec"/>
+                {{-- <p>{{$loop->index}}</p> --}}
+                <x-checkout.cartlist-info :cartinfo="$item" :sellspec="$sellspec" index="{{$loop->index}}"/>
             @endforeach
             <x-checkout.subtotal :subtotal="$cartproduct"/>
         </div>
