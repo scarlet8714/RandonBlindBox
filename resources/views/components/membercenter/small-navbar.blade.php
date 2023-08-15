@@ -52,7 +52,7 @@
           </div>
           <!-- 收藏清單 -->
           <div class="favorite_list col-2">
-            <a href="{{route('favoritelist')}}" class="row justify-content-center">
+            <a href="{{route('likelist')}}" class="row justify-content-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                 class="bi bi-clipboard-heart" viewBox="0 0 16 16">
                 <path fill-rule="evenodd"
