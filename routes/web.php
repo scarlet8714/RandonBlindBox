@@ -92,4 +92,4 @@ Route::post('/collection/product', [CollectController::class, 'collectDetail']);
 // });
 
 // 收藏櫃測試
-Route::post('/collectTest', [CollectController::class, 'showTypes']);
+Route::post('/collectOwn', [CollectController::class, 'showTypes']);

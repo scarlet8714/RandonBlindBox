@@ -36,8 +36,6 @@ class CollectModel extends Model
         $collect[2] = $member[0];
         $collect[3] = $schedules;
 
-        var_dump($collect[0][0]);
-
         return $collect;
     }
 
@@ -45,9 +43,11 @@ class CollectModel extends Model
     function getProductTypes($pid, $token) {
         $products = DB::select('select head_photo, name, publish, pid, box_count, gate from product where pid = ?', [$pid]);
         $types = DB::select('select pp.pid as pid, photo_bg as photo, pp.name as type_name, p.name as product_name, gate from product_photo as pp left join product as p on p.pid = pp.pid where blind_id <> "all" and pp.pid = ? ORDER BY pid ASC', [$pid]);
-        
+        $ownPrize = DB::select('select DISTINCT pid, blind_id from lottery_details where oid in (select oid from orders where mid in (select mid from member where token = ?))', [$token]);
+
         $collectDialog[0] = $products;
         $collectDialog[1] = $types;
+        $collectDialog[2] = $ownPrize;
 
         return $collectDialog;
     }

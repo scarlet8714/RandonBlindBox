@@ -1,7 +1,7 @@
 @props(['type'])
 
 @if (isset($type))
-    <div class="swiper-slide col-3" name="{{ $type->type_name }}" style="height:40px !important;">
+    <div class="swiper-slide col-3" name="{{ $type->type_name }}" style="height:70px !important;">
         <div class="popup_pic rounded-5 bg-white popup_pic img-fix">
           <img src="\{{ $type->photo }}" class="img-fluid">
         </div>

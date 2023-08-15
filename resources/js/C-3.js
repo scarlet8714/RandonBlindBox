@@ -6,14 +6,14 @@ import 'swiper/css/bundle';
 // 彈跳視窗_收藏卡
 // let btn = document.querySelector("#popup_show");
 let collectBtn = document.querySelectorAll(".popup_show");
-const csrfToken = document.body.querySelector("[name~=csrf-token][content]").content;
+const csrfToken = document.head.querySelector("[name~=csrf-token][content]").content;
 
 // 群體展示款式
 collectBtn.forEach( function(collect) {
     collect.addEventListener("click", function () {
       let pid = this.getAttribute('id').replace("popup_show", "");
       console.log(pid);
-      fetch('/collectTest', {
+      fetch('/collectOwn', {
         method: 'POST',
         body: JSON.stringify({
           pid : pid
@@ -27,7 +27,6 @@ collectBtn.forEach( function(collect) {
       }).then(function(refresh) {
         showDialog.innerHTML = refresh;
         infoModal.showModal();
-        console.log (refresh);
 
         var swiper = new Swiper(".mySwiper", {
           spaceBetween: 0,
@@ -62,7 +61,14 @@ collectBtn.forEach( function(collect) {
           },
         });
 
-        // 彈跳視窗_名稱
+        // 若有撈到就先以第一個來取代名稱
+        var firstName = document.querySelectorAll(".swiper-slide");
+        console.log(firstName);
+        if(firstName != undefined) {
+          document.getElementById("showName").innerHTML = firstName[0].getAttribute('name');
+        }
+
+        // 彈跳視窗點擊修改名稱
         var collectNames = document.querySelectorAll(".swiper-slide");
         collectNames.forEach( function(name) {
           name.addEventListener("click", function () {

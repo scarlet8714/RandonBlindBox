@@ -71,20 +71,11 @@
                   <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
                     class="swiper mySwiper2 swiperSet">
                     <div class="swiper-wrapper">
-                        {{-- 有資料的讀取圖片 --}}
-                        @if (isset($types))
                         @foreach ($types as $type)
-                        <x-collect.collection-dialog-content :type="$type"/>
+                          <x-collect.collection-dialog-content :type="$type"/>
                         @endforeach
-                        {{-- 沒有資料的放預設圖 --}}
-                        @else
-                          <x-collect.collection-dialog-content />
-                          <x-collect.collection-dialog-content />
-                          <x-collect.collection-dialog-content />
-                          <x-collect.collection-dialog-content />
-                          <x-collect.collection-dialog-content />
-                          <x-collect.collection-dialog-content />
-                        @endif
+                        <x-collect.collection-dialog-content />
+                        <x-collect.collection-dialog-content />
                     </div>
                   </div>
                 </div>
@@ -118,7 +109,7 @@
         </div>
       </div>
       <!-- 購買抽盒機會 -->
-      <div class="position-absolute popup_ticket buyTest">
+      <div class="popup_ticket buyTest" style="position:absolute !important; bottom:-550px">
         <div class="">
           <svg width="300" height="120" viewBox="0 0 360 177" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="360" height="49" rx="10" fill="#7887AA" />
@@ -146,10 +137,3 @@
       </div>
     </div>
   </dialog>
-  {{-- <script>
-    let tester2 = document.getElementById('test');
-    tester2.addEventListener("click", function() {
-      alert('test');
-      infoModal.showModal();
-    })
-  </script> --}}

@@ -17,7 +17,6 @@ class CollectController extends Controller
 
     function show() {
         $result = $this->collect->getProduct($_COOKIE['token']);
-        // echo rand('20', '40') . date('md') . rand('100', '999') . date('His');
         return view('collection', ['product' => $result]);
     }
 
@@ -28,7 +27,6 @@ class CollectController extends Controller
 
     function showTypes(Request $request) {
         $result = $this->collect->getProductTypes($request->pid, $_COOKIE['token']);
-        // var_dump($result);
         return view('components.collect.collection-dialog', ['product' => $result[0][0], 'types' => $result[1]]);
     }
 }
