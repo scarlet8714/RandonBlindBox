@@ -25,4 +25,10 @@ class CollectController extends Controller
         $types =  $this->collect->getProductDetails($request->pid);
         return json_encode($types);
     }
+
+    function showTypes(Request $request) {
+        $result = $this->collect->getProductTypes($request->pid, $_COOKIE['token']);
+        // var_dump($result);
+        return view('components.collect.collection-dialog', ['product' => $result[0][0], 'types' => $result[1]]);
+    }
 }

@@ -90,3 +90,6 @@ Route::post('/collection/product', [CollectController::class, 'collectDetail']);
 // Route::get('/collection', function() {
 //     return view('collection');
 // });
+
+// 收藏櫃測試
+Route::post('/collectTest', [CollectController::class, 'showTypes']);

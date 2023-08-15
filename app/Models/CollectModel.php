@@ -36,12 +36,19 @@ class CollectModel extends Model
         $collect[2] = $member[0];
         $collect[3] = $schedules;
 
+        var_dump($collect[0][0]);
+
         return $collect;
     }
-    
-    function getProductDetails($pid) {
-        $product = DB::select('select pp.pid, photo_bg as photo, pp.name as type_name, p.name as product_name, gate from product_photo as pp left join product as p on p.pid = pp.pid where blind_id <> "all" ORDER BY pid ASC');
-        $product = json_decode(json_encode($product), 1);
-        return $product;
+
+    // 彈跳視窗取得款式
+    function getProductTypes($pid, $token) {
+        $products = DB::select('select head_photo, name, publish, pid, box_count, gate from product where pid = ?', [$pid]);
+        $types = DB::select('select pp.pid as pid, photo_bg as photo, pp.name as type_name, p.name as product_name, gate from product_photo as pp left join product as p on p.pid = pp.pid where blind_id <> "all" and pp.pid = ? ORDER BY pid ASC', [$pid]);
+        
+        $collectDialog[0] = $products;
+        $collectDialog[1] = $types;
+
+        return $collectDialog;
     }
 }

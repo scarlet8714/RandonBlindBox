@@ -2,9 +2,10 @@
 @props(['types'])
 {{-- @props(['type']) --}}
 <!-- 彈跳視窗_商品收集卡 -->
-<dialog id="infoModal{{ $product->pid }}">
+<h2 id ='test'>showShow</h2>
+<dialog id="infoModal">
     <!-- 關閉按鈕 -->
-    <a href="#" id="popup_close{{ $product->pid }}" class="position-absolute top-0 end-0 popup_close">
+    <a href="#" id="popup_close" class="position-absolute top-0 end-0 popup_close">
       <svg width="35" height="35" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
         id="cross-circle" class="icon glyph">
         <path
@@ -23,8 +24,8 @@
                 <div class="popup_circle rounded-circle p-3">
                   <div class="popup_circle2 p-1 rounded-circle">
                     <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
-                      class="swiper mySwiper2{{ $product->pid }} swiperSet">
-                      <div class="swiper-wrapper showSwiper{{ $product->pid }}">
+                      class="swiper mySwiper2 swiperSet">
+                      <div class="swiper-wrapper showSwiper">
                         {{-- 有資料的讀取圖片 --}}
                         @if (isset($types))
                           @foreach ($types as $type)
@@ -38,13 +39,12 @@
                           <x-collect.collection-dialog-content />
                           <x-collect.collection-dialog-content />
                           <x-collect.collection-dialog-content />
-                          <x-collect.collection-dialog-content />    
                         @endif
                       </div>
                     </div>
                   </div>
                 </div>
-                <div id="showName{{ $product->pid }}" class="position-absolute popup_circle_text text-white text-center rounded-pill">
+                <div id="showName" class="position-absolute popup_circle_text text-white text-center rounded-pill">
                   Random!
                 </div>
               </div>
@@ -62,28 +62,32 @@
         <div class="popup_collection_rwd">
           <div class="pb-5 px-4">
             <div class="pt-3 pb-2">
-              <h3 class="popup_title fst-italic">MINIONS</h3>
+              <h3 class="popup_title fst-italic">{{ strtoupper($product->gate) }}</h3>
               <h3 class="popup_title2 fst-italic">COLLETION</h3>
             </div>
             <div class="position-relative d-flex justify-content-center">
               <div class="popup_circle rounded-circle p-3">
                 <div class="popup_circle2 p-1 rounded-circle">
                   <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
-                    class="swiper mySwiper2333 swiperSet">
+                    class="swiper mySwiper2 swiperSet">
                     <div class="swiper-wrapper">
-                        <x-collect.collection-dialog-content />
-                        <x-collect.collection-dialog-content />
-                        <x-collect.collection-dialog-content />
-                        <x-collect.collection-dialog-content />
-                        <x-collect.collection-dialog-content />
-                        <x-collect.collection-dialog-content />
-                        <x-collect.collection-dialog-content />
+                        {{-- 有資料的讀取圖片 --}}
+                        @if (isset($types))
+                        @foreach ($types as $type)
+                        <x-collect.collection-dialog-content :type="$type"/>
+                        @endforeach
+                        {{-- 沒有資料的放預設圖 --}}
+                        @else
+                          <x-collect.collection-dialog-content />
+                          <x-collect.collection-dialog-content />
+                          <x-collect.collection-dialog-content />
+                          <x-collect.collection-dialog-content />
+                          <x-collect.collection-dialog-content />
+                          <x-collect.collection-dialog-content />
+                        @endif
                     </div>
-
                   </div>
-
                 </div>
-
               </div>
               <div class="position-absolute popup_circle_text text-white text-center rounded-pill">
               </div>
@@ -92,11 +96,11 @@
           </div>
         </div>
         <!-- 下 -->
-        <div class="swiper popup_back mySwiper{{ $product->pid }} swiperSetDown">
+        <div class="swiper popup_back mySwiper swiperSetDown">
           <!-- 系列標題 -->
           <h6 class="pb-4 text-white popup_text popup_text_title">{{ $product->name }}</h6>
           <!-- 白底圖 -->
-          <div class="swiper-wrapper row showDownSwiper{{ $product->pid }}">
+          <div class="swiper-wrapper row showDownSwiper">
             @if (isset($types))
               @foreach ($types as $type)
                 <x-collect.collection-dialog-down-content :type="$type"/>
@@ -142,3 +146,10 @@
       </div>
     </div>
   </dialog>
+  {{-- <script>
+    let tester2 = document.getElementById('test');
+    tester2.addEventListener("click", function() {
+      alert('test');
+      infoModal.showModal();
+    })
+  </script> --}}
