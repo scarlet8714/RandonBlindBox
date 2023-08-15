@@ -11,7 +11,7 @@ class ForgotPWDController extends Controller
         $details = [
             'title' => 'RandomBlindBox帳號重設密碼',
             'first' => '您好，喵星人，請點選',
-            'address' => 'localhost:8000/resetpwd',
+            'address' => '/resetpwd',
             'second' => '以重設您的密碼'
         ];
        

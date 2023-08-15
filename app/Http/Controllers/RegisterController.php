@@ -23,7 +23,7 @@ class RegisterController extends Controller
         $details = [
             'title' => 'RandomBlindBox帳號啟用',
             'first' => '您好，' . $res[0]->name . '，請點選',
-            'address' => 'localhost:8000/login',
+            'address' => '/login',
             'second' => '以啟用您的帳號'
         ];
         \Mail::to($res[0]->mail)->send(new \App\Mail\forgotpassword($details));
