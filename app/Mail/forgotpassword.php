@@ -30,7 +30,7 @@ class forgotpassword extends Mailable
      */
     public function build()
     {
-        return $this->subject('重設密碼通知信')
+        return $this->subject('啟用帳號通知信')
         ->view('mail');
     }
 }

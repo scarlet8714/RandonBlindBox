@@ -10,6 +10,9 @@ class Register extends Model
 {
     use HasFactory;
     public function register($name, $phone, $password, $mail, $birthday){
-        DB::insert('insert into member (name, phone, password, mail, birthday, level, regis_token) values (?, ?, ?, ?, ?, ?, uuid())', [$name, $phone, $password, $mail, $birthday, 1]);
+        DB::insert('insert into member (name, phone, password, mail, birthday, level, active) values (?, ?, ?, ?, ?, ?, ?)', [$name, $phone, $password, $mail, $birthday, 1, 1]);
+        $res = DB::select('select * from member where mail = ? and password = ?', [$mail, $password]);
+        return $res;
     }
+    
 }
