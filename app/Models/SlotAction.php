@@ -20,13 +20,27 @@ class SlotAction extends Model
         $productImg = DB::select('SELECT showbar,open,box_count,sold FROM `blind_photo` as bp left join `product` as p on bp.pid = p.pid left join product_status as ps on bp.pid = ps.pid where bp.pid  = ? ORDER BY ps.box_id ASC, ps.blind_id ASC', [$pid]);
         $productBox = DB::select('SELECT * FROM `product_status` where pid = ? order by box_id ASC', [$pid]);
         $productTypeImg = DB::select('SELECT * FROM `product_photo` where pid = ?', [$pid]);
+        
+        // 修正，彈幕會互相影響
+        $pidAllPrize = DB::select('select oid, pid, blind_id from lottery_details where pid = ?', [$pid]);
+        
+        foreach($pidAllPrize as $bullet) {
+            // 取得會員
+            $member = DB::select('select name from member where mid = (select mid from orders where oid = ?)', [$bullet->oid])[0];
+            // 取得商品
+            $prize = DB::select('select name from product_photo where pid = ? and blind_id = ?', [$bullet->pid, $bullet->blind_id])[0];
+            $combine['name'] = $member->name;
+            $combine['prize'] = $prize->name;
+            // dd($combine);
+            $result[3][] = $combine;
+        }
+        
         $whoGot = DB::select('select DISTINCT m.name, pp.name as prize from lottery_details as ld left join product_photo as pp on ld.pid = pp.pid left join orders as o on o.oid = ld.oid left join member as m on o.mid = m.mid where ld.pid = ? and pp.blind_id in (select blind_id from lottery_details where pid = ?);', [$pid, $pid]);
 
         $result[0] = (json_decode(json_encode($productImg), 1));
         $result[1] = json_decode(json_encode($productBox), 1);
         $result[2] = json_decode(json_encode($productTypeImg), 1);
-        $result[3] = json_decode(json_encode($whoGot), 1);
-
+        // $result[3] = json_decode(json_encode($whoGot), 1);
         // 加入最大盲盒編號
         $result[0]['max_box'] = $this->maxBox($result[1]);
 
@@ -60,19 +74,10 @@ class SlotAction extends Model
         $pidProduct = [];
         // 修正
         $allPrize = DB::select('select pid, blind_id from lottery_details where oid = ?', [$oid]);
-        // dd($allPrize);
         foreach($allPrize as $item) {
             $pidProduct[$item->pid][] = DB::select('select pid, name, photo_bg from product_photo where pid = ? and blind_id = ?', [$item->pid, $item->blind_id]);
         }
-        
-        // 舊的
-        // $orderPrize = DB::select('select pid, name, photo_bg from product_photo where pid in (select pid from lottery_details where oid = ?) and blind_id in (select blind_id from lottery_details where oid = ?);', [$oid, $oid]);
-        // // 依照pid來放
-        
-        // foreach($orderPrize as $prize) {
-        //     $pidProduct[$prize->pid][] = $prize; 
-        // }
-        // dd($pidProduct);
+
         return $pidProduct;
     }
 
