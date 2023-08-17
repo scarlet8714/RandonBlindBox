@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row">
       <!-- TOP SELLING -->
-      <div class="col-xs-12 col-md-6 col-lg-6 row align-items-end pb-5 px-3">
+      <div class="col-xs-12 col-md-6 col-lg-6 row align-items-end pb-5 px-3 mb-5">
         <h1 class="fst-italic display-1 top_selling_bg_title">TOP SELLING</h1>
       </div>
       <div class="col-xs-12 col-md-6 col-lg-6 ">

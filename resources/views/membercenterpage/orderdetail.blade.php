@@ -14,10 +14,10 @@
                 <x-membercenter.orderdetails-tbody :content="$item"/>
                 <x-membercenter.orderdetails-draw-result />
                 {{---------------------抽獎結果---------------------}}
-                <x-membercenter.orderresult-tbody />
+                {{-- <x-membercenter.orderresult-tbody /> --}}
                 {{---------------------抽獎結果---------------------}}
                 {{---------------------前往抽盒---------------------}}
-                <x-membercenter.orderdetails-remains />
+                <x-membercenter.orderdetails-remains :content="$item"/>
                 {{---------------------前往抽盒---------------------}}
 
             @endforeach

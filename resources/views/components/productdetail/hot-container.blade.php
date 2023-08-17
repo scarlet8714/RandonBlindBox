@@ -1,7 +1,7 @@
 <!-- 猜你喜歡 -->
   <!-- 標題 -->
   <div class="pt-5 ps-2">
-    <h3 class="all_title">猜你喜歡</h3>
+    <h3 class="all_title">熱銷推薦</h3>
   </div>
 
   <!-- 滾動圖 -->

@@ -129,12 +129,15 @@ $('input[name = "address"]').click(function (e) {
 
 $('.o_submit').click(function (e) {
   e.preventDefault();
+  // console.log(Number($('#totalAmount').html().substr(3)));
   let senddata = {
     rname: $('input[name = "rname"]').val(),
     rphone: $('input[name = "rphone"]').val(),
     pm: $('[name="payment"]:checked').val(),
-    dm: $('[name="type"]:checked').val()
+    dm: $('[name="type"]:checked').val(),
+    ta: Number($('#totalAmount').html().substr(3))
   }
+
   console.log(senddata);
   $.ajax({
     contentType: 'application/json',
@@ -145,14 +148,34 @@ $('.o_submit').click(function (e) {
     url: "/ordersubmit",
     data: JSON.stringify(senddata),
     success: function (response) {
-      window.location = "/confirm";
-      console.log(response);
+      console.log(response)
+      $('empty').empty();
+      $('body').append(response);
+      // $('html').html(response);
+      // window.location = "/confirm";
+      // console.log(response);
     },
     error: function (response) {
       console.log(response)
       console.log('failed');
     }
   });
+  // console.log('<form action="/ordersubmit" method="POST">' +
+  // `<input type="hidden" name="_token" value= "${$('meta[name="csrf-token"]').attr('content')}"/>` +
+  // `<input type="rname" value"${$('input[name = "rname"]').val()}">` + 
+  // `<input type="rphone" value"${$('input[name = "rphone"]').val()}">` +
+  // `<input type="pm" value"${$('[name="payment"]:checked').val()}">` +
+  // `<input type="dm" value"${$('[name="type"]:checked').val()}">` +
+  // `<input type="ta" value"${Number($('#totalAmount').html().substr(3))}">` +
+  // '</form>');
+  // $('<form action="/ordersubmit" method="POST">' +
+  //   `<input type="hidden" name="_token" value= "${$('meta[name="csrf-token"]').attr('content')}"/>` +
+  //   `<input type="rname" value"${$('input[name = "rname"]').val()}" />` + 
+  //   `<input type="rphone" value"${$('input[name = "rphone"]').val()}" />` +
+  //   `<input type="pm" value"${$('[name="payment"]:checked').val()}" />` +
+  //   `<input type="dm" value"${$('[name="type"]:checked').val()}" />` +
+  //   `<input type="ta" value"${Number($('#totalAmount').html().substr(3))}" />` +
+  //   '</form>').appendTo($(document.body)).submit();
 
 });
 

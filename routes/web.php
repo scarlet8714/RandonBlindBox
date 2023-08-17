@@ -81,3 +81,4 @@ Route::get('/mailtest', function(){
 });
 
 Route::post('/updatecart', [UpdateCartController::class, 'updatecart']);
+Route::post('/callback', [OrderController::class, 'callback']);

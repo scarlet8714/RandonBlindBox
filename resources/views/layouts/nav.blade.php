@@ -23,7 +23,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white ms-5 mt-1 showblind" href="#">
+            <a class="nav-link text-white ms-5 mt-1 showblind" href="/actionfigure">
               <span class="fw-bold blind-text h6 pb-1">線上抽盲盒</span>
             </a>
           </li>

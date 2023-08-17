@@ -2,7 +2,7 @@
 <tbody>
 
     <tr>
-      <td><img src="{{$content[0]->head_photo}}" alt="收藏圖">
+      <td><a href="/product/{{$content[0]->pid}}"><img src="{{$content[0]->head_photo}}" alt="收藏圖"></a> 
       </td>
       <td>{{$content[0]->name}}</td>
       <td>盲盒線上抽</td>

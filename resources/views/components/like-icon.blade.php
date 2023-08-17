@@ -1,5 +1,5 @@
 {{-- @props(['none', 'namae']) --}}
-<a href="{{route('favoritelist')}}">
+<a href="{{route('likelist')}}">
   <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="white" class="bi bi-heart ms-4 me-5 mt-1 like-ic"
       viewBox="0 0 16 16">
       <path

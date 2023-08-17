@@ -4,4 +4,7 @@
       <div style="text-align: left !important">抽獎結果</div>
     </td>
   </tr>
+  {{-- <tr>
+    <td style="width: 100%; height: 40px;"></td>
+  </tr> --}}
 {{-- </div> --}}
