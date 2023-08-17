@@ -1,10 +1,9 @@
 @props(['product'])
 @props(['types'])
-{{-- @props(['type']) --}}
+@props(['owns'])
 <!-- 彈跳視窗_商品收集卡 -->
-<h2 id ='test'>showShow</h2>
 <dialog id="infoModal">
-    <!-- 關閉按鈕 -->
+  <!-- 關閉按鈕 -->
     <a href="#" id="popup_close" class="position-absolute top-0 end-0 popup_close">
       <svg width="35" height="35" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
         id="cross-circle" class="icon glyph">
@@ -13,7 +12,6 @@
         </path>
       </svg>
     </a>
-
     <div class="position-relative d-flex justify-content-center">
       <div class="">
         <!-- 上_圓形/COLLECTION -->
@@ -33,10 +31,6 @@
                           @endforeach
                         {{-- 沒有資料的放預設圖 --}}
                         @else
-                          <x-collect.collection-dialog-content />
-                          <x-collect.collection-dialog-content />
-                          <x-collect.collection-dialog-content />
-                          <x-collect.collection-dialog-content />
                           <x-collect.collection-dialog-content />
                           <x-collect.collection-dialog-content />
                         @endif
@@ -71,11 +65,16 @@
                   <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
                     class="swiper mySwiper2 swiperSet">
                     <div class="swiper-wrapper">
-                        @foreach ($types as $type)
-                          <x-collect.collection-dialog-content :type="$type"/>
-                        @endforeach
-                        <x-collect.collection-dialog-content />
-                        <x-collect.collection-dialog-content />
+                        {{-- 有資料的讀取圖片 --}}
+                        @if (isset($types))
+                          @foreach ($types as $type)
+                            <x-collect.collection-dialog-content :type="$type"/>
+                          @endforeach
+                        {{-- 沒有資料的放預設圖 --}}
+                        @else
+                          <x-collect.collection-dialog-content />
+                          <x-collect.collection-dialog-content />
+                        @endif
                     </div>
                   </div>
                 </div>
@@ -89,27 +88,40 @@
         <!-- 下 -->
         <div class="swiper popup_back mySwiper swiperSetDown">
           <!-- 系列標題 -->
-          <h6 class="pb-4 text-white popup_text popup_text_title">{{ $product->name }}</h6>
+          <h6 class="pt-5 pb-4 text-white popup_text popup_text_title">{{ $product->name }}</h6>
           <!-- 白底圖 -->
           <div class="swiper-wrapper row showDownSwiper">
             @if (isset($types))
-              @foreach ($types as $type)
-                <x-collect.collection-dialog-down-content :type="$type"/>
-              @endforeach
+              @for ($i = 0; $i < count($types); $i++)
+                @if (isset($owns[$types[$i]->pid]))
+                  @php
+                    $flag = 0;
+                  @endphp
+                  @foreach ($owns[$types[$i]->pid] as $own)
+                    @if ($own->blind_id == $types[$i]->blind_id)
+                      <x-collect.collection-dialog-down-content isown="{{1}}" :type="$types[$i]"/>
+                        @php
+                        $flag = 1;
+                        @endphp
+                      @break
+                    @endif
+                  @endforeach
+                  @if ($flag == 0)
+                    <x-collect.collection-dialog-down-content isown="{{0}}" :type="$types[$i]"/>                                  
+                  @endif
+                @else
+                  <x-collect.collection-dialog-down-content isown="{{0}}" :type="$types[$i]"/>                                  
+                @endif
+              @endfor
             @else
               <x-collect.collection-dialog-down-content />
               <x-collect.collection-dialog-down-content />
-              <x-collect.collection-dialog-down-content />
-              <x-collect.collection-dialog-down-content />
-              <x-collect.collection-dialog-down-content />
-              <x-collect.collection-dialog-down-content />
-              <x-collect.collection-dialog-down-content />  
             @endif
           </div>
         </div>
       </div>
       <!-- 購買抽盒機會 -->
-      <div class="popup_ticket buyTest" style="position:absolute !important; bottom:-550px">
+      <div class="popup_ticket buyTest" style="position:absolute !important; bottom:-580px">
         <div class="">
           <svg width="300" height="120" viewBox="0 0 360 177" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="360" height="49" rx="10" fill="#7887AA" />

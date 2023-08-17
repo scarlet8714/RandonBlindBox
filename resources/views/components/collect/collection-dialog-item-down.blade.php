@@ -1,5 +1,5 @@
 @props(['id'])
-<div id="down{{ $id }}" class="swiper-slide">
+<div id="down{{ $id }}" class="swiper-slide col-1 pr-2 align">
     <div class="popup_pic rounded-5 bg-white popup_pic">
       <img id="downImg{{ $id }}" src="\imgs\minions\main_minions_at_work\product_wbg\5.jpg" class="img-fluid">
     </div>

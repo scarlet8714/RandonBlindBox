@@ -8,9 +8,9 @@
             </a>
             
             <!-- 其他盲盒 -->
-            <a href="/actionfigure">
+            <a href="/myorder">
               <button class="handle_two_button rounded-circle ms-1">
-              其他盲盒
+              商品訂單
               </button>
             </a>
             

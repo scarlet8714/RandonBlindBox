@@ -1,8 +1,7 @@
 @props(['product'])
-<div class="col-xs-12 col-lg-4 px-3 pb-5 position-relative">
+<div class="col-xs-12 col-lg-4 px-3 padding-bottom position-relative">
     <a id="popup_show{{ $product->pid }}" class="popup_show" href="#">
       <div class="bg-white card_back2">
-        <h6 class="card_text pb-1">{{ $product->publish }}</h6>
         <h6 class="card_text pb-2">{{ $product->name }}</h6>
         <div class="row">
             <div class="col-9 px-2 py-1">

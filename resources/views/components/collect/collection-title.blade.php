@@ -30,9 +30,12 @@
                   {{ $name->name }}   的收集櫃
                 </div>
                 <!-- 前往抽盒 -->
-                <button class="title_blue_button rounded-pill px-5 py-2 mb-4 me-5 position-absolute bottom-0 end-0">
+                <a href="/actionfigure">
+                  <button class="title_blue_button rounded-pill px-5 py-2 mb-4 me-5 position-absolute bottom-0 end-0">
                   前往抽盒
-                </button>
+                  </button>
+                </a>
+                
                 <div class="">
                   <div class="position-absolute title_dash pe-3"></div>
                   <div class="title_dash_arrow position-absolute pe-3"></div>

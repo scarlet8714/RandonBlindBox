@@ -17,7 +17,6 @@ class CollectModel extends Model
         $product = DB::select('select pp.pid as pid, photo_bg as photo, pp.name as type_name, p.name as product_name, gate from product_photo as pp left join product as p on p.pid = pp.pid where blind_id <> "all" ORDER BY pid ASC');
         $member = DB::select('select name from member where token = ?', [$token]);
         $schedules = DB::select('select pid, count(blind_id) as quantity from (select DISTINCT pid, blind_id from lottery_details where oid in (select oid from orders where mid in (select mid from member where token = ?))) as sch GROUP by pid', [$token]);
-
         foreach($product as $item) {
             $gateProduct[$item->pid][] = $item;
         }
@@ -42,12 +41,16 @@ class CollectModel extends Model
     // 彈跳視窗取得款式
     function getProductTypes($pid, $token) {
         $products = DB::select('select head_photo, name, publish, pid, box_count, gate from product where pid = ?', [$pid]);
-        $types = DB::select('select pp.pid as pid, photo_bg as photo, pp.name as type_name, p.name as product_name, gate from product_photo as pp left join product as p on p.pid = pp.pid where blind_id <> "all" and pp.pid = ? ORDER BY pid ASC', [$pid]);
+        $types = DB::select('select pp.pid as pid, photo_bg as photo, pp.name as type_name, p.name as product_name, gate, blind_id from product_photo as pp left join product as p on p.pid = pp.pid where blind_id <> "all" and pp.pid = ? ORDER BY pid ASC', [$pid]);
         $ownPrize = DB::select('select DISTINCT pid, blind_id from lottery_details where oid in (select oid from orders where mid in (select mid from member where token = ?))', [$token]);
+
+        foreach($ownPrize as $item) {
+            $pidPrize[$item->pid][] = $item;
+        }
 
         $collectDialog[0] = $products;
         $collectDialog[1] = $types;
-        $collectDialog[2] = $ownPrize;
+        $collectDialog[2] = $pidPrize;
 
         return $collectDialog;
     }

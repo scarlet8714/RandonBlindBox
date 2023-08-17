@@ -44,22 +44,55 @@ class SlotAction extends Model
         return $temp;
     }
 
+    // 取得訂單編號
+    function getOid($token) {
+        $oid = DB::select('select oid from orders where mid in (select mid from member where token = ?)', [$token]);
+        return $oid;
+    }
+
+    // 取得訂單抽獎次數、獎品
+    function getOrderResult($oid) {
+
+    }
+
+    // 取得訂單的抽獎商品
+    function getOrderPrize($oid) {
+        $pidProduct = [];
+        // 修正
+        $allPrize = DB::select('select pid, blind_id from lottery_details where oid = ?', [$oid]);
+        // dd($allPrize);
+        foreach($allPrize as $item) {
+            $pidProduct[$item->pid][] = DB::select('select pid, name, photo_bg from product_photo where pid = ? and blind_id = ?', [$item->pid, $item->blind_id]);
+        }
+        
+        // 舊的
+        // $orderPrize = DB::select('select pid, name, photo_bg from product_photo where pid in (select pid from lottery_details where oid = ?) and blind_id in (select blind_id from lottery_details where oid = ?);', [$oid, $oid]);
+        // // 依照pid來放
+        
+        // foreach($orderPrize as $prize) {
+        //     $pidProduct[$prize->pid][] = $prize; 
+        // }
+        // dd($pidProduct);
+        return $pidProduct;
+    }
+
     // 取得會員抽取次數
     function getMemberTimes($mid, $pid) {
-        $times = DB::select('select times from lottery where mid = ? and pid = ?', [$mid, $pid]);
+        // $times = DB::select('select times from lottery where mid = ? and pid = ?', [$mid, $pid]);
+        $times = DB::select('SELECT DISTINCT quantity - (select count(*) as spend from lottery_details as ld left join orders as o on ld.oid = o.oid left join member as m on o.mid=m.mid where pid = ? and m.mid = ?) as times FROM `order_details` as od left join orders as o on od.oid = o.oid left join lottery_details as ld on od.oid = ld.oid where od.pid = ? and mid = ?;', [$pid, $mid, $pid, $mid]);
         $times = json_decode(json_encode($times), 1);
         return $times;
     }
 
     
     // 抽獎，傳入訂單參數
-    function slot($oid) {
+    function slot($mid, $oid) {
         if($this->remain === 0) {
             return json_encode('此中盒已空');
         }
         else {
             // 扣除會員抽獎次數，目前為預設token，最後須傳入token
-            $this->timesDed();
+            // $this->timesDed();
 
             // 隨機數值
             $slot = rand(0, (($this->countProbability() * 100)));
@@ -70,12 +103,10 @@ class SlotAction extends Model
             $this->prizeDelete($this->box, $this->pid, $this->getPrize[0]);
             // 紀錄該獎項
             $this->prizeRecord($oid);
-            $remainTimes = $this->checkTimes(1, $this->pid);
-            // var_dump($remainTimes);
+            $remainTimes = $this->checkTimes($mid, $this->pid);
 
             $prize = json_decode(json_encode($this->givePrize()), 1);
             $prize['remainTimes'] = $remainTimes[0]->times;
-            // $peize['']
 
             return $prize;
         }
@@ -136,7 +167,7 @@ class SlotAction extends Model
 
     // 扣除會員抽獎次數
     function timesDed() {
-        DB::update('update lottery set times = times - 1 where mid IN (select mid from member where token = ?) and pid = ?', ['d5716fec-29f6-11ee-8e3f-28b20503fdef', $this->pid]);
+        DB::update('update lottery set times = times - 1 where mid IN (select mid from member where token = ?) and pid = ?', [$_COOKIE['token'], $this->pid]);
     }
 
     // 將品項記錄到抽獎明細
@@ -144,9 +175,10 @@ class SlotAction extends Model
         DB::insert('insert into lottery_details values (?, ?, ?, ?)', [$order, $this->pid, $this->getPrize[0], $this->box]);
     }
 
-    // 該會員抽獎次數，預計會傳入token
+    // 該會員抽獎次數
     function checkTimes($mid, $pid) {
-        return DB::select('select times from lottery where pid = ? and mid = ?', [$pid, $mid]);
+        // return DB::select('select times from lottery where pid = ? and mid = ?', [$pid, $mid]);
+        return DB::select('SELECT DISTINCT quantity - (select count(*) as spend from lottery_details as ld left join orders as o on ld.oid = o.oid left join member as m on o.mid=m.mid where pid = ? and m.mid = ?) as times FROM `order_details` as od left join orders as o on od.oid = o.oid left join lottery_details as ld on od.oid = ld.oid where od.pid = ? and mid = ?;', [$pid, $mid, $pid, $mid]);
     }
 
     // 測試功能用

@@ -63,8 +63,7 @@ collectBtn.forEach( function(collect) {
 
         // 若有撈到就先以第一個來取代名稱
         var firstName = document.querySelectorAll(".swiper-slide");
-        console.log(firstName);
-        if(firstName != undefined) {
+        if(firstName[0] != undefined) {
           document.getElementById("showName").innerHTML = firstName[0].getAttribute('name');
         }
 

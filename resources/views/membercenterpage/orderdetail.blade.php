@@ -14,10 +14,19 @@
                 <x-membercenter.orderdetails-tbody :content="$item"/>
                 <x-membercenter.orderdetails-draw-result />
                 {{---------------------抽獎結果---------------------}}
-                <x-membercenter.orderresult-tbody />
+                @if (isset($prize[$item->pid]))
+                    @foreach ($prize[$item->pid] as $type)
+                    <x-membercenter.orderresult-tbody>
+                        <x-slot:type>{{ $type[0]->photo_bg }}</x-slot:type>
+                        <x-slot:typeName>{{ $type[0]->name }}</x-slot:typeName>
+                    </x-membercenter.orderresult-tbody>
+                    @endforeach
+                @endif
                 {{---------------------抽獎結果---------------------}}
                 {{---------------------前往抽盒---------------------}}
-                <x-membercenter.orderdetails-remains />
+                @if (isset($times[$item->pid]))
+                    <x-membercenter.orderdetails-remains :test="$times[$item->pid]" :pid="$item->pid"/> 
+                @endif
                 {{---------------------前往抽盒---------------------}}
 
             @endforeach

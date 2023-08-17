@@ -12,7 +12,7 @@ class CollectController extends Controller
     function __construct() {
         $this->collect = new CollectModel();
         $this->user = new GetPid();
-        setcookie('token', 'd5716fec-29f6-11ee-8e3f-28b20503fdef', time()+9999999);
+        // setcookie('token', 'd5716fec-29f6-11ee-8e3f-28b20503fdef', time()+9999999);
     }
 
     function show() {
@@ -27,6 +27,6 @@ class CollectController extends Controller
 
     function showTypes(Request $request) {
         $result = $this->collect->getProductTypes($request->pid, $_COOKIE['token']);
-        return view('components.collect.collection-dialog', ['product' => $result[0][0], 'types' => $result[1]]);
+        return view('components.collect.collection-dialog', ['product' => $result[0][0], 'types' => $result[1], 'owns' => $result[2]]);
     }
 }

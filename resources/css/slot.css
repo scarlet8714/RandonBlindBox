@@ -1194,3 +1194,9 @@ canvas {
 .hide {
   display: none;
 }
+
+/* 背景灰色 */
+.grayBackGround {
+  z-index: 300px;
+  background-color: rgb(44, 44, 44);
+}

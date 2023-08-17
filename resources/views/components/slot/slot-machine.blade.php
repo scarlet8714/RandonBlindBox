@@ -94,7 +94,7 @@
                               </a>
                               @else
                                 <div style="pointer-events:none" class="col machine_screen_box">
-                                  <img style='filter:grayscale(1) ' src="/{{ $product[0][0]['open'] }}" class="img-fluid" alt="">
+                                  <img style='filter:grayscale(1)' src="/{{ $product[0][0]['open'] }}" class="img-fluid" alt="">
                                 </div>                             
                               @endif
                         @endfor

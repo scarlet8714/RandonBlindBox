@@ -75,6 +75,7 @@ btn_drawpage.addEventListener("click", function () {
 		document.querySelectorAll('.slot1').forEach(function(Img){
 			Img.setAttribute('src', imgStore);
 		})
+		console.log(document.cookie);
 		// 傳遞抽獎請求
 		fetch('/product/slot/go', {
 			method: 'POST',
@@ -139,9 +140,7 @@ const canvas_start = document.querySelector("#canvas");
 const darkMask = document.getElementById('darkmask');
 function stopAnimation() {
 	if (document.getElementById(`result`)) {
-		// const num = Math.floor(Math.random() * 10);
 		document.getElementById(`result`).classList.remove('is-play');
-		// document.getElementById(`result`).style.transform = `translateY(${-num * 10}%)`;
 		/**********************關閉點擊暫停動畫 ********************/
 		slot_start.removeEventListener("click", stopAnimation);
 		/**********************************************************/
@@ -153,7 +152,7 @@ function stopAnimation() {
 			// console.log(congratulations);
 			document.getElementById(`popup_close_congratulations`).classList.remove('hide');
 			congratulations.showModal();
-		}, 3000);
+		}, 2000);
 
 	}
 }
@@ -423,8 +422,11 @@ function loop() {
 	// launch fireworks automatically to random coordinates, when the mouse isn't down
 	if (timerTick >= timerTotal) {
 		if (!mousedown) {
+			// 大放煙火
+			for (let index = 0; index < 20; index++) {
+				fireworks.push(new Firework(cw / 2, ch, random(0, cw), random(0, ch / 2)));
+			}
 			// start the firework at the bottom middle of the screen, then set the random target coordinates, the random y coordinates will be set within the range of the top half of the screen
-			fireworks.push(new Firework(cw / 2, ch, random(0, cw), random(0, ch / 2)));
 			timerTick = 0;
 		}
 	} else {
