@@ -89,7 +89,7 @@ Route::post('/updatecart', [UpdateCartController::class, 'updatecart']);
 // 拉霸機，抽獎
 Route::post('/product/slot/go', [SlotController::class, 'slotPrize']);
 Route::get('/product/slot/{pid}', [SlotController::class, 'slot']);
-Route::get('/test', [SlotController::class, 'testGo']);
+Route::get('/test', [CheckoutController::class, 'sendOrder']);
 
 // 收藏櫃
 Route::get('/collection', [CollectController::class, 'show']);

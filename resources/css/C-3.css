@@ -218,6 +218,7 @@
     .card_back1 {
         padding: 0em 0em 0em 0em;
     }
+
 }
 
 .card_back2 {
@@ -232,7 +233,7 @@
 
 .card_text {
     font-family: 'Noto Sans TC', sans-serif;
-    font-weight: 500;
+    font-weight: bold;
 }
 
 .card_text2 {
@@ -252,16 +253,19 @@
 }
 
 .padding-bottom {
-    padding-bottom: 7em !important;
+    padding-bottom: 9em !important;
 }
 
 @media (max-width: 1000px) {
     .card_pic {
         width: 10em;
-        left: 50%;
-        top: -10%;
+        left: 60%;
+        top: -15%;
     }
-
+    
+    .padding-bottom {
+        padding-bottom: 4em !important;
+    }
 }
 
 @media (min-width: 1000px) and (max-width: 1500px) {
@@ -361,16 +365,16 @@ dialog::backdrop {
 }
 
 .popup_text {
-    font-size: 1.3em;
+    font-size: 1.15em;
     font-weight: bold;
     font-family: 'Noto Sans TC', sans-serif;
-    padding-left: 0.8em;
+    padding-left: 1.7em;
     padding-top: 1em;
 }
 
 .popup_text_title {
-    font-size: 2em;
-    padding-left: 1em;
+    font-size: 1.5em;
+    padding-left: 1.6em;
     padding-top: 2em;
 }
 
@@ -522,11 +526,22 @@ dialog::backdrop {
 
 .img-fix {
     /* padding-left: 1em; */
-    width: 11.5em;
-    height: 12em;
+    width: 10em;
+    height: 10em;
     margin-left: 1em;
 }
 
 .buyTest {
     position: relative !important;
+}
+
+.showDownSwiper {
+    padding-left: 1.25em;
+    padding-right: 1.5em;
+    margin-right: 1.5em !important;
+}
+
+.cardblock {
+    padding: 3em;
+    padding-top: 4.5em;
 }

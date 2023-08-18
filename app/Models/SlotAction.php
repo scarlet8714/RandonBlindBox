@@ -23,7 +23,7 @@ class SlotAction extends Model
         
         // 修正，彈幕會互相影響
         $pidAllPrize = DB::select('select oid, pid, blind_id from lottery_details where pid = ?', [$pid]);
-        
+
         foreach($pidAllPrize as $bullet) {
             // 取得會員
             $member = DB::select('select name from member where mid = (select mid from orders where oid = ?)', [$bullet->oid])[0];
@@ -35,7 +35,7 @@ class SlotAction extends Model
             $result[3][] = $combine;
         }
         
-        $whoGot = DB::select('select DISTINCT m.name, pp.name as prize from lottery_details as ld left join product_photo as pp on ld.pid = pp.pid left join orders as o on o.oid = ld.oid left join member as m on o.mid = m.mid where ld.pid = ? and pp.blind_id in (select blind_id from lottery_details where pid = ?);', [$pid, $pid]);
+        // $whoGot = DB::select('select DISTINCT m.name, pp.name as prize from lottery_details as ld left join product_photo as pp on ld.pid = pp.pid left join orders as o on o.oid = ld.oid left join member as m on o.mid = m.mid where ld.pid = ? and pp.blind_id in (select blind_id from lottery_details where pid = ?);', [$pid, $pid]);
 
         $result[0] = (json_decode(json_encode($productImg), 1));
         $result[1] = json_decode(json_encode($productBox), 1);
@@ -152,7 +152,7 @@ class SlotAction extends Model
 
     // 計算總機率
     function countProbability() {
-        return ($this->remain * $this->probability + $this->hide);
+        return ($this->remain * $this->probability);
     }
 
     // 轉換代號成為款式

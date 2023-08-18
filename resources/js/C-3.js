@@ -29,7 +29,7 @@ collectBtn.forEach( function(collect) {
         infoModal.showModal();
 
         var swiper = new Swiper(".mySwiper", {
-          spaceBetween: 0,
+          spaceBetween: 18,
           slidesPerView: 2,
           grid: {
             rows: 5,
