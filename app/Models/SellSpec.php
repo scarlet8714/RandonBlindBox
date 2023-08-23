@@ -10,7 +10,7 @@ class SellSpec extends Model
 {
     use HasFactory;
     public function spec($mid) {
-        $sellspec = DB::select('select * from `cart` as c left join sell_sepc as s on c.pid = s.sid where mid = ?;', [$mid[0]->mid]);
+        $sellspec = DB::select('select * from `cart` as c left join sell_sepc as s on c.sid = s.sid where mid = ?;', [$mid[0]->mid]);
         return $sellspec;
     }
 }

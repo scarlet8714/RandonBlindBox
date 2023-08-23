@@ -4,7 +4,7 @@
         <table class="table tableCustomer">
           <thead>
             <tr>
-              <th>⋮ 顧客資訊</th>
+              <th style="padding-top:3em;">⋮ 顧客資訊</th>
               <th></th>
             </tr>
           </thead>
@@ -15,7 +15,7 @@
               <td>{{$name}}</td>
             </tr>
             <tr>
-              <td>訂貨人電話：</td>
+              <td style="padding-bottom:3em;">訂貨人電話：</td>
               <td>{{$phone}}</td>
             </tr>
           </tbody>

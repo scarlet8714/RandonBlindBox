@@ -15,5 +15,5 @@
       </div>
     </div>
     <!-- 灰色色塊 -->
-    <div class="bg-light position-absolute bottom-0  w-100" style="height: 50%;"></div>
+    <div class="position-absolute bottom-0  w-100" style="height: 50%; background-color:rgb(235, 235, 235)"></div>
   </div>

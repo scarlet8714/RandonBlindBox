@@ -4,7 +4,7 @@
         <table class="table tableInfo">
           <thead>
             <tr>
-              <th>⋮ 訂單資訊</th>
+              <th style="padding-top:3em;">⋮ 訂單資訊</th>
               <th></th>
             </tr>
           </thead>
@@ -23,7 +23,7 @@
               <td style="color: red;">{{$orderstatus}}</td>
             </tr>
             <tr>
-              <td>訂單完成時間：</td>
+              <td style="padding-bottom:3em;">訂單完成時間：</td>
               <td>{{$ordertime}}</td>
             </tr>
           </tbody>

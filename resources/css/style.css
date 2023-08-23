@@ -166,7 +166,7 @@ footer {
 }
 
 .cani {
-    animation: fadeout 1.35s forwards;
+    animation: fadeout 1.5s forwards;
 }
 
 @media(max-width: 992px) {

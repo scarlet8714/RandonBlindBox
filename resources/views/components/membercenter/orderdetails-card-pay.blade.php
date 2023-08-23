@@ -3,8 +3,8 @@
       <div class="table-responsive">
         <table class="table tableCustomer">
           <thead>
-            <tr>
-              <th>⋮ 付款資訊</th>
+            <tr >
+              <th style="padding-top:3em;">⋮ 付款資訊</th>
               <th></th>
             </tr>
           </thead>
@@ -15,7 +15,7 @@
               <td>信用卡</td>
             </tr>
             <tr>
-              <td>付款狀態：</td>
+              <td style="padding-bottom:3em;">付款狀態：</td>
               <td style="color: red;">已付款</td>
             </tr>
           </tbody>

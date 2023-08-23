@@ -39,6 +39,6 @@ class MyOrderDetailController extends Controller
         }
         // dd($productall);
 
-        return view('membercenterpage.orderdetail', ['orderdetail' => $temp[0], 'productall' => $productall, 'member'=>$member]);
+        return view('membercenterpage.orderdetail', ['orderdetail' => $temp[0], 'productall' => $productall, 'member'=>$member, 'oid' => $oid]);
     }
 }

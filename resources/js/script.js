@@ -15,7 +15,7 @@ $('.showcart').click(function (e) {
             <div class="col-8 position-relative">
               <p>線上抽盲盒</p>
               <p>${element.name}</p>
-              <p class="color_red">${element.price} x ${element.quantity}</p>
+              <p class="color_red">$${element.price} x ${element.quantity}</p>
               <a class="position-absolute end-0 bottom-0 removeproduct" style="z-index: 100;" cid = "${element.cid}">
                 <svg class="trashcan-ic"
                 xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 -960 960 960" width="1.5em">

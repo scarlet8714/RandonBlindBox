@@ -5,7 +5,7 @@
       <td><a href="/product/{{$content[0]->pid}}"><img src="{{$content[0]->head_photo}}" alt="收藏圖"></a> 
       </td>
       <td>{{$content[0]->name}}</td>
-      <td>盲盒線上抽</td>
+      <td>線上抽盲盒</td>
       <td>NT ${{$content[0]->price}}</td>
       <td>
         <a class="btn btn-primary" id="JoinShop" href="#" role="button">加入購物車</a>

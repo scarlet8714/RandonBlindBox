@@ -32,12 +32,12 @@
     </div>
   </div>
   <!-- 灰底 -->
-  <div class="position-absolute bg-light p-5 w-100" style="top:40%">
+  <div class="position-absolute p-5 w-100" style="top:40%; background-color: rgb(235, 235, 235)">
     <div class="p-5"></div>
   </div>
   <!-- 下 -->
   <!-- 滾動圖 -->
-  <div class="bg-light" >
+  <div class=""  style="background-color: rgb(235, 235, 235)">
     <div class="container" >
       <div class="swiper py-5" style="margin: 0;">
         <div class="swiper-wrapper"style="height: 50vh;">

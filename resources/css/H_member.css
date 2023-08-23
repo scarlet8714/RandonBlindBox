@@ -523,22 +523,21 @@ tbody td img {
 
 
 .tableInfo {
-  background-color: #f5f5f5;
+  background-color: rgb(235, 235, 235);
   border-radius: 20px;
   text-align: center;
 }
 
 .tableCustomer {
-  background-color: #f5f5f5;
+  background-color: rgb(235, 235, 235);
   border-radius: 20px;
   text-align: center;
 
 }
 
-
 .cardInfo tr th,
 .cardInfo tr td {
-  background-color: #f5f5f5;
+  background-color: rgb(235, 235, 235);
   border-radius: 20px;
   text-align: center;
   border: none;

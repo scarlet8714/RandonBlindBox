@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\GetPid;
 use App\Models\OrderSubmit;
 use TsaiYiHua\ECPay\Checkout;
+use Illuminate\Support\Facades\Redirect;
 
 class OrderController extends Controller
 {
@@ -15,7 +16,7 @@ class OrderController extends Controller
         $this->mid = new GetPid();
         $this->order = new OrderSubmit();
         $this->checkout = $checkout;
-        $this->checkout->setReturnUrl('https://ba1b-118-163-218-100.ngrok-free.app/callback');
+        $this->checkout->setReturnUrl('https://f6e0-118-163-218-100.ngrok-free.app/callback');
     }
     //
     public function order(Request $request){
@@ -36,7 +37,7 @@ class OrderController extends Controller
         // return $request->rname;
     }
     public function callback() {
-        return view('checkoutpage.confirm');
+        return Redirect::to('http://localhost:8000/confirm');
     }
 
 }

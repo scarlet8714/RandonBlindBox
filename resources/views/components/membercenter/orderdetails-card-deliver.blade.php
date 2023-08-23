@@ -4,7 +4,7 @@
         <table class="table tableInfo">
           <thead>
             <tr>
-              <th>⋮ 送貨資訊</th>
+              <th style="padding-top:3em;">⋮ 送貨資訊</th>
               <th></th>
             </tr>
           </thead>
@@ -23,7 +23,7 @@
               <td>{{$deliver}}</td>
             </tr>
             <tr>
-              <td>送貨狀態：</td>
+              <td style="padding-bottom:3em;">送貨狀態：</td>
               <td style="color: red;">待發貨</td>
             </tr>
           </tbody>
